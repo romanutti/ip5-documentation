@@ -30,14 +30,22 @@ Mit Hilfe dieser Erkenntnisse kann die Benutzeroberfläche um das Link Predictio
 Die Berechnung der neuen Kanten muss im Bereich der \textit{Statistics} passieren, da hier neue Werte berechnet und dem
 Data Laboratory hinzugefügt werden. Im Folgenden wird dieser Vorgang beschrieben:
 
-\textbf{Bild einfügen}
+\begin{figure}[htbp]
+    \includegraphics[width=\linewidth]{resources/SC-1.png}
+    \caption{Überblick der Ansicht Statistik.}
+    \label{fig:screen1}
+\end{figure}
 
 Im Bild kann man eine Skizze sehen, welche einen Überblick über den Aufbau von Gephi gibt. Grau hinterlegt sind die
 angewählten Menü-Punkte. Unter dem Menü \textit{Statistics} wird hier nun ein Punkt "Link Prediction" mit einem
 Start-Button eingefügt. In der Darstellung ausgelassen wurden die anderen Punkte, die bereits in diesem Menü existieren
 wie beispielsweise "Average Degree".
 
-\textbf{Bild einfügen}
+\begin{figure}[htbp]
+    \includegraphics[width=\linewidth]{resources/SC-2.png}
+    \caption{Pop-Up für die Auswahl der Berechnung.}
+    \label{fig:screen2}
+\end{figure}
 
 Hier kann man sehen, dass beim Drücken auf "Start" ein Pop-Up geöffnet wird, in welchem man alle Algorithmen auswählen
 kann, für welche die Link Prediction durchgeführt werden soll. In einem zusätzlichen Eingabefeld kann man einen Wert
@@ -51,13 +59,21 @@ Bei einer zu hohen Zahl oder der Auswahl bestimmter langwieriger Algorithmen sol
 werden. Wird diese bestätigt, so wird der Algorithmus trotzdem berechnet. Beim Abbruch kann der User seine gewünschten
 Einstellungen verändern.
 
-\textbf{Bild einfügen}
+\begin{figure}[htbp]
+    \includegraphics[width=\linewidth]{resources/SC-3.png}
+    \caption{Modifizierter Graph mit vorhergesagtem Edge.}
+    \label{fig:screen3}
+\end{figure}
 
 Im dritten Screen ist der Graph nach der Berechnung zu sehen. Es würden neue Kanten hinzugefügt. Diese können mit Hilfe
 der Appearance Einstellungen eingefärbt werden, da im Data Laboratory Felder enthalten sind, die aussagen, ob eine
 Kante mit einem Link Prediction Algorithmus hinzugefügt wurde oder ob sie bereits existiert hat.
 
-\textbf{Bild einfügen}
+\begin{figure}[htbp]
+    \includegraphics[width=\linewidth]{resources/SC-4.png}
+    \caption{Data Laboratory mit neuen Edges.}
+    \label{fig:screen4}
+\end{figure}
 
 In diesem Bild kann man die durch die Algorithmen neu hinzugefügten Attribute im Data Laboratory sehen. Diese sind auf
 den Kanten des Graphen zu finden. Dort gibt es ein Feld "Link Prediction Algorithm", in welchem ein Wert enthalten ist,
@@ -80,14 +96,22 @@ bereits existierte, ebenfalls mit einem Default-Wert befüllt.
 
 Die neu errechneten Link Prediction Werte sollen gefiltert werden können. Auch dazu wurden einige Skizzen erstellt.
 
-\textbf{Bild einfügen}
+\begin{figure}[htbp]
+    \includegraphics[width=\linewidth]{resources/SC-5.png}
+    \caption{Überblick der Ansicht Filter.}
+    \label{fig:screen5}
+\end{figure}
 
 Im Überblick ist zu sehen, wie der Link Prediction Filter in das bestehende GUI eingebunden wird. Dort wird es unter
 \textit{Filter} einen neuen Ordner "Link Prediction" geben. Unter diesem können die Filter für einzelne Algorithmen
 angewählt werden. Danach kann eingestellt werden, welche Links von welchen Durchläufen angezeigt werden sollen. Wird auf
 "Start" geklickt, wird allenfalls das folgende Pop-Up angezeigt:
 
-\textbf{Bild einfügen}
+\begin{figure}[htbp]
+    \includegraphics[width=\linewidth]{resources/SC-6.png}
+    \caption{Fehlermeldung, wenn die Berechnung der Link Prediction noch nicht durchgeführt wurde.}
+    \label{fig:screen6}
+\end{figure}
 
 Dieses Pop-Up stellt eine Fehlermeldung dar. Dort wird anstelle von "Link Prediction Filter" der ausgewählte Filter
 stehen beispielsweise "Common Neighbour Filter" stehen. Diese Fehlermeldung erscheint, sofern die Berechnungen, um den
@@ -97,7 +121,11 @@ Optional behält sich das Projektteam vor, eine Option einzubauen, bei der direk
 Berechnung für diesen speziellen Algorithmus gestartet werden kann. Andernfalls kann die Fehlermeldung weggeklickt
 werden und dann über die \textit{Statistics} die Berechnung vorgenommen werden.
 
-\textbf{Bild einfügen}
+\begin{figure}[htbp]
+    \includegraphics[width=\linewidth]{resources/SC-7.png}
+    \caption{Gefilterter Graph.}
+    \label{fig:screen7}
+\end{figure}
 
 Wurde der Filter angewendet, so wird der Graph dargestellt mit den neu ergänzten Kanten. Die bereits vor der Berechnung
 eingefügten Kanten werden auch dann angezeigt, egal wie hier gefiltert wird.
