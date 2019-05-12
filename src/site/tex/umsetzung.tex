@@ -136,13 +136,29 @@ Dummy text.
 
 \section{Link Prediction}
 
-Dummy text.
+\subsection{Algorithmen (allgemein)}
+
+Nach Recherche über die verschiedenen Algorithmen wurde entschieden, die Algorithmen "Common Neighbours" und
+"Preferential Attachment" zu implementieren. Diese Entscheidung beruhte darauf, dass sich die beiden Algorithmen
+insofern unterscheiden, dass beim Common-Neighbours-Algorithmus nur Knoten eine Rolle spielen, welche gemeinsame
+Nachbarn aufweisen. Beim zweiten Algorithmus ist dies anders: Dort werden alle Knoten im Bezug aufeinander
+berücksichtigt - hier ist also die Popularität eines einzelnen entscheidend, während beim ersteren Gemeinsamkeiten im
+Vordergrund stehen.
+
+Ausserdem wurde festgelegt, dass man sich in dieser Arbeit darauf beschränkt, die ungerichteten Graphen anzuschauen.
+Die gewöhnlichen Algorithmen sind nicht spezifisch anwendbar auf gerichtete Graphen, so dass im Rahmen dieser Arbeit
+auch diese als ungerichtet betrachtet werden. Eine Anmerkung diesbezüglich soll es bei der Link Prediction in Gephi
+dementsprechend auch geben.
+
+Die Begründung für diese Entscheidung beruht darauf, dass die Algorithmen, welche für gerichtete Graphen derzeit
+entwickelt wurden, eine wesentlich höhere Komplexität aufweisen. Dies hätte dann einen Einfluss auf den vom Kunden
+gewünschten Projektumfang - eventuell hätten dann Abstriche beim zweiten Teil des Projekts gemacht werden müssen.
 
 \subsection{Algorithmus: Common Neighbours}
 
 Dummy text.
 
-\subsection{Algorithmus: Resource Allocation}
+\subsection{Algorithmus: Preferential Attachment}
 
 Dummy text.
 
