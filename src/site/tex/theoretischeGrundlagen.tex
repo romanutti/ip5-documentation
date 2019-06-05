@@ -7,9 +7,9 @@ in der Arbeit verwendet werden, sind im Glossar beschrieben.
 % TODO Make glossary
 
 \subsection{Social Network Analysis}
-Soziale Netzwerke bestehen aus Akteuren, wie beispielsweise Individuen, Organisationen oder ganze Nationen und deren Beziehungen.\cite{noauthor_soziale_nodate}.
+Soziale Netzwerke bestehen aus Akteuren, wie beispielsweise Individuen, Organisationen oder ganze Nationen und deren Beziehungen.\cite{ulrike_baumol_soziale_nodate}.
 Unter \acl{sna} (SNA, dt. Soziale Netzwerkanalyse) wird die Methode zur Erfassung und Analyse von dieser Netzwerke und der Beziehungen darin verstanden \cite{noauthor_soziale_2019}.
-Die soziale Netzwerkanalyse ist ein interdisziplinäres Forschungsfeld und wird in den Sozial- und Verhaltenswissenschaften aber auch in der Betriebswirtschaftslehre oder den Politikwissenschafften angewandt \cite{noauthor_soziale_nodate}.
+Die soziale Netzwerkanalyse ist ein interdisziplinäres Forschungsfeld und wird in den Sozial- und Verhaltenswissenschaften aber auch in der Betriebswirtschaftslehre oder den Politikwissenschafften angewandt \cite{ulrike_baumol_soziale_nodate}.
 Gegenwärtig sind sogenannte "soziale Netzwerke" allgegenwärtig und werden insbesondere im Kontext von Internet-Plattformen wie \textit{Facebook} oder \textit{Twitter} häufig betrachtet.
 
 \subsection{Graph}
@@ -40,6 +40,11 @@ Als Beispiel für einen gerichteten Graphen dient ein E-Mail Netzwerk. Jede Nach
 \end{figure}
 
 \subsection{Link-Prediction}
-\cite{gao_link_2015}
-
-Dummy text.
+Link-Prediction baut auf einem bestehenden Netzwerk auf und versucht vorherzusagen, welche Kante sich als nächstes Bilden werden:
+Der Graph $G = (V, E)$, bestehend aus Knoten ($V$, en.: Vertices) und Kanten ($E$, en.: Edges), hat sich in einem Zeitintervall $G[t, t1]$ gebildet.
+In einem nächsten Zeitintervall $G(t1, t2]$ könnten neue Kanten zum Netzwerk hinzukommen.
+Mittels Link-Prediction wird nun versucht vorherzusagen, welche Kanten in welcher Reihenfolge zum Graphen hinzugefügt werden (vgl. \cite{gao_link_2015})
+Für solche Vorhersagen gibt es verschiedene Algorithmen mit unterschiedlichen Charakteristiken.
+Je nach Eigenschaften des vorliegenden Netzwerks und allfälliger Kontextinformationen liefert ein Algorithmus bessere oder schlechtere Resultate.
+Pro Anwendungsfall muss deshalb evaluiert werden, welcher Algorithmus sich am besten eignet.
+Der Aufbau der dazu benötigten Messwerte und die darausfolende Evaluation wird im Kapitel \ref{Umsetzung} beschrieben.
