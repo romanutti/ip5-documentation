@@ -1,10 +1,44 @@
-\chapter{Umsetzung}
+\chapter{Plugin}
 
-Dummy text.
+Basierend auf den beschriebenen Erkenntnissen wurde ein Plugin für Gephi entwickelt, welches er erlaubt nächste Kanten mit verschiedenen Link Prediction Algorithmen vorherzusagen. Kanten, welche zum Netzwerk hinzugefügt worden sind, werden entsprechend gekennzeichnet. Die Anzahl vorhergesagter Kanten kann von den Benutzern angegeben werden.
+Das Plugin enthält eine Evaluationskomponente, mit welcher die Qualität der verschiedenen Algorithmen verglichen werden kann.
+
+Das Plugin wird unter der Apache 2.0 Lizenz veröffentlicht.
+% TODO Add Gephi to glossary
+% TODO Use cases in appendix
 
 \section{Software Architektur}
 
-Dummy text.
+Das Plugin besteht aus folgenden Hauptkomponenten:
+
+\begin{itemize}
+    \item \textbf{Statistik:} Neue Kanten können via Statistiken zu einem ungerichteten Graphen hinzugefügt werden. Für die ausgewählten Algorithmen werden die Link Preditction Werte berechnet und jeweils die Kante mit dem höchsten Wert zum Graphen hinzugefügt. Die Anzahl hinzuzufügender Kanten kann angegeben werden. Die einzelnen Kanten werden dabei iterativ hinzugefügt. Die Berechnung des nächstvorhergesagten Wertes basiert immer auf dem Graphen des vorherigen Iterationsschrittes.
+    \item \textbf{Filter:} Die hinzugefügten Kanten können via Filter angezeigt werden. Dabei können die anzuzeigenden Kanten einerseits auf einen Filter, andererseits auf eine gewünschte Anzahl beschärnkt werden.
+\end{itemize}
+
+\subsection{Übersicht Klassen}
+Die Klassenstruktur ist grösstenteils bereits durch das bestehende Grundgerüst von Gephi vorgegeben. Für eine möglichst einfache Erweiterbarkeit, werden entsprechende Design Patterns eingesetzt.
+
+%TODO Refresh UMLs
+Abbildung \ref{fig:class_statistic} zeigt das Klassendiagramm der Statistik-Klassen. Es basiert auf dem Command Pattern, um die Link Prediction Kennzahlen der verschiedenen Algorithmen zu berechnen. Das Makro Command Objekt wird eingesetzt um die Kennzahlen von mehreren ausgewählten Algorithmen zu berechnen.
+%TODO Fussnote mit Link zu Command Pattern
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=\linewidth]{resources/class_Statistic.png}
+    \caption{Klassendiagramm Statistiken}
+    % TODO Add cite to SNA Script
+    \label{fig:class_statistic}
+\end{figure}
+
+Die Filter-Klassen wurden mithilfe des Abstract Factory Patterns umgesetzt. Die Klassenstruktur besteht aus dem Factory Pattern mit verschiedenen Builder Klasse und dem Strategy Pattern, welches eine spezifische Umsetzung der Filter pro Algorithmus erlaubt. Abbildung \ref{fig:class_filter} zeigt das resultierende Klassendiagramm.
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=\linewidth]{resources/class_Filter.png}
+    \caption{Klassendiagramm Filter}
+    % TODO Add cite to SNA Script
+    \label{fig:class_filter}
+\end{figure}
+
 
 \section{GUI Konzept}
 
@@ -177,6 +211,10 @@ werden anschliessend im Data Laboratory gespeichert und können mit Hilfe von Fi
     \caption{Gephi Common Neighbours Funktion.}
     \label{fig:screen8}
 \end{figure}
+
+%Der Common Neighbours Algorithmus berechnet für zwei nicht verbundene Knoten, wie viele gemeinsame Nachbarn existieren. Je höher der berechnete Wert, desto wahrscheinlicher wird eine neue Kante zwischen den beiden Knoten hinzugefügt.
+%Die folgende Formel zeigt, wie die Anzahl der gemeinsamen Nachbarn von zwei Knoten X und Y berechnet werden kann:
+% TODO Merge texts
 
 \subsection{Algorithmus: Preferential Attachment}
 
