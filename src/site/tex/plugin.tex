@@ -170,8 +170,6 @@ Dummy text.
 
 \section{Link Prediction}
 
-\subsection{Algorithmen (allgemein)}
-
 Nach Recherche über die verschiedenen Algorithmen wurde entschieden, die Algorithmen "Common Neighbours" und
 "Preferential Attachment" zu implementieren. Diese Entscheidung beruhte darauf, dass sich die beiden Algorithmen
 insofern unterscheiden, dass beim Common-Neighbours-Algorithmus nur Knoten eine Rolle spielen, welche gemeinsame
@@ -188,21 +186,61 @@ Die Begründung für diese Entscheidung beruht darauf, dass die Algorithmen, wel
 entwickelt wurden, eine wesentlich höhere Komplexität aufweisen. Dies hätte dann einen Einfluss auf den vom Kunden
 gewünschten Projektumfang - eventuell hätten dann Abstriche beim zweiten Teil des Projekts gemacht werden müssen.
 
-\subsection{Algorithmus: Common Neighbours}
+\subsection{Common Neighbours}
+Der Common Neighbours Algorithmus berechnet für zwei nicht verbundene Knoten, wie viele gemeinsame Nachbarn existieren. Die Wahrscheinlichkeit
+für das Entstehen einer neuen Kante ist umso höher, desto mehr gemeinsame Nachbarn zwei
+Knoten haben. Common Neighbours beruht auf dem Social Forces Prinzip der Homophilie: Je grösser die Anzahl Gemeinsamkeiten in Form von Nachbarn, desto wahrscheinlicher wird eine neue Kante zwischen den beiden Knoten hinzugefügt (vgl. Kapitel \ref{socialforces}).
 
-Der erste Algorithmus, welcher in diesem Projekt umgesetzt wurde, heisst Common Neighbours. Die Wahrscheinlichkeit
-für das Entstehen eines neuen Edges wird bei diesem Algorithmus darüber berechnet, wie viele gemeinsame Nachbarn zwei
-Knoten haben. Common Neighbours beruht daher auf dem Social Forces Prinzip der Homophilie, da die Wahrscheinlichkeit,
-dass zwei Knoten sich verbinden, wenn sie Gemeinsamkeiten - also gemeinsame Freunde haben - grösser ist, als wenn nicht.
+Die folgende Formel zeigt, wie die Anzahl der gemeinsamen Nachbarn von zwei Knoten $X$ und $Y$ berechnet werden kann::
 
-Die Formel für den Common Neighbours Algorithmus lautet, wie folgt:
+$common\_neighbours(X,Y) = | N(X) \cap N(Y) |$
 
-common_neighbours(X,Y) = | N(X) \cap N(Y) |
-
-Der Wert, der aus der Rechnung für diesen Algorithmus resultiert, ist also die Summe der Anzahl aller gemeinsamen
-Nachbarn der beiden Nodes X und Y. Dieser Wert muss für alle Node-Kombinationen berechnet und anschliessend der höchste
+Der Wert, der aus der Rechnung für diesen Algorithmus resultiert, ist die Summe der Anzahl aller gemeinsamen
+Nachbarn der beiden Knoten $X$ und $Y$. Dieser Wert muss für alle Knoten-Kombinationen berechnet und anschliessend der höchste
 Wert ausgewählt werden.
 
+Das Code-Listing \ref{lstCommonNeighbour} zeigt die vereinfachte Implementierung des Algorithmus.
+Weil zweimal über sämtliche Knoten iteriert werden muss, besitzt die Implementierung die Komplexitätsklasse $O(n^2)$.
+
+\begin{lstlisting}[caption={Common neighbour implementation},label=lstCommonNeighbour]
+    // CommonNeighboursStatistics.java
+    @Override public void execute(Graph graph) {
+
+        //Iterate over all nodes
+        for (Node a : graph.getNodes()) {
+
+            // Remove self from nodes,
+            // of which neighbourhood will be
+            // verified
+            List<Node> others = graph.getNodes().remove(a);
+
+            // Get neighbours of a
+            List<Node> aNeighbours = getNeighbours(graph, a);
+
+            //Calculate common neighbours
+            for (Node b : others) {
+
+                // Get neighbours of b
+                List<Node> bNeighbours = getNeighbours(graph, b);
+                // Count number of common neighbours
+                int commonNeighboursCount = getCommonNeighboursCount(aNeighbours, bNeighbours);
+
+                // Temporary save calculated
+                // value if edge does not exist
+                if (isNewEdge()) {
+                saveCalculatedValue(a, b, commonNeighboursCount)
+                }
+            }
+        }
+
+        // Add edge with highest calculation to graph
+        Edge max = getHighestPrediction();
+        graph.addEdge(max, "Common Neighbours);
+
+    }
+\end{lstlisting}
+
+% TODO Describe path to statistics in GUI Section
 In Gephi ist die Berechnung dieses Werts bei den Statistiken unter Link Prediction zu finden. Die berechneten Werte
 werden anschliessend im Data Laboratory gespeichert und können mit Hilfe von Filtern eingeschränkt werden.
 
@@ -212,11 +250,8 @@ werden anschliessend im Data Laboratory gespeichert und können mit Hilfe von Fi
     \label{fig:screen8}
 \end{figure}
 
-%Der Common Neighbours Algorithmus berechnet für zwei nicht verbundene Knoten, wie viele gemeinsame Nachbarn existieren. Je höher der berechnete Wert, desto wahrscheinlicher wird eine neue Kante zwischen den beiden Knoten hinzugefügt.
-%Die folgende Formel zeigt, wie die Anzahl der gemeinsamen Nachbarn von zwei Knoten X und Y berechnet werden kann:
-% TODO Merge texts
 
-\subsection{Algorithmus: Preferential Attachment}
+\subsection{Preferential Attachment}
 
 Mit dem Preferential Attachment Algorithmus werden ebenfalls die Nachbarn berücksichtigt. Jedoch müssen diese nicht
 mit den Nachbarn des anderen Knoten übereinstimmen - es geht lediglich um die Menge der eigenen Nachbarn. Die Entstehung
@@ -226,7 +261,7 @@ grösser, je grösser das eigene Netzwerk bereits ist.
 
 Die Formel für den Preferential Attachment Algorithmus lautet, wie folgt:
 
-preferential_attachment(X,Y) = | N(X) | \cdot | N(Y ) |
+$preferential_attachment(X,Y) = | N(X) | \cdot | N(Y ) |$
 
 Der Wert, der aus der Rechnung für diesen Algorithmus resultiert, ist also das Produkt der Anzahl aller Nachbarn der
 beiden Nodes X und Y. Dieser Wert muss für alle Node-Kombinationen berechnet und anschliessend der höchste Wert
