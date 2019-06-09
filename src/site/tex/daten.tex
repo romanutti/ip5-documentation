@@ -1,15 +1,61 @@
+\usepackage{natbib}
+
 \chapter{Daten}
+Um Link Predictions testen zu können, und um die Güte der verschiedenen Algorithmen bestimmen zu können werden bestehende Netzwerke verwendet.
+Es wurden dafür Datensets, welche von Gephi auf dem GitHub-Repository bereitgestellt werden, verwendet (s. \cite{moll_datasets_2018}).
 
-Dummy text.
+\section{Anforderungen}
+Für den Aufbau der verschiednene Tests wird ein Netzwerk zu einem bestimmten Zeitpunkt $T0$ benötigt.
+Auf diesem werden anschliessend Link Predictions durchgeführt.
+Der veränderte Graph wird anschliessend dem effektiven Graphen zum Zeipunkt $T1$ verglichen.
+Dies bedingt, dass die Kanten mit einer Nummerierung oder einem Zeitstempel versehen sind.
+Die Anforderung besteht nur für die Entwicklung und Charakterisierung der Evaluationskomponente.
+Im Plugin werden Graphen unabhänging von der Reihenfolge hinzugefügter Kanten bewertet.
 
-\section{Beschreibung der Attribute}
+Bei allen Netzwerken handelt es sich um ungerichtete Graphen.
+% TODO Begriffe Graph / Netzwerk abgrenzen?
 
-Dummy text.
+\section{Datenaufbereitung}
+Um die Korrektheit einzelner und die Güte mehrerer Vorhersagen am effektiven Graphen zu überprüfen, müssen die Datensets in Trainings- und Testdaten unterteilt werden.
+Die Unterteilung wird anhand der Kanten gemacht. Dazu werden die Kanten aufsteigen sortiert (älteste Kanten zuerst).
+Anschliessend können die ältesten 80\% der Daten dem Trainingsset und die neusten 20\% der Daten dem Testset zugeordnet werden.
+Das Trainingsset bildet das Basisnetzwerk zum Zeitpunkt $T0$.
+Das Testdatenset entspricht dem effektiven Netzwerk zum Zeitpunkt $T1$.
 
-\section{Herkunft der Testdaten}
+In der Tabelle \ref{dataset_info} sind die Informationen zu den einzelnen Datensets ersichtlich.
 
-Dummy text.
+\begin{threeparttable}
+    \centering
+    \label{dataset_info}
+    \caption{Informationen der verwendeten Datensets}
+    \begin{tabular}{@{}lllr@{}}
+        \toprule
+        Datenset                        & Anzahl Knoten & Anzahl Kanten & Grösse \\ \midrule
+        Les Miserables\tnote{1}                 & 79     & 233 & 2.3 MB   \\
+        Coauthorships in network science\tnote{2} & 353    & 25 & 3.4 MB     \\
+        Power grid\tnote{3}                       & 3556   & 3521 & 1.1 MB   \\ \bottomrule
+    \end{tabular}
+    \begin{tablenotes}[\flushleft]
+        \footnotesize
+        \item[1] coappearance weighted network of characters in the novel Les Miserables. D. E. Knuth, The Stanford GraphBase: A Platform for Combinatorial Computing, Addison-Wesley, Reading, MA (1993).
+        \item[2] coauthorship network of scientists working on network theory and experiment, as compiled by M. Newman in May 2006. A figure depicting the largest component of this network can be found here. M. E. J. Newman, Phys. Rev. E 74, 036104 (2006).
+        \item[3] An undirected, unweighted network representing the topology of the Western States Power Grid of the United States. Data compiled by D. Watts and S. Strogatz and made available on the web here. Please cite D. J. Watts and S. H. Strogatz, Nature 393, 440-442 (1998).
+    \end{tablenotes}
+\end{threeparttable}
+% TODO Werte aktualisieren
 
-\subsection{Prozess zum Sammeln der Daten}
+\section{Charakteristiken der Netzwerke}
+Um die Netzwerke beschreiben zu können, werden verschiedene Metriken berechnet.
+Nach \citeauthor{gao_link_2015} weisen die nachfolgenden vier Messgrössen eine besonders starke Korrelation zum gewählten Link Prediction Algorithmus auf.
 
-Dummy text.
+\textbf{Global Cluster Coefficient (GCC)}
+% TODO Write chapter
+
+\textbf{Acerage Clustering Coefficient (ACC)}
+% TODO Write chapter
+
+\textbf{Diameter}
+% TODO Write chapter
+
+\textbf{Average Shortest Path (ASP)}
+% TODO Write chapter
