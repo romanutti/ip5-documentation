@@ -47,13 +47,52 @@ Um die Netzwerke beschreiben zu können, werden verschiedene Metriken berechnet.
 Nach \citeauthor{gao_link_2015} weisen die nachfolgenden vier Messgrössen eine besonders starke Korrelation zum gewählten Link Prediction Algorithmus auf.
 
 \textbf{Global Cluster Coefficient (GCC)}
-% TODO Write chapter
 
-\textbf{Acerage Clustering Coefficient (ACC)}
+Der Cluster Coeffizient zeigt das Mass der Cliquenbildung in einem Graphen (\cite{michael_henninger_soziale_2018}).
+Unter Cliquen wird ein Subgraph innerhalb eines Graphen, in welchem die Knoten untereinander stark verbunden sind, verstanden (\cite{michael_henninger_soziale_2018}).
+In Cliquen stammt ein Grossteil der Informationen von denselben Informationslieferanten - dank der starken Verbundenheit kann sich die Gruppe schnell austauschen.
+
+Der lokale Cluster Coeffizient wird aus dem Quotienten der Anzahl direkten Kanten $d$ zwischen den Nachbarn eines Knoten und der maximal möglichen Anzahl direkter Kanten $ki(ki -1)$ berechnet:
+
+$C_i = \frac{2*d}{k_i(k_i-1)}$
+
+Bei ungerichteten Graphen wird die Anzahl direkter Kanten mit dem Faktor 2 multipliziert. $ki$ steht für die Anzahl benachbarter Knoten.
+Beim globalen Cluster Coeffizienten handelt es sich um den Mittelwert der lokalen Cluster Coefficienten.
+In einem Graphen mit $N$ Knoten wird er folgendermassen berechnet:
+
+$GCC = \frac{1}{N}\sum\limits_{i=1}^{N}C_i$
+% TODO Widerspruch zu Gao et. al
+
+\textbf{Average Clustering Coefficient (ACC)}
 % TODO Write chapter
 
 \textbf{Diameter}
-% TODO Write chapter
+
+Unter dem Graph Diameter (dt. Durchmesser) versteht man den \textit{längsten kürzesten Pfad} zwischen allen Knotenpaaren in einem Graphen (\cite{michael_henninger_soziale_2018}).
+Die Formel für den längsten kürzesten Pfad lautet folgendermassen:
+
+$Diameter = max_i_jd(i,j)$
+
+Wobei $d(i,j)$ der kürzeste Pfad zwischen den Knoten $i$ und $j$ ist.
 
 \textbf{Average Shortest Path (ASP)}
 % TODO Write chapter
+
+
+Mithilfe dieser Metriken lässt sich die gesamte Netzwerkstruktur einordnen.
+Tabelle \ref{tab_metrics} zeigt die berechneten Werte der verschiedenen Netzwerken.
+
+\begin{table}[h]
+    \centering
+    \resizebox{\textwidth}{!}{%
+    \begin{tabular}{@{}llrll@{}}
+        \toprule
+        Datenset                         & GCC      & ACC      & Diameter & ASP      \\ \midrule
+        Les Miserables                   & 0.000234 & 0.000234 & 0.000234 & 0.000234 \\
+        Coauthorships in network science & 0.000234 & 0.000234 & 0.000234 & 0.000234 \\
+        Power grid                       & 0.000234 & 0.000234 & 0.000234 & 0.000234 \\ \bottomrule
+    \end{tabular}%
+    }
+    \caption{Metrikwerte der Netzwerke}
+    \label{tab_metrics}
+\end{table}
