@@ -20,8 +20,7 @@ Das Plugin besteht aus folgenden Hauptkomponenten:
 Die Klassenstruktur ist grösstenteils bereits durch das bestehende Grundgerüst von Gephi vorgegeben. Für eine möglichst einfache Erweiterbarkeit, werden entsprechende Design Patterns eingesetzt.
 
 %TODO Refresh UMLs
-Abbildung \ref{fig:class_statistic} zeigt das Klassendiagramm der Statistik-Klassen. Es basiert auf dem Command Pattern, um die Link Prediction Kennzahlen der verschiedenen Algorithmen zu berechnen. Das Makro Command Objekt wird eingesetzt um die Kennzahlen von mehreren ausgewählten Algorithmen zu berechnen.
-%TODO Fussnote mit Link zu Command Pattern
+Abbildung \ref{fig:class_statistic} zeigt das Klassendiagramm der Statistik-Klassen. Es basiert auf dem Composite Command Pattern\footnote{https://en.wikipedia.org/wiki/Composite_pattern}, um die Link Prediction Kennzahlen der verschiedenen Algorithmen zu berechnen. Das Makro Command Objekt wird eingesetzt um die Kennzahlen von mehreren ausgewählten Algorithmen zu berechnen.
 \begin{figure}[h]
     \centering
     \includegraphics[width=\linewidth]{resources/class_Statistic.png}
@@ -30,7 +29,16 @@ Abbildung \ref{fig:class_statistic} zeigt das Klassendiagramm der Statistik-Klas
     \label{fig:class_statistic}
 \end{figure}
 
-Die Filter-Klassen wurden mithilfe des Abstract Factory Patterns umgesetzt. Die Klassenstruktur besteht aus dem Factory Pattern mit verschiedenen Builder Klasse und dem Strategy Pattern, welches eine spezifische Umsetzung der Filter pro Algorithmus erlaubt. Abbildung \ref{fig:class_filter} zeigt das resultierende Klassendiagramm.
+Auf dem gleichen Prinzip basiert die Evaluationskomponente. Abbildung \ref{fig:class_eval} zeigt das Klassendiagramm der Evaluation-Klassen. Anstelle einer Liste wird hier eine Map verwendet, in welcher jeweils die berechnete Güte der Vorhersage vermerkt wird.
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=\linewidth]{resources/class_Evaluation.png}
+    \caption{Klassendiagramm Evaluationskomponente}
+    % TODO Add cite to SNA Script
+    \label{fig:class_eval}
+\end{figure}
+
+Die Filter-Klassen wurden mithilfe des Abstract Factory Patterns\footnote{http://www.hsufengko.com/blog/abstract-factory-design-pattern-example} umgesetzt. Die Klassenstruktur besteht aus dem Factory Pattern mit verschiedenen Builder Klasse und dem Strategy Pattern, welches eine spezifische Umsetzung der Filter pro Algorithmus erlaubt. Abbildung \ref{fig:class_filter} zeigt das resultierende Klassendiagramm.
 \begin{figure}[h]
     \centering
     \includegraphics[width=\linewidth]{resources/class_Filter.png}

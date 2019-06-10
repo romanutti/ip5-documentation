@@ -29,9 +29,9 @@ In der Tabelle \ref{dataset_info} sind die Informationen zu den einzelnen Datens
     \begin{tabular}{@{}lllr@{}}
         \toprule
         Datenset                        & Anzahl Knoten & Anzahl Kanten & Grösse \\ \midrule
-        Les Miserables\tnote{1}                 & 79     & 233 & 2.3 MB   \\
-        Coauthorships in network science\tnote{2} & 353    & 25 & 3.4 MB     \\
-        Power grid\tnote{3}                       & 3556   & 3521 & 1.1 MB   \\ \bottomrule
+        Les Miserables\tnote{1}                 & 77     & 254 & 3 KB   \\
+        Coauthorships in network science\tnote{2} & 1589    & 2742 & 28 KB     \\
+        Power grid\tnote{3}                       & 4941   & 6594 & 45 KB   \\ \bottomrule
     \end{tabular}
     \begin{tablenotes}[\flushleft]
         \footnotesize
@@ -40,7 +40,6 @@ In der Tabelle \ref{dataset_info} sind die Informationen zu den einzelnen Datens
         \item[3] An undirected, unweighted network representing the topology of the Western States Power Grid of the United States. Data compiled by D. Watts and S. Strogatz and made available on the web here. Please cite D. J. Watts and S. H. Strogatz, Nature 393, 440-442 (1998).
     \end{tablenotes}
 \end{threeparttable}
-% TODO Werte aktualisieren
 
 \section{Charakteristiken der Netzwerke}
 Um die Netzwerke beschreiben zu können, werden verschiedene Metriken berechnet.
@@ -88,9 +87,9 @@ Tabelle \ref{tab_metrics} zeigt die berechneten Werte der verschiedenen Netzwerk
     \begin{tabular}{@{}llrll@{}}
         \toprule
         Datenset                         & GCC      & ACC      & Diameter & ASP      \\ \midrule
-        Les Miserables                   & 0.000234 & 0.000234 & 0.000234 & 0.000234 \\
-        Coauthorships in network science & 0.000234 & 0.000234 & 0.000234 & 0.000234 \\
-        Power grid                       & 0.000234 & 0.000234 & 0.000234 & 0.000234 \\ \bottomrule
+        Les Miserables                   & 0.0000 & 0.736 & 5.000 & 0.000 \\
+        Coauthorships in network science & 0.000 & 0.878 & 17.000 & 0.000 \\
+        Power grid                       & 0.000 & 0.107 & 46.000 & 0.000 \\ \bottomrule
     \end{tabular}%
     }
     \caption{Metrikwerte der Netzwerke}
