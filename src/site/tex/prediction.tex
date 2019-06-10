@@ -1,0 +1,113 @@
+\chapter{Link Prediction}
+
+\section{Algorithmen}
+Es gibt verschiedene Algorithmen, um neue Kanten vorherzusagen. Initial werden im Plugin die Algorithmen "Common Neighbours" und "Preferential Attachment" implementiert. Diese werden nachfolgend genauer beschrieben.
+
+\subsection{Common Neighbours}
+Der Common Neighbours Algorithmus berechnet für zwei nicht verbundene Knoten, wie viele gemeinsame Nachbarn existieren. Die Wahrscheinlichkeit
+für das Entstehen einer neuen Kante ist umso höher, desto mehr gemeinsame Nachbarn zwei
+Knoten haben. Common Neighbours beruht auf dem Social Forces Prinzip der Homophilie: Je grösser die Anzahl Gemeinsamkeiten in Form von Nachbarn, desto wahrscheinlicher wird eine neue Kante zwischen den beiden Knoten hinzugefügt (vgl. Kapitel \ref{socialforces}).
+
+Die folgende Formel zeigt, wie die Anzahl der gemeinsamen Nachbarn von zwei Knoten $X$ und $Y$ berechnet werden kann::
+
+$common\_neighbours(X,Y) = | N(X) \cap N(Y) |$
+
+Der Wert, der aus der Rechnung für diesen Algorithmus resultiert, ist die Summe der Anzahl aller gemeinsamen
+Nachbarn der beiden Knoten $X$ und $Y$. Dieser Wert muss für alle Knoten-Kombinationen berechnet und anschliessend der höchste
+Wert ausgewählt werden.
+
+Das Code-Listing \ref{lstCommonNeighbour} zeigt die vereinfachte Implementierung des Algorithmus.
+Weil zweimal über sämtliche Knoten iteriert werden muss, besitzt die Implementierung die Komplexitätsklasse $O(n^2)$.
+
+\begin{lstlisting}[caption={Common neighbour implementation},label=lstCommonNeighbour]
+    // CommonNeighboursStatistics.java
+    @Override public void execute(Graph graph) {
+
+        //Iterate over all nodes
+        for (Node a : graph.getNodes()) {
+
+            // Remove self from nodes,
+            // of which neighbourhood will be
+            // verified
+            List<Node> others = graph.getNodes().remove(a);
+
+            // Get neighbours of a
+            List<Node> aNeighbours = getNeighbours(graph, a);
+
+            //Calculate common neighbours
+            for (Node b : others) {
+
+                // Get neighbours of b
+                List<Node> bNeighbours = getNeighbours(graph, b);
+                // Count number of common neighbours
+                int commonNeighboursCount = getCommonNeighboursCount(aNeighbours, bNeighbours);
+
+                // Temporary save calculated
+                // value if edge does not exist
+                if (isNewEdge()) {
+                    saveCalculatedValue(a, b, commonNeighboursCount)
+                }
+            }
+        }
+
+        // Add edge with highest calculation to graph
+        Edge max = getHighestPrediction();
+        graph.addEdge(max, "Common Neighbours);
+
+    }
+\end{lstlisting}
+
+\subsection{Preferential Attachment}
+Mit dem Preferential Attachment Algorithmus werden ebenfalls die Nachbarn eines Knotens berücksichtigt. Diese müssen jedoch nicht
+mit den Nachbarn des anderen Knoten übereinstimmen - es geht lediglich um die Anzahl der eigenen Nachbarn. Bei Preferential Attachment
+wird von der Annahme ausgegangen, dass die Wahrscheinlichkeit einen neuen Kontakt zu knüpfen grösser, je grösser das eigene Netzwerk bereits ist.
+Die Entstehung eines neuen Edges wird in diesem Fall nicht über Homophilie bestimmt, sondern über Ansehen (vgl. Kapitel \ref{socialforces}).
+
+Die Formel für den Preferential Attachment Algorithmus lautet wie folgt:
+
+$preferential\_attachment(X,Y) = | N(X) | \cdot | N(Y ) |$
+
+Um den resulierenden Wert zu erhalten, wie die Anzahl Nachbarn zweier Knoten $X$ und $Y$ miteinander multipliziert. Dieser Wert muss für alle Knoten-Kombinationen berechnet und anschliessend der höchste Wert
+ausgewählt werden.
+
+Der Algorithmus besitzt die Komplexitätsklasse $O(n^2)$. Das Code-Listing \ref{lstPreferentialAttachment} zeigt die vereinfachte Implementierung des Algorithmus.
+
+\begin{lstlisting}[caption={Preferential attachment implementation},label=lstPreferentialAttachment]
+    // PreferentialAttachmentStatistics.java
+    @Override public void execute(Graph graph) {
+
+        //Iterate over all nodes
+        for (Node a : graph.getNodes()) {
+
+            // Remove self from nodes,
+            // of which neighbourhood will be
+            // verified
+            List<Node> others = graph.getNodes().remove(a);
+
+            // Get neighbours of a
+            List<Node> aNeighbours = getNeighbours(graph, a);
+
+            //Calculate common neighbours
+            for (Node b : others) {
+
+                // Get neighbours of b
+                List<Node> bNeighbours = getNeighbours(graph, b);
+                // Multiply number of neighbours
+                int totalNeighboursCount = aNeighbours.size() * bNeighbours.size();
+
+                // Temporary save calculated
+                // value if edge does not exist
+                if (isNewEdge()) {
+                    saveCalculatedValue(a, b, totalNeighboursCount)
+                }
+            }
+        }
+
+        // Add edge with highest calculation to graph
+        Edge max = getHighestPrediction();
+        graph.addEdge(max, "Preferential Attachment");
+
+    }
+\end{lstlisting}
+
+\section{Gegenüberstellung der verschiedenen Algorithmen und Netzwerke}
