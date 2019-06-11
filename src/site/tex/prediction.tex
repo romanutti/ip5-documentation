@@ -10,7 +10,10 @@ Knoten haben. Common Neighbours beruht auf dem Social Forces Prinzip der Homophi
 
 Die folgende Formel zeigt, wie die Anzahl der gemeinsamen Nachbarn von zwei Knoten $X$ und $Y$ berechnet werden kann::
 
-$common\_neighbours(X,Y) = | N(X) \cap N(Y) |$
+\begin{equation}
+\label{eq:cn}
+    common\_neighbours(X,Y) = | N(X) \cap N(Y) |
+\end{equation}
 
 Der Wert, der aus der Rechnung für diesen Algorithmus resultiert, ist die Summe der Anzahl aller gemeinsamen
 Nachbarn der beiden Knoten $X$ und $Y$. Dieser Wert muss für alle Knoten-Kombinationen berechnet und anschliessend der höchste
@@ -65,7 +68,10 @@ Die Entstehung eines neuen Edges wird in diesem Fall nicht über Homophilie best
 
 Die Formel für den Preferential Attachment Algorithmus lautet wie folgt:
 
-$preferential\_attachment(X,Y) = | N(X) | \cdot | N(Y ) |$
+\begin{equation}
+    \label{eq:pa}
+    preferential\_attachment(X,Y) = | N(X) | \cdot | N(Y ) |
+\end{equation}
 
 Um den resulierenden Wert zu erhalten, wie die Anzahl Nachbarn zweier Knoten $X$ und $Y$ miteinander multipliziert. Dieser Wert muss für alle Knoten-Kombinationen berechnet und anschliessend der höchste Wert
 ausgewählt werden.
