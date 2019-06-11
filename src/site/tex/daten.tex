@@ -1,6 +1,7 @@
 \chapter{Daten}
+\label{daten}
 Um Link Predictions testen zu können, und um die Güte der verschiedenen Algorithmen bestimmen zu können werden bestehende Netzwerke verwendet.
-Es wurden dafür Datensets, welche von Gephi auf dem GitHub-Repository bereitgestellt werden, verwendet (s. \cite{moll_datasets_2018}).
+Es wurden dafür Datensets, welche von Gephi auf dem GitHub-Repository bereitgestellt werden, verwendet (vgl. \cite{moll_datasets_2018}, online).
 
 \section{Anforderungen}
 Für den Aufbau der verschiednene Tests wird ein Netzwerk zu einem bestimmten Zeitpunkt $T0$ benötigt.
@@ -43,12 +44,12 @@ In der Tabelle \ref{dataset_info} sind die Informationen zu den einzelnen Datens
 
 \section{Charakteristiken der Netzwerke}
 Um die Netzwerke beschreiben zu können, werden verschiedene Metriken berechnet.
-Nach \citeauthor{gao_link_2015} weisen die nachfolgenden vier Messgrössen eine besonders starke Korrelation zum gewählten Link Prediction Algorithmus auf.
+Nach \citeauthor{gao_link_2015} (\citeyear{gao_link_2015}) weisen die nachfolgenden vier Messgrössen eine besonders starke Korrelation zum gewählten Link Prediction Algorithmus auf.
 
 \textbf{Global Cluster Coefficient (GCC)}
 
-Der Cluster Coeffizient zeigt das Mass der Cliquenbildung in einem Graphen (\cite{michael_henninger_soziale_2018}).
-Unter Cliquen wird ein Subgraph innerhalb eines Graphen, in welchem die Knoten untereinander stark verbunden sind, verstanden (\cite{michael_henninger_soziale_2018}).
+Der Cluster Coeffizient zeigt das Mass der Cliquenbildung in einem Graphen (\citeauthor{michael_henninger_soziale_2018}, \citeyear{michael_henninger_soziale_2018}, 58).
+Unter Cliquen wird ein Subgraph innerhalb eines Graphen, in welchem die Knoten untereinander stark verbunden sind, verstanden.
 In Cliquen stammt ein Grossteil der Informationen von denselben Informationslieferanten - dank der starken Verbundenheit kann sich die Gruppe schnell austauschen.
 
 Der lokale Cluster Coeffizient wird aus dem Quotienten der Anzahl direkten Kanten $d$ zwischen den Nachbarn eines Knoten und der maximal möglichen Anzahl direkter Kanten $ki(ki -1)$ berechnet:
@@ -73,11 +74,11 @@ Die Density für ungerichtete Graphen berechnet sich mit unterstehender gleichen
 $Density = \frac{2|E|}{|V|*(|V|-1)}$
 
 Bei grösseren Netzwerken steigt mit der Anzahl Knoten auch die Anzahl möglicher Kanten.
-Häufig ist zu beobachten, dass die Anzahl direkter Verbidnungen dabei konstant bleibt - die Density nimmt bei grösseren Netzwerken folglich häufig ab \cite{michael_henninger_soziale_2018}.
+Häufig ist zu beobachten, dass die Anzahl direkter Verbidnungen dabei konstant bleibt - die Density nimmt bei grösseren Netzwerken folglich häufig ab (\cite{michael_henninger_soziale_2018}).
 
 \textbf{Diameter}
 
-Unter dem Graph Diameter (dt. Durchmesser) versteht man den \textit{längsten kürzesten Pfad} zwischen allen Knotenpaaren in einem Graphen (\cite{michael_henninger_soziale_2018}).
+Unter dem Graph Diameter (dt. Durchmesser) versteht man nach \cite{michael_henninger_soziale_2018} den \textit{längsten kürzesten Pfad} zwischen allen Knotenpaaren in einem Graphen.
 Die Formel für den längsten kürzesten Pfad lautet folgendermassen:
 
 $Diameter = max_i_jd(i,j)$
@@ -86,7 +87,7 @@ Wobei $d(i,j)$ der kürzeste Pfad zwischen den Knoten $i$ und $j$ ist.
 
 \textbf{Average Shortest Path (ASP)}
 
-Mit dem Average Shortest Path (ASP) wird die durchschnittliche Länge des kürzesten Pfads zwischen zwei Knoten $i$ und $j$ berechnet \cite{gao_link_2015}.
+Mit dem Average Shortest Path (ASP) wird die durchschnittliche Länge des kürzesten Pfads zwischen zwei Knoten $i$ und $j$ berechnet (\citeauthor{gao_link_2015}, \citeyear{gao_link_2015}, 6).
 Die Formel dafür lautet folgendermassen:
 
 $ASP = \frac{1}{v * (v - 1)} * \sum\limits_{i!=j} d(i,j)$
