@@ -62,8 +62,18 @@ In einem Graphen mit $N$ Knoten wird er folgendermassen berechnet:
 $GCC = \frac{1}{N}\sum\limits_{i=1}^{N}C_i$
 % TODO Widerspruch zu Gao et. al
 
-\textbf{Average Clustering Coefficient (ACC)}
-% TODO Write chapter
+\textbf{Density}
+
+Die Density (dt. Dichte) eines Graphen zeigt an, wie komplett die Knoten des Netzwerkes miteinander verbunden sind.
+Falls es in einem Netzwerk keine Kanten gibt, liegt der Density-Wert bei 0. Falls alle Knoten mit allen anderen Knoten verbunden sind, entspricht der Density-Wert 1.
+Die Dichte ist in der Regel ein Indikator, wie schnell sich Informationen in einem Netzwerk verbreiten.
+Die Density für ungerichtete Graphen berechnet sich mit unterstehender gleichen, wobei $|E|$ für die Anzahl Kanten und $|V|$ für die Anzahl Knoten steht:
+%TODO Formeln vereinheitlichen
+
+$Density = \frac{2|E|}{|V|*(|V|-1)}$
+
+Bei grösseren Netzwerken steigt mit der Anzahl Knoten auch die Anzahl möglicher Kanten.
+Häufig ist zu beobachten, dass die Anzahl direkter Verbidnungen dabei konstant bleibt - die Density nimmt bei grösseren Netzwerken folglich häufig ab \cite{michael_henninger_soziale_2018}.
 
 \textbf{Diameter}
 
@@ -75,8 +85,11 @@ $Diameter = max_i_jd(i,j)$
 Wobei $d(i,j)$ der kürzeste Pfad zwischen den Knoten $i$ und $j$ ist.
 
 \textbf{Average Shortest Path (ASP)}
-% TODO Write chapter
 
+Mit dem Average Shortest Path (ASP) wird die durchschnittliche Länge des kürzesten Pfads zwischen zwei Knoten $i$ und $j$ berechnet \cite{gao_link_2015}.
+Die Formel dafür lautet folgendermassen:
+
+$ASP = \frac{1}{v * (v - 1)} * \sum\limits_{i!=j} d(i,j)$
 
 Mithilfe dieser Metriken lässt sich die gesamte Netzwerkstruktur einordnen.
 Tabelle \ref{tab_metrics} zeigt die berechneten Werte der verschiedenen Netzwerken.
@@ -86,10 +99,10 @@ Tabelle \ref{tab_metrics} zeigt die berechneten Werte der verschiedenen Netzwerk
     \resizebox{\textwidth}{!}{%
     \begin{tabular}{@{}llrll@{}}
         \toprule
-        Datenset                         & GCC      & ACC      & Diameter & ASP      \\ \midrule
-        Les Miserables                   & 0.0000 & 0.736 & 5.000 & 0.000 \\
-        Coauthorships in network science & 0.000 & 0.878 & 17.000 & 0.000 \\
-        Power grid                       & 0.000 & 0.107 & 46.000 & 0.000 \\ \bottomrule
+        Datenset                         & GCC      & Density      & Diameter & ASP      \\ \midrule
+        Les Miserables                   & 0.736 & 0.087 & 5.000 & 2.641 \\
+        Coauthorships in network science & 0.878 & 0.002 & 17.000 & 5.823 \\
+        Power grid                       & 0.107 & 0.001 & 46.000 & 18.989 \\ \bottomrule
     \end{tabular}%
     }
     \caption{Metrikwerte der Netzwerke}
