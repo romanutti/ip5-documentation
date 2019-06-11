@@ -14,6 +14,7 @@ Das Plugin besteht aus folgenden Hauptkomponenten:
 \begin{itemize}
     \item \textbf{Statistik:} Neue Kanten können via Statistiken zu einem ungerichteten Graphen hinzugefügt werden. Für die ausgewählten Algorithmen werden die Link Preditction Werte berechnet und jeweils die Kante mit dem höchsten Wert zum Graphen hinzugefügt. Die Anzahl hinzuzufügender Kanten kann angegeben werden. Die einzelnen Kanten werden dabei iterativ hinzugefügt. Die Berechnung des nächstvorhergesagten Wertes basiert immer auf dem Graphen des vorherigen Iterationsschrittes.
     \item \textbf{Filter:} Die hinzugefügten Kanten können via Filter angezeigt werden. Dabei können die anzuzeigenden Kanten einerseits auf einen Filter, andererseits auf eine gewünschte Anzahl beschärnkt werden.
+    \item \textbf{Evaluation:} Die Güte der vorhergesagten Kanten kann berechnet werden. Via Statistiken wird die Accurarcy von verschiedenen Algorithmen verglichen und beurteilt.
 \end{itemize}
 
 \subsection{Übersicht Klassen}
@@ -46,7 +47,6 @@ Die Filter-Klassen wurden mithilfe des Abstract Factory Patterns\footnote{http:/
     % TODO Add cite to SNA Script
     \label{fig:class_filter}
 \end{figure}
-
 
 \section{GUI Konzept}
 
