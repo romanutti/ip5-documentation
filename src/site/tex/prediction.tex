@@ -117,3 +117,61 @@ Der Algorithmus besitzt die Komplexitätsklasse $O(n^2)$. Das Code-Listing \ref{
 \end{lstlisting}
 
 \section{Gegenüberstellung der verschiedenen Algorithmen und Netzwerke}
+Basierend auf zwei Graphen wird die Genauigkeit der Vorhersagen unter Verwendung verschiedener Algorithmen bewertet.
+Ausgehend von einem initialen Graphen $G_i_,_t$ zum Zeitpunkt $t$ prognostizieren wir $n$ Kanten $E_i$, was zu einem Graphen $G_i_,_t_+_n$ zum Zeitpunkt $t + n$ führt.
+Dieser neue Graph $G_i_,_t_+_n$  wird zur Validierung der vorhergesagten Kanten verwendet.
+Abbildung \ref{fig:graph_init} zeigt die Graphen $G_i_,_t$ (links) und $G_i_,_t_+_n$ (rechts) anhand des vorhin eingeführten Beispiels.
+Die hinzugefügten Kanten $E_i$ sind dabei mit einer gestrichelten Linie eingezeichnet.
+
+\begin{figure}[h]
+    \centering
+    \includegraphics{resources/graph_init.JPG}
+    \caption{Initialer Graph zum Zeitpunkt $t$, resp. $t + n$}
+    % TODO Add cite to SNA Script
+    \label{fig:graph_init}
+\end{figure}
+
+Die Qualität des Algorithmus wird anhand der Genauigkeit der hinzugefügten Kanten bestimmt.
+Dazu wird ein Validierungsgraph $G_v_,_t_+_n$ verwendet, bei welchem die zusätzlichen Kanten $E_v$ zum Zeitpunkt $t + n$ bereits vorhanden sind.
+In unserem Beispielnetzwerk enthält dieser Graph gegenüber dem Graphen $G_i_,_t$ zusätzlich die Kanten $(A,C)$, $(E,H)$ und $(H,I)$.
+Abbildung \ref{fig:graph_validation} zeigt den Graphen $G_v_,_t_+_n$ zum Zeitpunkt $t + n$
+
+\begin{figure}[h]
+    \centering
+    \includegraphics{resources/graph_validation.JPG}
+    \caption{Validierungsgraph zum Zeitpunkt $t + n$}
+    % TODO Add cite to SNA Script
+    \label{fig:graph_validation}
+\end{figure}
+
+Als Qualitätsmass wird die Accuracy verwendet.
+Diese berechnet sich als prozentualer Anteil der korrekt vorhergesagten Kanten im Verhältnis zu allen hinzugefügten Kanten.
+
+\begin{equation}
+    \label{eq:acc}
+    Acc = | E_i \ \cap \ E_v| \ / \ |E_v| * 100
+\end{equation}
+
+Im obigen Beispiel mit drei zusätzlichen Kanten wurden die Kanten $(A,C)$ und $(H,I)$ korrekt vorhergesagt.
+Daraus folgt eine Accuracy von 66.67\%.
+Die Herleitung dazu sieht folgendermassen aus:
+
+\begin{fleqn}
+\begin{equation}
+    \label{eq:acc_eg1}
+    E_i = \{(A,C), (A,F), (H,I)\}
+\end{equation}
+\begin{equation}
+    \label{eq:acc_eg2}
+    E_v = \{(A,C), (E,H), (H,I)\}
+\end{equation}
+\begin{equation}
+    \label{eq:acc_eg3}
+    | E_i \ \cap \ E_v| = |\{(A,C), (H,I)\}| = 2
+\end{equation}
+\begin{equation}
+    \label{eq:acc_eg4}
+    Acc = | E_i \ \cap \ E_v| \ / \ |E_v| * 100 = 2 \ / \ 3 * 100 = 66.67
+\end{equation}
+\end{fleqn}
+
