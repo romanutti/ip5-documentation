@@ -1,7 +1,20 @@
 \chapter{Link Prediction}
 
 \section{Algorithmen}
-Es gibt verschiedene Algorithmen, um neue Kanten vorherzusagen. Initial werden im Plugin die Algorithmen "Common Neighbours" und "Preferential Attachment" implementiert. Diese werden nachfolgend genauer beschrieben.
+Link-Predictions basieren auf einem bestehenden Netzwerk und versuchen, neue Kanten hervorzusagen.
+Es gibt verschiedene Algorithmen, um diese Kanten vorherzusagen.
+Initial werden im Plugin die Algorithmen ``Common Neighbours'' und ``Preferential Attachment'' implementiert. Diese werden nachfolgend genauer beschrieben.
+
+Die Funktionsweise der besagten Algorithmen wird anhand von konkreten Beispielen veranschaulicht.
+Als Grundlage für die Vorhersagen wird der Beispielgraph aus Abbildung \ref{fig:graph_bsp} verwendet.
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[scale=0.7]{resources/graph_example.JPG}
+    \caption{Beispielgraph}
+    % TODO Add cite to SNA Script
+    \label{fig:graph_bsp}
+\end{figure}
 
 \subsection{Common Neighbours}
 Der Common Neighbours Algorithmus berechnet für zwei nicht verbundene Knoten, wie viele gemeinsame Nachbarn existieren. Die Wahrscheinlichkeit
@@ -15,16 +28,26 @@ Die folgende Formel zeigt, wie die Anzahl der gemeinsamen Nachbarn von zwei Knot
     common\_neighbours(X,Y) = | N(X) \cap N(Y) |
 \end{equation}
 
-Der Wert, der aus der Rechnung für diesen Algorithmus resultiert, ist die Summe der Anzahl aller gemeinsamen
+Der Wert, der aus der Berechnung für diesen Algorithmus resultiert, ist die Summe der Anzahl aller gemeinsamen
 Nachbarn der beiden Knoten $X$ und $Y$. Dieser Wert muss für alle Knoten-Kombinationen berechnet und anschliessend der höchste
 Wert ausgewählt werden.
 
-Das Code-Listing \ref{lstCommonNeighbour} zeigt die vereinfachte Implementierung des Algorithmus.
-Weil zweimal über sämtliche Knoten iteriert werden muss, besitzt die Implementierung die Komplexitätsklasse $O(n^2)$.
+Angewandt auf den eingangs eingeführten Beispielgraphen würde der Common Neibghour Algorithmus eine neue Kante zwischen den Nodes $A$ und $C$ vorhersagen.
+Die folgenden Beispiele zeigen weitere Werte, welche durch Anwenden des Algorithmus resultieren.
 
+% Set identiation manually
+\newcommand{\forceindent}{\leavevmode{\parindent=2em\indent}}
+\forceindent $common\_neighbours(A,C) = |{B, D}| = 2$\\
+\forceindent $common\_neighbours(A,F) = |{E}| = 1$\\
+\forceindent $common\_neighbours(A,I) = |{\{\}}| = 0$\\
+
+Das Code-Listing \ref{lstCommonNeighbour} zeigt die vereinfachte Implementierung des Algorithmus.
+Weil initial zweimal über sämtliche Knoten iteriert werden muss, besitzt die Implementierung die Komplexitätsklasse $O(n^2)$.
+
+%TODO: Make sure naming e.g. calculate is correct
 \begin{lstlisting}[caption={Common neighbour implementation},label=lstCommonNeighbour]
     // CommonNeighboursStatistics.java
-    @Override public void execute(Graph graph) {
+    public void calculateAll(Graph graph) {
 
         //Iterate over all nodes
         for (Node a : graph.getNodes()) {
@@ -63,7 +86,7 @@ Weil zweimal über sämtliche Knoten iteriert werden muss, besitzt die Implement
 \subsection{Preferential Attachment}
 Mit dem Preferential Attachment Algorithmus werden ebenfalls die Nachbarn eines Knotens berücksichtigt. Diese müssen jedoch nicht
 mit den Nachbarn des anderen Knoten übereinstimmen - es geht lediglich um die Anzahl der eigenen Nachbarn. Bei Preferential Attachment
-wird von der Annahme ausgegangen, dass die Wahrscheinlichkeit einen neuen Kontakt zu knüpfen grösser, je grösser das eigene Netzwerk bereits ist.
+wird von der Annahme ausgegangen, dass die Wahrscheinlichkeit einen neuen Kontakt zu knüpfen grösser wird, je grösser das eigene Netzwerk bereits ist.
 Die Entstehung eines neuen Edges wird in diesem Fall nicht über Homophilie bestimmt, sondern über Ansehen (vgl. Kapitel \ref{socialforces}).
 
 Die Formel für den Preferential Attachment Algorithmus lautet wie folgt:
@@ -76,11 +99,17 @@ Die Formel für den Preferential Attachment Algorithmus lautet wie folgt:
 Um den resulierenden Wert zu erhalten, wie die Anzahl Nachbarn zweier Knoten $X$ und $Y$ miteinander multipliziert. Dieser Wert muss für alle Knoten-Kombinationen berechnet und anschliessend der höchste Wert
 ausgewählt werden.
 
-Der Algorithmus besitzt die Komplexitätsklasse $O(n^2)$. Das Code-Listing \ref{lstPreferentialAttachment} zeigt die vereinfachte Implementierung des Algorithmus.
+Angewandt auf den Beispielgraphen würde mit Preferential Attachment eine Kante zwischen den Knoten $A$ und $G$ vourausgesagt und folgende weiteren Werte berechnet:
+
+% Set identiation manually
+\forceindent $preferential\_attachment(A,G) = 3 * 4 = 12$\\
+\forceindent $preferential\_attachment(A,C) = 3 * 3 = 9$\\
+
+Das Code-Listing \ref{lstPreferentialAttachment} zeigt die vereinfachte Implementierung des Algorithmus. Der Algorithmus besitzt die Komplexitätsklasse $O(n^2)$.
 
 \begin{lstlisting}[caption={Preferential attachment implementation},label=lstPreferentialAttachment]
     // PreferentialAttachmentStatistics.java
-    @Override public void execute(Graph graph) {
+    public void calculateAll(Graph graph) {
 
         //Iterate over all nodes
         for (Node a : graph.getNodes()) {
@@ -174,6 +203,8 @@ Die Herleitung dazu sieht folgendermassen aus:
     Acc = | E_i \ \cap \ E_v| \ / \ |E_v| * 100 = 2 \ / \ 3 * 100 = 66.67
 \end{equation}
 \end{fleqn}
+% TODO: Formeln auch wie oben machen? Mit forceindent
+% TODO: Performance-Optimierung hier schon erwähnen?
 
 \section{Gegenüberstellung der verschiedenen Algorithmen und Netzwerke}
 Die Qualität der verschiedenen Algorithmen kann beurteilt werden, indem die eben eingeführte Accuracy auf die Daten aus Kapitel \ref{daten} angewendet wird.
