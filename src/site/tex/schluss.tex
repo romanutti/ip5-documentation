@@ -1,8 +1,24 @@
 \chapter{Diskussion und Ausblick}
 
+Das Erarbeiten des Link-Prediction Plugins war eine herausfordernde und zugleich lehrreiche Arbeit.
+Mit dem Projekt einher ging die Möglichkeit, im Open-Source-Umfeld zu einer etablierten Software beizutragen.
+Insesondere das modulübergreifende Anwenden von Wissen aus dem Studiengang und der Austausch im Team und mit dem Betreuer bereitete grosse Freude.
+In den folgenden Kapiteln werden die Resultate reflektiert und ein Ausblick auf nacholgende Tätigkeiten dargeboten.
+
 \section{Erreichtes}
 
-Dummy text.
+Das Ziel, ein Link-Prediction Plugin zu entwickeln, ist erreicht worden.
+Neben den erforderlichen Funktionen zur Vorhersage von Links und zur Evaluation der verschiedenen Algorithmen wurde zusätzlich ein Filter zum selektieren der Kanten je Algorithmus entwickelt.
+Die verwendete Architektur erlaubt es, einfach neue Link-Prediction Algorithmen und Kennzahlen zur Beurteilung der Qualität der Algorithmen hinzuzufügen.
+Als Reaktion auf die anfänglich langen Laufzeiten bei grossen Graphen wurde die Berechnung der Link-Predictions optimiert:
+Für die Berechnung der Link-Prediction Werte müssen sämtliche Knoten initial zweimal durchlaufen werden.
+Indem beim Hinzufügen einer neuen Kante nur die beiden davon betroffenen Kanten geändert werden, kann der Aufwand für alle weiteren Iterationen drastisch reduziert werden.
+
+Tests mit der aktuellen Implementierung haben gezeigt, das Link-Predictions in Graphen mit bis zu 1000 Knoten problemlos berechnet werden können.
+Das Berechnen in grösseren Graphen kann in längeren Laufzeiten resultieren.
+Ein entsprechender Hinweis wurde im README.md vermerkt.
+
+%TODO: Irgendwo beschrieben, dass mehrere Durchläufe zu mehreren Iterationen führen können
 
 \section{Ausblick}
 
