@@ -4,9 +4,9 @@ Um die Korrektheit von Link Predictions testen zu können, und um die Güte der 
 Es wurden dafür Datensets, welche von \acs{gephi} auf dem GitHub-Repository bereitgestellt werden, verwendet (vgl. \cite{moll_datasets_2018}, online).
 
 \section{Anforderungen}
-Für den Aufbau der verschiednene Tests wird ein Netzwerk zu einem bestimmten Zeitpunkt $T0$ benötigt.
+Für den Aufbau der verschiednene Tests wird ein Netzwerk zu einem bestimmten Zeitpunkt $t$ benötigt.
 Auf diesem werden anschliessend Link Predictions durchgeführt.
-Der veränderte Graph wird anschliessend dem effektiven Graphen zum Zeipunkt $T1$ verglichen.
+Der veränderte Graph wird anschliessend mit dem effektiven Graphen zum Zeitpunkt $t + n$ verglichen.
 Dies bedingt, dass die Kanten mit einer Nummerierung oder einem Zeitstempel versehen sind.
 Die Anforderung besteht nur für die Entwicklung und Charakterisierung der Evaluationskomponente.
 Im Plugin werden Graphen unabhänging von der Reihenfolge hinzugefügter Kanten bewertet.
@@ -15,11 +15,10 @@ Bei allen Netzwerken handelt es sich um ungerichtete Graphen.
 % TODO Begriffe Graph / Netzwerk abgrenzen?
 
 \section{Datenaufbereitung}
-Um die Korrektheit einzelner und die Güte mehrerer Vorhersagen am effektiven Graphen zu überprüfen, müssen die Datensets in Trainings- und Testdaten unterteilt werden.
-Die Unterteilung wird anhand der Kanten gemacht. Dazu werden die Kanten aufsteigen sortiert (älteste Kanten zuerst).
-Anschliessend können die ältesten 80\% der Daten dem Trainingsset und die neusten 20\% der Daten dem Testset zugeordnet werden.
-Das Trainingsset bildet das Basisnetzwerk zum Zeitpunkt $T0$.
-Das Testdatenset entspricht dem effektiven Netzwerk zum Zeitpunkt $T1$.
+Um die Korrektheit einzelner und die Güte mehrerer Vorhersagen am effektiven Graphen zu überprüfen, müssen die Datensets in Initial- und Validierungsdaten unterteilt werden.
+Die Unterteilung wird anhand der Kanten gemacht. Dazu werden die Kanten aufsteigend sortiert (älteste Kanten zuerst).
+Anschliessend werden nur die neusten 20\% der Daten dem Validierungsset zugeordnet. Das Initialset bildet das Basisnetzwerk zum Zeitpunkt $t$.
+Das Testdatenset entspricht dem effektiven Netzwerk zum Zeitpunkt $t + n$.
 
 In der Tabelle \ref{dataset_info} sind die Informationen zu den einzelnen Datensets ersichtlich.
 
@@ -48,11 +47,11 @@ Nach \citeauthor{gao_link_2015} (\citeyear{gao_link_2015}) weisen die nachfolgen
 
 \textbf{Global Cluster Coefficient (GCC)}
 
-Der Cluster Coeffizient zeigt das Mass der Cliquenbildung in einem Graphen (\citeauthor{michael_henninger_soziale_2018}, \citeyear{michael_henninger_soziale_2018}, 58).
-Unter Cliquen wird ein Subgraph innerhalb eines Graphen, in welchem die Knoten untereinander stark verbunden sind, verstanden.
+Der \ass{cc} zeigt das Mass der Cliquenbildung in einem Graphen (\citeauthor{michael_henninger_soziale_2018}, \citeyear{michael_henninger_soziale_2018}, 58).
+Unter \acs{clique}n wird ein Subgraph innerhalb eines Graphen, in welchem die Knoten untereinander stark verbunden sind, verstanden.
 In Cliquen stammt ein Grossteil der Informationen von denselben Informationslieferanten - dank der starken Verbundenheit kann sich die Gruppe schnell austauschen.
 
-Der lokale Cluster Coeffizient wird aus dem Quotienten der Anzahl direkten Kanten $d$ zwischen den Nachbarn eines Knoten und der maximal möglichen Anzahl direkter Kanten $ki(ki -1)$ berechnet:
+Der lokale Cluster Coeffizient wird aus dem Quotienten der Anzahl direkten Kanten $d$ zwischen den Nachbarn eines Knoten und der maximal möglichen Anzahl direkter Kanten $k_i(k_i -1)$ berechnet:
 
 \begin{equation}
     \label{eq:ci}
@@ -60,7 +59,7 @@ Der lokale Cluster Coeffizient wird aus dem Quotienten der Anzahl direkten Kante
 \end{equation}
 
 
-Bei ungerichteten Graphen wird die Anzahl direkter Kanten mit dem Faktor 2 multipliziert. $ki$ steht für die Anzahl benachbarter Knoten.
+Bei ungerichteten Graphen wird die Anzahl direkter Kanten mit dem Faktor 2 multipliziert. $k_i$ steht für die Anzahl benachbarter Knoten.
 Beim globalen Cluster Coeffizienten handelt es sich um den Mittelwert der lokalen Cluster Coefficienten.
 In einem Graphen mit $N$ Knoten wird er folgendermassen berechnet:
 
@@ -72,10 +71,10 @@ In einem Graphen mit $N$ Knoten wird er folgendermassen berechnet:
 
 \textbf{Density}
 
-Die Density (dt. Dichte) eines Graphen zeigt an, wie komplett die Knoten des Netzwerkes miteinander verbunden sind.
+Die \acs{density} (dt. Dichte) eines Graphen zeigt an, wie komplett die Knoten des Netzwerkes miteinander verbunden sind.
 Falls es in einem Netzwerk keine Kanten gibt, liegt der Density-Wert bei 0. Falls alle Knoten mit allen anderen Knoten verbunden sind, entspricht der Density-Wert 1.
 Die Dichte ist in der Regel ein Indikator, wie schnell sich Informationen in einem Netzwerk verbreiten.
-Die Density für ungerichtete Graphen berechnet sich mit unterstehender gleichen, wobei $|E|$ für die Anzahl Kanten und $|V|$ für die Anzahl Knoten steht:
+Die Density für ungerichtete Graphen berechnet sich mit unterstehender Gleichung, wobei $|E|$ für die Anzahl Kanten und $|V|$ für die Anzahl Knoten steht:
 %TODO Formeln vereinheitlichen
 
 \begin{equation}
@@ -85,7 +84,7 @@ Die Density für ungerichtete Graphen berechnet sich mit unterstehender gleichen
 
 
 Bei grösseren Netzwerken steigt mit der Anzahl Knoten auch die Anzahl möglicher Kanten.
-Häufig ist zu beobachten, dass die Anzahl direkter Verbidnungen dabei konstant bleibt - die Density nimmt bei grösseren Netzwerken folglich häufig ab (\cite{michael_henninger_soziale_2018}).
+Häufig ist zu beobachten, dass die Anzahl direkter Verbindungen dabei konstant bleibt - die Density nimmt bei grösseren Netzwerken folglich häufig ab (\cite{michael_henninger_soziale_2018}).
 
 \textbf{Diameter}
 
@@ -101,7 +100,7 @@ Wobei $d(i,j)$ der kürzeste Pfad zwischen den Knoten $i$ und $j$ ist.
 
 \textbf{Average Shortest Path (ASP)}
 
-Mit dem Average Shortest Path (ASP) wird die durchschnittliche Länge des kürzesten Pfads zwischen zwei Knoten $i$ und $j$ berechnet (\citeauthor{gao_link_2015}, \citeyear{gao_link_2015}, 6).
+Mit dem \acs{avgsp} (ASP) wird die durchschnittliche Länge des kürzesten Pfads zwischen zwei Knoten $i$ und $j$ berechnet (\citeauthor{gao_link_2015}, \citeyear{gao_link_2015}, 6).
 Die Formel dafür lautet folgendermassen:
 
 \begin{equation}
