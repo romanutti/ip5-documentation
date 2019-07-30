@@ -22,4 +22,22 @@ Ein entsprechender Hinweis wurde im README.md vermerkt.
 
 \section{Ausblick}
 
-Dummy text.
+Trotz diverser Optimierungsbemühungen müssen beim initialien Berechnen der Prediction-Werte alle Knoten zweimal durchlaufen werden.
+Dies erfordert bei grossen Netzwerken seine Zeit.
+Um auch bei solchen Netzwerken eine schnellere Performance zu erreichen müssten weitere Optimierungsmassnahmen in Betracht gezogen werden.
+Folgende Möglichkeiten würden sich dazu anbieten:
+
+\begin{itemize}
+    \item Anstatt, dass die Vorhersagen für alle Knoten berechnet werden, könnte man im \acs{ui} die Möglichkeit anbieten, ein Subset bestehend aus spezifischen Knoten auszuwählen. Damit würde die Berechnung nur für alle relevanten Knoten durchgeführt.
+    \item Falls ein Clustering zur Verfügung steht (entweder über ein Knoten-Attribut oder über eine berechnete Messgrösse), könnte man die Berechnung auf alle Knoten dieses Clusters beschränken.
+    \item Die Berechnung der verschiedenen Algorithmen könnte parallelisiert durchgeführt werden. Aktuell wird der Graph während der Berechnung mit einem Write-Lock geschützt. Dieser müsste für die Parallelisierung unter Berücksichtigung allfälliger Nebeneffekte aufgehoben werden.
+\end{itemize}
+
+Aktuell werden vom Plugin nur ungerichtete und ungewichtete Graphen unterstützt.
+Falls die Algorithmen auf gerichtete Graphen angewendet werden ausgehende und eingehende Kanten zwischen denselben zwei Nodes als eine Kante betrachtet:
+Ein Graph mit einer Kante von Knoten $A$ nach Knoten $C$ und einer Kante von Knoten $C$ nach Knoten $A$ würde von den Algorithmen als eine Kante zwischen den beiden Knoten interpretiert.
+In künftigen Releasen könnte zusätzlich die Funktionalität angeboten werden, ungerichtete und gerichtete Graphen unterschiedlich zu behandeln.
+
+Weiter könnten auch Kantengewichte mit in die Berechnungen einbezogen werden.
+Aktuell werden diese ignoriert und neue Kanten nicht gewichtet.
+% TODO Verweis auf Literatur für Algorithmen mit gewichteten Kanten
