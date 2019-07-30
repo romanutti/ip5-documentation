@@ -33,12 +33,16 @@ Nachbarn der beiden Knoten $X$ und $Y$. Dieser Wert muss für alle Knoten-Kombin
 Wert ausgewählt werden.
 
 Angewandt auf den eingangs eingeführten Beispielgraphen würde der Common Neibghour Algorithmus eine neue Kante zwischen den Nodes $A$ und $C$ vorhersagen.
-Die folgenden Beispiele zeigen weitere Werte, welche durch Anwenden des Algorithmus resultieren.
-
+Die folgenden Beispiele zeigen weitere Werte, welche durch Anwenden des Algorithmus resultieren.\\
+% Layout multiline-formula
+\\
+\vspace{4mm}
 % Set identiation manually
 \newcommand{\forceindent}{\leavevmode{\parindent=2em\indent}}
 \forceindent $common\_neighbours(A,C) = |{B, D}| = 2$\\
+\vspace{4mm}
 \forceindent $common\_neighbours(A,F) = |{E}| = 1$\\
+\vspace{4mm}
 \forceindent $common\_neighbours(A,I) = |{\{\}}| = 0$\\
 
 Das Code-Listing \ref{lstCommonNeighbour} zeigt die vereinfachte Implementierung des Algorithmus.
@@ -99,10 +103,13 @@ Die Formel für den Preferential Attachment Algorithmus lautet wie folgt:
 Um den resulierenden Wert zu erhalten, wie die Anzahl Nachbarn zweier Knoten $X$ und $Y$ miteinander multipliziert. Dieser Wert muss für alle Knoten-Kombinationen berechnet und anschliessend der höchste Wert
 ausgewählt werden.
 
-Angewandt auf den Beispielgraphen würde mit Preferential Attachment eine Kante zwischen den Knoten $A$ und $G$ vourausgesagt und folgende weiteren Werte berechnet:
-
+Angewandt auf den Beispielgraphen würde mit Preferential Attachment eine Kante zwischen den Knoten $A$ und $G$ vourausgesagt und folgende weiteren Werte berechnet:\\
+% Layout multiline-formula
+\\
+\vspace{4mm}
 % Set identiation manually
 \forceindent $preferential\_attachment(A,G) = 3 * 4 = 12$\\
+\vspace{4mm}
 \forceindent $preferential\_attachment(A,C) = 3 * 3 = 9$\\
 
 Das Code-Listing \ref{lstPreferentialAttachment} zeigt die vereinfachte Implementierung des Algorithmus. Der Algorithmus besitzt die Komplexitätsklasse $O(n^2)$.
@@ -183,27 +190,17 @@ Diese berechnet sich als prozentualer Anteil der korrekt vorhergesagten Kanten i
 
 Im obigen Beispiel mit drei zusätzlichen Kanten wurden die Kanten $(A,C)$ und $(H,I)$ korrekt vorhergesagt.
 Daraus folgt eine Accuracy von 66.67\%.
-Die Herleitung dazu sieht folgendermassen aus:
-
-\begin{fleqn}
-\begin{equation}
-    \label{eq:acc_eg1}
-    E_i = \{(A,C), (A,F), (H,I)\}
-\end{equation}
-\begin{equation}
-    \label{eq:acc_eg2}
-    E_v = \{(A,C), (E,H), (H,I)\}
-\end{equation}
-\begin{equation}
-    \label{eq:acc_eg3}
-    | E_i \ \cap \ E_v| = |\{(A,C), (H,I)\}| = 2
-\end{equation}
-\begin{equation}
-    \label{eq:acc_eg4}
-    Acc = | E_i \ \cap \ E_v| \ / \ |E_v| * 100 = 2 \ / \ 3 * 100 = 66.67
-\end{equation}
-\end{fleqn}
-% TODO: Formeln auch wie oben machen? Mit forceindent
+Die Herleitung dazu sieht folgendermassen aus:\\
+% Layout multiline-formula
+\\
+\vspace{4mm}
+\forceindent $E_i = \{(A,C), (A,F), (H,I)\}$\\
+\vspace{4mm}
+\forceindent $E_v = \{(A,C), (E,H), (H,I)\}$\\
+\vspace{4mm}
+\forceindent $| E_i \ \cap \ E_v| = |\{(A,C), (H,I)\}| = 2$\\
+\vspace{4mm}
+\forceindent $Acc = | E_i \ \cap \ E_v| \ / \ |E_v| * 100 = 2 \ / \ 3 * 100 = 66.67$\\
 % TODO: Performance-Optimierung hier schon erwähnen?
 
 \section{Gegenüberstellung der verschiedenen Algorithmen und Netzwerke}
