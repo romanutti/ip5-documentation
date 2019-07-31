@@ -2,9 +2,10 @@
 
 Basierend auf den beschriebenen Erkenntnissen wurde ein Plugin für Gephi entwickelt, mit welchem Kanten mit verschiedenen Link Prediction Algorithmen vorhergesagt werden können.
 Kanten, welche zum Netzwerk hinzugefügt worden sind, werden entsprechend gekennzeichnet. Die Anzahl vorhergesagter Kanten kann von den Benutzern angegeben werden.
-Das Plugin enthält eine Evaluationskomponente, mit welcher die Qualität der verschiedenen Algorithmen verglichen werden kann.
+In der Literatur werden hauptsächlich Algorithmen beschrieben, welche auf ungerichtete Graphen anwendbar sind. Algorithmen für gerichtete Graphen weisen eine wesentlich höhere Komplexität auf. Die Arbeit beschränkt sich deshalb auf Link Predictions auf ungerichtete Graphen -
+ein entsprechender Hinweis wurde im Gephi Plugin implementiert. Das Plugin enthält zudem eine Evaluationskomponente, mit welcher die Qualität der verschiedenen Algorithmen verglichen werden kann.
 
-Das Plugin wird unter der Apache 2.0 Lizenz veröffentlicht. Eine Anleitung der Software befindet sich im Anhang \ref{readme} in Form des README.md.
+Das Plugin wird unter der Apache 2.0 Lizenz veröffentlicht.
 
 \section{Software Architektur}
 
@@ -16,11 +17,12 @@ Das Plugin besteht aus folgenden Hauptkomponenten:
     \item \textbf{Evaluation:} Die Güte der vorhergesagten Kanten kann berechnet werden. Via Statistiken wird die Accurarcy von verschiedenen Algorithmen verglichen und beurteilt.
 \end{itemize}
 
+\subsection{Klassenstruktur}
 Die Klassenstruktur ist grösstenteils bereits durch das bestehende Grundgerüst von Gephi vorgegeben. Für eine möglichst einfache Erweiterbarkeit, werden entsprechende Design Patterns eingesetzt.
 
 %TODO Refresh UMLs
-Abbildung \ref{fig:class_statistic} zeigt das Klassendiagramm der Statistik-Klassen. Es basiert auf dem \acs{compositecommand}\footnote{https://en.wikipedia.org/wiki/Composite_pattern}, um die Link Prediction Wahrscheinlichkeiten der verschiedenen Algorithmen zu berechnen. Das Composite Pattern beruht darauf, in einer abstrakten Klasse sowohl konkrete Objekte als auch ihre Behälter zu repräsentieren. Damit können sowohl einzelne Objekte als auch ihre Kompositionen einheitlich behandelt werden (\cite{noauthor_kompositum_2019}). Das Makro Command Objekt \texttt{LinkPredictionMacro} wird eingesetzt, um die Kennzahlen von mehreren ausgewählten Algorithmen zu berechnen.
-\begin{figure}[h]
+Abbildung \ref{fig:class_statistic} zeigt das Klassendiagramm der Statistik-Klassen. Es basiert auf dem \acs{compositecommand}\footnote{https://en.wikipedia.org/wiki/Composite\_pattern}, um die Link Prediction Wahrscheinlichkeiten der verschiedenen Algorithmen zu berechnen. Das Composite Pattern beruht darauf, in einer abstrakten Klasse sowohl konkrete Objekte als auch ihre Behälter zu repräsentieren. Damit können sowohl einzelne Objekte als auch ihre Kompositionen einheitlich behandelt werden (\cite{noauthor_kompositum_2019}). Das Makro Command Objekt \texttt{LinkPredictionMacro} wird eingesetzt, um die Kennzahlen von mehreren ausgewählten Algorithmen zu berechnen.
+\begin{figure}
     \centering
     \includegraphics[width=\linewidth]{resources/class_Statistic.png}
     \caption{Klassendiagramm Statistiken}
@@ -64,7 +66,7 @@ Die Qualität der verschiedenen Algoirthmen wird mit der bereits eingeführten A
 Damit das Plugin später einfach um andere Evaluationsmetriken erweitert werden kann, wurde eine neue Basisklasse \texttt{EvaluationMetric} eingeführt.
 Diese enthält den zu evaluierenden Algorithmus, die Berechnung der Kennzahl und die erreichte Güte der Vorhersage. Konkrete Evaluationsmetriken, wie \texttt{LinkPredictionAccuracy} erweitern die abstrakte Basisklasse mit einer konkreten Implementierung der \texttt{calculate}-Methode.
 Abbildung \ref{fig:class_eval} zeigt das vereinfachte Klassendiagramm der Evaluation-Klassen.
-\begin{figure}[h]
+\begin{figure}
     \centering
     \includegraphics[width=\linewidth]{resources/class_Evaluation.png}
     \caption{Klassendiagramm Evaluationskomponente}
@@ -73,13 +75,115 @@ Abbildung \ref{fig:class_eval} zeigt das vereinfachte Klassendiagramm der Evalua
 \end{figure}
 
 Die Filter-Klassen wurden mithilfe des \acs{abstractfactory}\footnote{http://www.hsufengko.com/blog/abstract-factory-design-pattern-example} umgesetzt. Die Klassenstruktur besteht aus dem Factory Pattern mit verschiedenen Builder Klasse und dem Strategy Pattern, welches eine spezifische Umsetzung der Filter pro Algorithmus erlaubt. Abbildung \ref{fig:class_filter} zeigt das resultierende Klassendiagramm.
-\begin{figure}[h]
+\begin{figure}
     \centering
     \includegraphics[width=\linewidth]{resources/class_Filter.png}
     \caption{Klassendiagramm Filter}
     % TODO Add cite to SNA Script
     \label{fig:class_filter}
 \end{figure}
+
+\subsection{Loggingkonzept}
+\label{loggingkonzept}
+
+Im Plugin wird das Logging-Framework log4j\footnote{https://logging.apache.org/log4j/2.x/} eingesetzt.
+Das Logging wird eingesetzt um technische Probleme rückverfolgen zu können: Die Logs zeichnen Ereignisse auf, die für die Entwicklung und den Einsatz des Plugin von Nutzen sein können.
+Insbesondere geht es darum ein Fehlverhalten der Applikation nachvollziehen und dokumentieren zu können.
+
+\textbf{Logger erzeugen}
+Logger sind für das Verfassen von Meldungen verantwortlich. Sie werden direkt aus dem Code aufgerufen und bestimmen mit Hilfe von Appendern wohin und in welchem Format die Meldungen geschrieben werden.
+Für jede Klasse wird ein separater Logger erzeugt. Das Codelisting \ref{lstLoggerCreate} zeigt, wie ein solcher Logger in der gewünschten Klasse erzeugt wird.
+
+\begin{lstlisting}[caption={Erzeugen eines Loggers},label=lstLoggerCreate]
+    import org.apache.log4j.Logger;
+
+    /**
+    * ...
+    */
+    public class LinkPredictionStatistics \{
+
+    // Console Logger
+    private static Logger consoleLogger = LogManager.getLogger(LinkPredictionStatistics.class);
+\end{lstlisting}
+
+\textbf{Log-Einträge erzeugen}
+%TODO: Add Log4j to Glossar
+Log4j bietet verschiedene Log-Levels an, mit welchen Log-Einträge geschrieben werden können.
+Tabelle \ref{tab_log_levels} zeigt die verschiedenen Log-Levels anhand der \acs{API}-Docs von log4i:
+
+\begin{table}[]
+    \centering
+    \resizebox{\textwidth}{!}{%
+    \begin{tabular}{@{}ll@{}}
+        \toprule
+        Level & Beschreibung                                                                                                                                                       \\ \midrule
+        TRACE & The TRACE Level designates finer-grained informational events than the DEBUG                                                                                       \\
+        DEBUG & \begin{tabular}[c]{@{}l@{}}The DEBUG Level designates fine-grained informational events that are most useful\\  to debug an application.\end{tabular}              \\
+        INFO  & \begin{tabular}[c]{@{}l@{}}The INFO level designates informational messages that highlight the progress of the\\ application at coarse-grained level.\end{tabular} \\
+        WARN  & The WARN level designates potentially harmful situations.                                                                                                          \\
+        ERROR & \begin{tabular}[c]{@{}l@{}}The ERROR level designates error events that might still allow the application to con-\\ tinue running\end{tabular}                     \\
+        FATAL & \begin{tabular}[c]{@{}l@{}}The FATAL level designates very severe error events that will presumably lead the \\ application to abort.\end{tabular}                 \\ \bottomrule
+    \end{tabular}%
+    }
+    \caption{Logging-Levels}
+    \label{tab_log_levels}
+\end{table}
+
+Grundsätzlich kann direkt mit den Funktionen auf dem Logger-Objekt (z.B. \texttt{trace}, \texttt{debug}, etc.) geloggt werden.
+Falls in der Log-Meldung Variabeln ausgewertet werden, empfiehlt sich jedoch die Lambda schreibweise mit Lazy-Evaluation.
+Listing \ref{lstLoggerUse} zeigt zwei solcher Beispiele.
+
+\begin{lstlisting}[caption={Log-Einträge erzeugen},label=lstLoggerUse]
+    public int getNextIteration(Graph graph, String algorithm) {
+    consoleLogger.trace("Lookup next iteration");
+    int lastIteration;
+    // do some lookups here
+
+    consoleLogger.log(Level.DEBUG, () -> "Number of last iteration: " + lastIteration);
+    }
+\end{lstlisting}
+
+\textbf{Logger Hierarchie}
+Alle Logger der verschiedenene Klassen erben vom Root-Logger. Über diesen kann die Konfiguration für alle Logger geändert werden.
+Einzelne Logger können die Root-Konfiguration bei Bedarf übersteuern.
+
+\textbf{Appender}
+Aktuell wird im Plugin hautpsächlich der \texttt{ConsoleAppender} eingesetzt.
+Mit dessen Hilfe kann direkt in die Gephi-Konsole geloggt werden.
+
+\textbf{Konfiguration}
+
+\begin{lstlisting}[caption={log4j.xml},label=lstLoggerCreate]
+    <?xml version="1.0" encoding="UTF-8" ?>
+    <Configuration>
+    <Appenders>
+    <Console name="console" target="SYSTEM_OUT">
+    <PatternLayout pattern="%d{HH:mm:ss} %-5p %L [%C] - %m%n"/>
+    </Console>
+
+    <Loggers>
+    <Logger name = "org.gephi.plugins.linkprediction.statistics.PreferentialAttachmentStatistics" additivity="false">
+    <AppenderRef ref="console" />
+    </Logger>
+
+    <Root level="INFO" additivity="false">
+    <AppenderRef ref="file" />
+    </Root>
+    </Loggers>
+
+    </Configuration>
+\end{lstlisting}
+
+\section{Exception-Handling}
+\label{exceptionhandling}
+
+Beim Handling von unerwarteten Situation wird zwischen Exceptions und Errors unterschieden.
+
+Exceptions sind unerwartete Zustände, bei deren das Plugin weiterlaufen kann. Allenfalls ist dabei eine Handlung des Benutzers erforderlich.
+In solchen Situationen wird dem Benutzer ein Pop-up Fenster mit einem entsprechenden Hinweis angezeigt.
+Im Plugin existiert dafür die Basisklasse \texttt{LinkPredictionWarning}, welche durch die konkreten Warning-Klassen erweitert wird.
+Im Gegensatz zu Exceptions tritt bei Errors hingegen ein Fehler auf, der ein korrektes Weiterlaufen des Plugins verhindert.
+In diesem Fall wird auf das Gephi-interne Exception-Handling zurückgegriffen und der Stacktrace dem Benutzer angezeigt.
 
 \section{GUI Konzept}
 
@@ -219,37 +323,44 @@ innerhalb der konfigurierten Iterationswerte liegen.
 
 Dummy text.
 
-\section{Link Prediction}
-Nach Recherche über die verschiedenen Algorithmen wurde entschieden, die Algorithmen "Common Neighbours" und
-"Preferential Attachment" zu implementieren. Diese Entscheidung beruhte darauf, dass sich die beiden Algorithmen
-insofern unterscheiden, dass beim Common-Neighbours-Algorithmus nur Knoten eine Rolle spielen, welche gemeinsame
-Nachbarn aufweisen. Beim zweiten Algorithmus ist dies anders: Dort werden alle Knoten im Bezug aufeinander
-berücksichtigt - hier ist also die Popularität eines einzelnen entscheidend, während beim ersteren Gemeinsamkeiten im
-Vordergrund stehen.
 
-In der Literatur werden hauptsächlich Algorithmen beschrieben, welche auf ungerichtete Graphen anwendbar sind. Algorithmen für gerichtete Graphen weisen eine wesentlich höhere Komplexität auf. Die Arbeit beschränkt sich deshalb auf Link Predictions auf ungerichtete Graphen -
-ein entsprechender Hinweis wurde im Gephi Plugin implementiert.
+\section{Anleitung Software}
 
-\subsection{Common Neighbours}
-In Gephi ist die Berechnung dieses Werts bei den Statistiken unter Link Prediction zu finden. Die berechneten Werte
-werden anschliessend im Data Laboratory gespeichert und können mit Hilfe von Filtern eingeschränkt werden.
+Eine Anleitung der Software befindet sich im Anhang \ref{readme} in Form des README.md.
 
-\begin{figure}[htbp]
-    \includegraphics[width=\linewidth]{resources/gephi-CN.png}
-    \caption{Gephi Common Neighbours Funktion.}
-    \label{fig:screen8}
-\end{figure}
-
-\subsection{Preferential Attachment}
-In Gephi ist die Berechnung dieses Werts bei den Statistiken unter Link Prediction zu finden. Die berechneten Werte
-werden anschliessend im Data Laboratory gespeichert und können mit Hilfe von Filtern eingeschränkt werden.
-
-\begin{figure}[htbp]
-    \includegraphics[width=\linewidth]{resources/gephi-PA.png}
-    \caption{Gephi Preferential Attachment Funktion.}
-    \label{fig:screen9}
-\end{figure}
-
-\section{Evaluationskomponente}
-
-Dummy text.
+%
+%
+%Nach Recherche über die verschiedenen Algorithmen wurde entschieden, die Algorithmen "Common Neighbours" und
+%"Preferential Attachment" zu implementieren. Diese Entscheidung beruhte darauf, dass sich die beiden Algorithmen
+%insofern unterscheiden, dass beim Common-Neighbours-Algorithmus nur Knoten eine Rolle spielen, welche gemeinsame
+%Nachbarn aufweisen. Beim zweiten Algorithmus ist dies anders: Dort werden alle Knoten im Bezug aufeinander
+%berücksichtigt - hier ist also die Popularität eines einzelnen entscheidend, während beim ersteren Gemeinsamkeiten im
+%Vordergrund stehen.
+%
+%In der Literatur werden hauptsächlich Algorithmen beschrieben, welche auf ungerichtete Graphen anwendbar sind. Algorithmen für gerichtete Graphen weisen eine wesentlich höhere Komplexität auf. Die Arbeit beschränkt sich deshalb auf Link Predictions auf ungerichtete Graphen -
+%ein entsprechender Hinweis wurde im Gephi Plugin implementiert.
+%
+%\subsection{Common Neighbours}
+%In Gephi ist die Berechnung dieses Werts bei den Statistiken unter Link Prediction zu finden. Die berechneten Werte
+%werden anschliessend im Data Laboratory gespeichert und können mit Hilfe von Filtern eingeschränkt werden.
+%
+%\begin{figure}[htbp]
+%    \includegraphics[width=\linewidth]{resources/gephi-CN.png}
+%    \caption{Gephi Common Neighbours Funktion.}
+%    \label{fig:screen8}
+%\end{figure}
+%
+%\subsection{Preferential Attachment}
+%In Gephi ist die Berechnung dieses Werts bei den Statistiken unter Link Prediction zu finden. Die berechneten Werte
+%werden anschliessend im Data Laboratory gespeichert und können mit Hilfe von Filtern eingeschränkt werden.
+%
+%\begin{figure}[htbp]
+%    \includegraphics[width=\linewidth]{resources/gephi-PA.png}
+%    \caption{Gephi Preferential Attachment Funktion.}
+%    \label{fig:screen9}
+%\end{figure}
+%
+%\section{Evaluationskomponente}
+%
+%Dummy text.
+%
