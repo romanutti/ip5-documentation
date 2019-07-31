@@ -1,7 +1,17 @@
 \chapter{Anhang}
 
-\section{Projektvereinbarung}
-\label{projektvereinbarung}
+\section{Projektanforderungen}
+\label{projektanforderungen}
+Das Projekt wird im Rahmen des IP5 an der FHNW durchgeführt. Sein Hauptziel ist es, ein Plugin für das Datenanalyse-Tool Gephi zu entwickeln, mithilfe wessen Vorhersagen möglicher neuer Kanten zwischen Knoten in einem Netzwerk durchgeführt werden können. Solche Vorhersagen neuer Verbindungen zwischen zwei Knoten werden Link Predictions genannt. Das Projekt wird von Michael Henninger betreut und wurde auch von ihm in Auftrag gegeben.
+Die genauen Vorgaben für die Umsetzung lauten, wie folgt:
+
+\begin{itemize}
+    \item Von den verschiedenen, existierenden Link Prediction Algorithmen soll mehr als einer ausgewählt und in das Plugin eingebaut werden.
+    \item Da das Plugin am Schluss als Open Source Projekt zur Verfügung gestellt werden soll, muss es umfassend dokumentiert, gut getestet und bezüglich der Algorithmen leicht erweiterbar gestaltet werden.
+    \item Es muss eine geeignete Visualisierung und Datenstruktur gefunden werden, um die vorausgesagten Kanten in einem Netzwerk darzustellen. Dazu müssen mindestens simple Entwürfe skizziert und abgenommen werden.
+    \item Darüber hinaus soll es die Möglichkeit geben, zwei Netzwerke zu verschiedenen Zeitpunkten zu vergleichen und zu berechnen, mit welchem der implementierten Link Prediction Algorithmen die beste Vorhersage gemacht worden wäre. Auch hierfür ist es essentiell, eine geeignete Visualisierung und Datenstruktur zu bestimmen.
+    \item Die vorhergesagten Kanten sollen speziell markiert werden. So können diese beispielsweise eine neue Spalte mit Schwellwerten/Wahrscheinlichkeiten erhalten. Kanten, die es dabei schon von Anfang an gegeben hat, bekommen dabei einen Default-Wert wie 0 oder NULL.
+\end{itemize}
 
 \newpage
 
