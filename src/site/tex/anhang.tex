@@ -108,23 +108,23 @@ Für jede Klasse wird ein separater Logger erzeugt. Das Codelisting \ref{lstLogg
 \subsection{Log-Einträge erzeugen}
 %TODO: Add Log4j to Glossar
 Log4j bietet verschiedene Log-Levels an, mit welchen Log-Einträge geschrieben werden können.
-Tabelle \ref{tab_log_level} zeigt die verschiedenen Log-Levels anhand der \acs{API}-Docs von log4i:
+Tabelle \ref{tab_log_levels} zeigt die verschiedenen Log-Levels anhand der \acs{API}-Docs von log4i:
 
 \begin{table}[]
     \centering
     \resizebox{\textwidth}{!}{%
     \begin{tabular}{@{}ll@{}}
         \toprule
-        Level & Beschreibung                                                                                                             \\ \midrule
-        TRACE & The TRACE Level designates finer-grained informational events than the DEBUG                                             \\
-        DEBUG & The DEBUG Level designates fine-grained informational events that are most useful to debug an application.               \\
-        INFO  & The INFO level designates informational messages that highlight the progress of the application at coarse-grained level. \\
-        WARN  & The WARN level designates potentially harmful situations.                                                                \\
-        ERROR & The ERROR level designates error events that might still allow the application to continue running.                      \\
-        FATAL & The FATAL level designates very severe error events that will presumably lead the application to abort.                  \\ \bottomrule
+        Level & Beschreibung                                                                                                                                                       \\ \midrule
+        TRACE & The TRACE Level designates finer-grained informational events than the DEBUG                                                                                       \\
+        DEBUG & \begin{tabular}[c]{@{}l@{}}The DEBUG Level designates fine-grained informational events that are most useful\\  to debug an application.\end{tabular}              \\
+        INFO  & \begin{tabular}[c]{@{}l@{}}The INFO level designates informational messages that highlight the progress of the\\ application at coarse-grained level.\end{tabular} \\
+        WARN  & The WARN level designates potentially harmful situations.                                                                                                          \\
+        ERROR & \begin{tabular}[c]{@{}l@{}}The ERROR level designates error events that might still allow the application to con-\\ tinue running\end{tabular}                     \\
+        FATAL & \begin{tabular}[c]{@{}l@{}}The FATAL level designates very severe error events that will presumably lead the \\ application to abort.\end{tabular}                 \\ \bottomrule
     \end{tabular}%
     }
-    \caption{}
+    \caption{Logging-Levels}
     \label{tab_log_levels}
 \end{table}
 
@@ -175,5 +175,14 @@ Mit dessen Hilfe kann direkt in die Gephi-Konsole geloggt werden.
 
 \section{Exception-Handling}
 \label{exceptionhandling}
+
+Beim Handling von unerwarteten Situation wird zwischen Exceptions und Errors unterschieden.
+
+Exceptions sind unerwartete Zustände, bei deren das Plugin weiterlaufen kann. Allenfalls ist dabei eine Handlung des Benutzers erforderlich.
+In solchen Situationen wird dem Benutzer ein Pop-up Fenster mit einem entsprechenden Hinweis angezeigt.
+Im Plugin existiert dafür die Basisklasse \texttt{LinkPredictionWarning}, welche durch die konkreten Warning-Klassen erweitert wird.
+Im Gegensatz zu Exceptions tritt bei Errors hingegen ein Fehler auf, der ein korrektes Weiterlaufen des Plugins verhindert.
+In diesem Fall wird auf das Gephi-interne Exception-Handling zurückgegriffen und der Stacktrace dem Benutzer angezeigt.
+%TODO: Add Exception/Error to Glossar
 
 
