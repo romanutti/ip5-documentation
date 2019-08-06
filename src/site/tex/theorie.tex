@@ -4,7 +4,6 @@
 In den folgenden Kapiteln werden die Begriffe ``Social Network Analysis'', ``Social Forces'', ``Graph'' und ``Link-Prediction'' einzeln
 erläutert. Es handelt sich in Bezug auf die Arbeit um grundlegende Begriffe. Weitere Fachbegriffe, die
 in der Arbeit verwendet werden, sind im Glossar beschrieben.
-% TODO Make glossary
 
 \subsection{Social Network Analysis}
 Soziale Netzwerke bestehen aus Akteuren, wie beispielsweise Individuen, Organisationen oder ganze Nationen und deren Beziehungen (\citeauthor{ulrike_baumol_soziale_2019} \citeyear{ulrike_baumol_soziale_2019}, online).
@@ -18,7 +17,7 @@ Gegenwärtig sind sogenannte ``soziale Netzwerke'' allgegenwärtig und werden in
 
 \subsection{Graph}
 Soziale Netzwerke können einfach als Graph modelliert werden.
-Ein Graph $G = (V, E)$ besteht aus einer Menge $V = \{1,2,...,|V|\}$ von Knoten und Kanten $E \subseteq V\times V $ (vgl. \citeauthor{ottmann_algorithmen_2017}, \citeyear{ottmann_algorithmen_2017}, 154). % TODO Verify pagenumber
+Ein Graph $G = (V, E)$ besteht aus einer Menge $V = \{1,2,...,|V|\}$ von Knoten und Kanten $E \subseteq V\times V $ (vgl. \citeauthor{ottmann_algorithmen_2017} \citeyear{ottmann_algorithmen_2017}, S. 590).
 Die Knoten repräsentieren dabei Akteure, während die Kanten die Beziehungen zwischen den Akteuren repräsentieren.
 Abbildung \ref{fig:graph_undirected} zeigt einen ungerichteten Graphen. Die Kanten enthalten dabei keine Pfeile, was verdeutlicht, dass die Interaktion in beide Richtungen erfolgen kann.
 Ein Beispiel für einen ungerichteten Graphen ist das Freundes-Netzwerk von \textit{Facebook}.
@@ -45,9 +44,9 @@ Als Beispiel für einen gerichteten Graphen dient ein E-Mail Netzwerk. Jede Nach
 
 \subsection{Link-Prediction}
 Link-Prediction baut auf einem bestehenden Netzwerk auf und versucht vorherzusagen, welche Kante sich als nächstes bilden werden:
-Der Graph $G = (V, E)$, bestehend aus Knoten ($V$, en.: Vertices) und Kanten ($E$, en.: Edges), hat sich in einem Zeitintervall $G[t, t1]$ gebildet.
-In einem nächsten Zeitintervall $G[t1, t2]$ könnten neue Kanten zum Netzwerk hinzukommen.
-Mittels Link-Prediction wird nun versucht vorherzusagen, welche Kanten in welcher Reihenfolge zum Graphen hinzugefügt werden (\cite{gao_link_2015}, 4).
+Der Graph $G = (V, E)$, bestehend aus Knoten ($V$, en.: Vertices) und Kanten ($E$, en.: Edges), hat sich in einem Zeitintervall $G[t, t_1]$ gebildet.
+In einem nächsten Zeitintervall $G[t_1, t_2]$ könnten neue Kanten zum Netzwerk hinzukommen.
+Mittels Link-Prediction wird nun versucht vorherzusagen, welche Kanten in welcher Reihenfolge zum Graphen hinzugefügt werden (\citeauthor{gao_link_2015} \citeyear{citeauthor}, S. 4).
 Für solche Vorhersagen gibt es verschiedene Algorithmen mit unterschiedlichen Charakteristiken.
 Je nach Eigenschaften des vorliegenden Netzwerks und allfälliger Kontextinformationen liefert ein Algorithmus bessere oder schlechtere Resultate.
 Pro Anwendungsfall muss deshalb evaluiert werden, welcher Algorithmus sich am besten eignet.
