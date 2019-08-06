@@ -55,6 +55,9 @@
 %% declaration of originality.
 \usepackage{pdfpages}
 
+% Appendix
+\usepackage[toc,page]{appendix}
+
 %% Some more packages that you may want to use.  Have a look at the
 %% file, and consult the package docs for each.
 \input{setup/extrapackages}
@@ -117,24 +120,28 @@
 \input{einleitung}
 \input{theorie}
 \input{daten}
-\input{prediction}
+\input{algorithms}
 \input{plugin}
 \input{schluss}
 
-\backmatter
-
-
+\newpage
 \listoffigures
 
+\newpage
 \bibliographystyle{apalike}
 \bibliography{refs}
 
+\newpage
 \input{abbreviations}
+
+\newpage
 \input{glossary}
 
 \appendix
 
 \input{appendix}
+
+\backmatter
 
 % TODO Use form of Hochschule für Technik
 \includepdf[pages={-}]{resources/declaration-originality.pdf}
