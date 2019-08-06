@@ -1,5 +1,5 @@
 % Set abstract title
-\renewcommand*\abstractname{Abstract}
+\renewcommand*\abstractname{Summary}
 \begin{abstract}
   Gephi ist eine Open-Source Software zur explorativen Analyse von Graphen.
   Die Software wird unter anderem im Modul \acl{sna} (\acs{sna}), welches an der Fachhochschule Nordwestschweiz unterrichtet wird, eingesetzt.
@@ -10,5 +10,13 @@
   Der Aufbau des Plugins soll es erlauben, einfach neue Algorithmen hinzuzufügen.
   Nebst der Vorhersage neuer Kanten soll die Qualität der eingesetzten Link-Prediction-Algoithmen beurteilt werden können.
   Als Messgrösse wird hierfür die Accuracy verwendet, welche den prozentualen Anteil richtig vorausgesagter Kanten berechnet.
+
+  Die Durchführbarkeit und Korrektheit der Konzepte wurde mittels einem Proof of Concept geprüft.
+  Die daraus gewonnenen Erkenntnisse wurden in die anschliessende Umsetzung übernommen.
   % TODO Resultate Evaluation der verschiedenen Datensets
+
+  Die erforderlichen Funktionalitäten des Plugins konnten umgesetzt werden.
+  Das Plugin kann weiter verbessert werden, indem gerichtete und auch gewichtete Graphen unterstützt werden.
+  Aktuell kann ausserdem nur für Netzwerken mit bis zu 1000 Knoten eine schnelle Laufzeit garantiert werden.
+  Um auch bei grösseren Netzwerken eine schnellere Performance zu erreichen müssten weitere Optimierungsmassnahmen in Betracht gezogen werden.
 \end{abstract}
