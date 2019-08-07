@@ -204,24 +204,40 @@ Die Herleitung dazu sieht folgendermassen aus:\\
 % TODO: Performance-Optimierung hier schon erwähnen?
 
 \section{Gegenüberstellung der verschiedenen Algorithmen und Netzwerke}
+\label{comparison}
 Die Qualität der verschiedenen Algorithmen kann beurteilt werden, indem die eben eingeführte Accuracy auf die Daten aus Kapitel \ref{daten} angewendet wird.
 Um die Qualität der Algorithmen besser beurteilen zu können, wird die Entwicklung mit zunehmender Anzahl Iterationen betrachtet.
 In jedem Iterationsschritt wird eine neue Kante zu den Graphen hinzugefügt und die Accuracy zu diesem Zeitpunkt berechnet.
 
-Die Tabelle \ref{tab_accuracy_iter} zeigt die Accuracy für die verschiedenen Datensets nach 1, 10, 50 und 100 Iterationen.
-
+Die Tabelle \ref{tab_accuracy_iter} zeigt die Accuracy für die verschiedenen Datensets nach hinzufügen von 1\%, 5\%, 10\% und 50\% neuer Kanten.
+Die Accuracy wird jeweils für die Algorithmen Common Neighbour (CN) und Preferential Attachment (PA) ausgewiesen.
+Für Einträge mit dem Symbol ``\textbf{-}'' sind keine temporalen Daten zur Verifizierung der Accuracy verfügbar.
+Diese Einträge werden bei der Interpretation in den folgenden Abschnitten nicht weiter berücksichtigt.
+%\end{tablenotes}
+% Please add the following required packages to your document preamble:
+% \usepackage{booktabs}
+% \usepackage{graphicx}
 \begin{table}[]
     \centering
+    \label{tab_accuracy_iter}
+    \caption{Erreichte Accuracy in \%}
     \resizebox{\textwidth}{!}{%
-    \begin{tabular}{@{}llrll@{}}
+    \begin{tabular}{@{}lrrrrrrrr@{}}
         \toprule
-        Datenset                         &          & \multicolumn{1}{l}{10} & 50       & 100      \\ \midrule
-        Les Miserables                   & 0.000234 & 0.000234               & 0.000234 & 0.000234 \\
-        Coauthorships in network science & 0.000234 & 0.000234               & 0.000234 & 0.000234 \\
-        Power grid                       & 0.000234 & 0.000234               & 0.000234 & 0.000234 \\ \bottomrule
+        Datenset                     & \multicolumn{8}{c}{Accuracy} \\
+        \cmidrule(lr){2-3}\cmidrule(lr){4-5}\cmidrule(lr){6-7}\cmidrule(lr){8-9}
+        & \multicolumn{2}{c}{1\% neue Kanten}                         & \multicolumn{2}{c}{5\% neue Kanten}                         & \multicolumn{2}{c}{10\% neue Kanten}                        & \multicolumn{2}{c}{50\% neue Kanten} \\ \midrule
+                                        & CN            & PA            & CN            & PA            & CN            & PA            & CN        & PA              \\
+        Hypertext Network               & 22.22         & 33.33         & 27.70         & 30.30         & 25.44         & 29.39         & 32.44     & 37.60           \\
+        College Messages Network        & 0.00          & 0.00          & 0.00          & 0.00          & 0.00          & 0.00          & 0.00      & 0.00            \\
+        Sparrow Social Network          & - \tnote{1}   & - \tnote{1}   & - \tnote{1}   & - \tnote{1}   & - \tnote{1}   & - \tnote{1}   & 26.60     & 26.60           \\
+        Enron Employees Network         & 0.00          & 0.00          & 0.00          & 0.00          & 9.40          & 0.00          & 12.26     & 9.94            \\
+        Tortoise Network                & - \tnote{1}   & - \tnote{1}   & - \tnote{1}   & - \tnote{1}   & 11.54         & 0.00          & 9.73      & 8.85            \\ \bottomrule
     \end{tabular}%
     }
-    \caption{Metrikwerte der Netzwerke}
-    \label{tab_accuracy_iter}
-    %TODO Add correct values to table
+    %\begin{tablenotes}[\flushleft]
+    %    \footnotesize
+    %    \item[1]Keine temporalen Daten zur Verifizierung der prozentualen Anzahl neuer Knoten verfügbar
+    %\end{tablenotes}
 \end{table}
+
