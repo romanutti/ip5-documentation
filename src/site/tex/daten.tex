@@ -29,15 +29,19 @@ In der Tabelle \ref{dataset_info} sind die Informationen zu den einzelnen Datens
     \begin{tabular}{@{}lllr@{}}
         \toprule
         Datenset                        & Anzahl Knoten & Anzahl Kanten & Grösse \\ \midrule
-        Les Miserables\tnote{1}                 & 77     & 254 & 3 KB   \\
-        Coauthorships in network science\tnote{2} & 1589    & 2742 & 28 KB     \\
-        Power grid\tnote{3}                       & 4941   & 6594 & 45 KB   \\ \bottomrule
+        Hypertext Conference Network\tnote{1}                 & 113     & 2163 & 2.5 MB   \\
+        College Messages Network\tnote{2} & 845    & 3166 & 1.2 MB     \\
+        Sparrow Social Network\tnote{3}                 & 52     & 446 & 7 KB   \\
+        Enron Employees Network\tnote{4}                 & 151     & 1583 & 1.4 MB   \\
+        Tortoise Network\tnote{5}                       & 135   & 374 & 19 KB   \\ \bottomrule
     \end{tabular}
     \begin{tablenotes}[\flushleft]
         \footnotesize
-        \item[1] coappearance weighted network of characters in the novel Les Miserables. D. E. Knuth, The Stanford GraphBase: A Platform for Combinatorial Computing, Addison-Wesley, Reading, MA (1993).
-        \item[2] coauthorship network of scientists working on network theory and experiment, as compiled by M. Newman in May 2006. A figure depicting the largest component of this network can be found here. M. E. J. Newman, Phys. Rev. E 74, 036104 (2006).
-        \item[3] An undirected, unweighted network representing the topology of the Western States Power Grid of the United States. Data compiled by D. Watts and S. Strogatz and made available on the web here. Please cite D. J. Watts and S. H. Strogatz, Nature 393, 440-442 (1998).
+        \item[1] Contact network during the Hypertext 2009 conference. Source: http://ociopatterns.org.
+        \item[2] Private messages sent on an online social network at the University of California, Irvine. Users could search the network for others and then initiate conversation based on profile information. An edge (u, v, t) means that user u sent a private message to user v at time t. Source: https://snap.stanford.edu/data/CollegeMsg.html
+        \item[3] Interaction network of sparrows between two points of time. Interaction is defined as birds within an approximately 5-metre radius. Source: https://bansallab.github.io/asnr/data.html
+        \item[4] Social network that represents 151 Enron employees. In this network each exchange of at least 5 emails between any pair of agents across the entire time range (1998 to 2002) is considered as a link. Source: https://pdfs.semanticscholar.org/4d7d/8fe43f391a966e0e15b68e6509fe6b533540.pdf
+        \item[5] Social networks of desert tortoises captured at several points of time. Source: https://bansallab.github.io/asnr/data.html
     \end{tablenotes}
 \end{threeparttable}
 
@@ -113,15 +117,24 @@ Tabelle \ref{tab_metrics} zeigt die berechneten Werte der verschiedenen Netzwerk
 
 \begin{table}[h]
     \centering
-    \resizebox{\textwidth}{!}{%
+    %\resizebox{\textwidth}{!}{%
     \begin{tabular}{@{}llrll@{}}
         \toprule
         Datenset                         & GCC      & Density      & Diameter & ASP      \\ \midrule
-        Les Miserables                   & 0.736 & 0.087 & 5.000 & 2.641 \\
-        Coauthorships in network science & 0.878 & 0.002 & 17.000 & 5.823 \\
-        Power grid                       & 0.107 & 0.001 & 46.000 & 18.989 \\ \bottomrule
+        Hypertext Conference Network                & 0.535 & 0.342 & 3.000 & 1.661 \\
+        College Messages Network         & 0.122 & 0.001 & 7.000 & 3.108 \\
+        Sparrow Social Network           & 0.695 & 0.336 & 3.000 & 1.756 \\
+        Enron Employees Network          & 0.519 & 0.133 & 4.000 & 2.136 \\
+        Tortoise Network                 & 0.391 & 0.041 & 10.000 & 3.735 \\ \bottomrule
     \end{tabular}%
-    }
+    %}
     \caption{Metrikwerte der Netzwerke}
     \label{tab_metrics}
 \end{table}
+
+Auffallend sind dabei insbesondere die tiefen Werte für \acs{gcc} und \acs{density} beim College Messages Network.
+Daraus kann geschlossen werden, dass Knoten in diesem Netzwerk nur lose zusammenhängen und die Verknüpfung nicht sehr stark ausgeprägt ist.
+Beim Tortoise Network weichen ausserdem die Werte für Density und Diameter von den Werten der anderen Datensets ab.
+Die Werte legen die Vermutung nahe, dass dieses Netzwerk ebenfalls nicht sehr stark verknüpft ist.
+% TODO Aussagen verifizieren
+Diesen stark abweichenden Werten gilt bei der Interpration der erzielten Resultate der verschiedenen Algorithmen (vgl. Kapitel \ref{comparison}) besonderes Augenmerk.
