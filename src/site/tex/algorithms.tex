@@ -249,3 +249,81 @@ Um die Vermutung empirisch zu überprüfen, müssten jedoch noch weitere Netzwer
 Weiter fällt auf, dass die erreichten Accuracy-Werte mit zunehmender Anzahl hinzugefügter Knoten steigen.
 Dies ist auf die aktuelle Implementierung zurückzuführen: Für jede hinzugefügte Kante wird überprüft, ob diese im Graphen vorhanden ist.
 Je Grösser die Anzahl hinzugefügter Kanten, desto grösser auch die Wahrscheinlichkeit, dass eine hinzugefügte Kante im Graphen existiert.
+Abbildung \ref{fig_hypertext} zeigt dies am Beispiel vom Hypertext Conference Network.
+
+\begin{figure}[h]
+\centering
+\begin{tikzpicture}
+    \begin{axis}[
+    xlabel=Neue Kanten in \%,
+    ylabel=Accuracy]
+        \addplot[smooth,mark=*,blue] plot coordinates {
+        (1,22.22)
+        (5,27.70)
+        (10,25.44)
+        (50,32.44)
+        };
+        \addlegendentry{CN}
+
+        \addplot[smooth,color=red,mark=x]
+        plot coordinates {
+        (1,33.33)
+        (5,30.30)
+        (10,29.39)
+        (50,37.6)
+        };
+        \addlegendentry{PA}
+    \end{axis}
+\end{tikzpicture}
+\label{fig_hypertext}
+\caption{Accuracy im Hypertext Network}
+\end{figure}
+
+Bei den berechneten Werten kann festgestellt werden, dass die berechneten Prediction-Werte beim Common Neighbour weniger breit gestreut sind als beim Preferential Attachment.
+In der aktuellen Implementierung wird für die Wahl des nächsten Prediction Links eine Priority Queue verwendet. Falls es mehrere potentielle Kanten mit demselben Prediction-Wert gibt, wird willkürlich eine der Kanten ausgewählt.
+Da beim Preferential Attachment Algorithmus die Werte besser Streuen, kann eindeutiger gesagt werden, welche Kante als nächstes zum Netzwerk hinzugefügt werden soll.
+Abbildung \ref{fig_histogram}
+zeigt die Verteilung der berechneten Werte bei 50\% hinzugefügter Kanten für das Hypertext Conference Network.
+
+\begin{figure}
+    \centering
+    \begin{tikzpicture}
+        \begin{axis}[ybar, xlabel = Anzahl identischer Werte, ylabel = Häufigkeit]
+
+            \addplot +[bar width=1] table {
+            1 1
+            2 2
+            3 1
+            4 1
+            5 1
+            6 1
+            7 1
+            8 0
+            9 2
+            10 1
+            11 1
+            12 84
+            };
+            \addlegendentry{CN}
+
+            \addplot +[bar width=1, opacity=0.5] table {
+            1 184
+            2 132
+            3 65
+            4 24
+            5 14
+            6 15
+            7 5
+            8 6
+            9 6
+            10 0
+            11 2
+            12 2
+            };
+         \addlegendentry{PA}
+        \end{axis}
+\end{tikzpicture}
+\label{fig_histogram}
+\caption{Histogram der errechneten Werte im Hypertext Network}
+\end{figure}
+
