@@ -195,9 +195,8 @@ In diesem Fall wird auf das Gephi-interne Exception-Handling zurückgegriffen un
 
 \section{GUI Konzept}
 
-Die Link Prediction Funktionalität soll möglichst gut in die bestehende Gephi Benutzeroberfläche integriert werden.
+Die Link-Prediction-Funktionalität soll möglichst gut in die bestehende Gephi-Benutzeroberfläche integriert werden.
 Bei der Analyse der bestehenden \acs{ui}-Elemente stellten sich die folgenden Punkte heraus:
-:
 
 \begin{itemize}
     \item Unter dem Menü-Punkt \ovalbox{Statistics} werden diverse Werte des Graphen berechnet und gegebenenfalls im Data Laboratory
@@ -236,20 +235,17 @@ nicht eingezeichnet.
 
 Falls die \ovalbox{Start}-Schaltfläche angewählt wird, öffnet sich ein Pop-up Fenster, in welchem man verschiedene Algorithmen auswählen
 kann. Für alle ausgewählten Algorithmen, werden Link Predictions durchgeführt. Abbildung \ref{fig:screen2} zeigt das Pop-up für die Auswahl der Berechnung. Weitere Informationen zum jeweiligen Algorithmus werden angezeigt, wenn mit der Maus über das entsprechende Element gefahren wird. In einem zusätzlichen Eingabefeld kann man einen Wert
-$>= 1$ eingeben. Dieser besagt, wie viele Durchgänge bei der Link Prediction gemacht werden sollen, respektive wie viele
-neue Kanten dem Graphen hinzugefügt werden.
+$>= 1$ eingeben. Dieser besagt, wie viele Durchgänge bei der Link Prediction durchlaufen werden sollen, respektive wie viele
+neue Kanten dem Graphen hinzugefügt werden. Die einzelnen Kanten werden iterativ zum Graphen hinzugefügt. Die Berechnung des nächsten vorhergesagten Wertes basiert immer auf dem Graphen des vorherigen Iterationsschrittes.
 
-Die einzelnen Kanten werden iterativ zum Graphen hinzugefügt. Die Berechnung des nächsten vorhergesagten Wertes basiert immer auf dem Graphen des vorherigen Iterationsschrittes.
-
-\item \textbf{Filter:} Die hinzugefügten Kanten können via Filter angezeigt werden. Dabei können die anzuzeigenden Kanten einerseits auf einen Algorithmus, andererseits auf eine gewünschte Anzahl hinzugefügter Kanten beschränkt werden.
+Die hinzugefügten Kanten können via Filter angezeigt werden. Dabei können die anzuzeigenden Kanten einerseits auf einen Algorithmus, andererseits auf eine gewünschte Anzahl hinzugefügter Kanten beschränkt werden.
 
 % TODO: Weglassen?
 %Die Funktion der zusätzlichen Konfiguration eines Algorithmus ("advanced" Button) wird offen gehalten, wird aber für die
 %Implementierung des Common Neighbour und Preferential Attachment Algorithmus derzeit nicht benötigt.
 
 Ein grosses Netzwerk oder auch eine hohe Anzahl an Iterationen kann in einer grossen Laufzeit resultieren.
-In diesem Fall soll eine Warnung an den User ausgegeben
-werden. Wird diese bestätigt, so wird der Algorithmus trotzdem berechnet. Beim Abbruch kann der User seine gewünschten
+In diesem Fall wird eine Warnung an den User ausgegeben. Wird diese bestätigt, so wird der Algorithmus trotzdem berechnet. Beim Abbruch kann der User seine gewünschten
 Parameter nochmals verändern.
 
 \begin{figure}
@@ -261,7 +257,7 @@ Parameter nochmals verändern.
 Abbildung \ref{fig:screen3} zeigt den Graph nach der Berechnung Link Predictions.
 Gegenüber dem initialen Graphen wurden neue Kanten hinzugefügt.
 Diese können mit Hilfe der Appearance-Einstellungen eingefärbt werden, da im Data Laboratory Felder enthalten sind, die aussagen, ob eine
-Kante mit einem Link Prediction Algorithmus hinzugefügt wurde oder ob sie bereits existiert hat.
+Kante mit einem Link-Prediction-Algorithmus hinzugefügt wurde oder ob sie bereits existiert hat.
 
 \begin{figure}
     \includegraphics[width=\linewidth]{resources/SC-4.png}
@@ -269,26 +265,26 @@ Kante mit einem Link Prediction Algorithmus hinzugefügt wurde oder ob sie berei
     \label{fig:screen4}
 \end{figure}
 
-Abbildung \ref{fig:screen4} zeigt die neuen Kanten im \ovalbox{Data Laboratory}.
+Abbildung \ref{fig:screen4} auf der nächsten Seite zeigt die neuen Kanten im \ovalbox{Data Laboratory}.
 Wie bereits erwähnt, wurden den Kanten neue Attribute hinzugefügt.
 % TODO: Heisst in impl neu anders?
 Neu gibt es ein Attribut ``Link Prediction Algorithm'', in welchem ersichtlich ist, mit welchem Algorithmus die Kante hinzugefügt wurde.
-Falls das Attribut keinen Wert enthält, war die Spalte bereits im initialen Graphen vorhanden.
+Falls das Attribut keinen Wert enthält, war die Kante bereits im initialen Graphen vorhanden.
 
-Eine weiteres Attribut ist ``Added in Run''. Gibt der User bei der Berechnung den Wert $3$ mit, so werden hier 3 Kanten pro
-ausgewähltem Algorithmus nacheinander hinzugefügt. Damit nachträglich erstlichich ist, in welchem Durchlauf eine
-Kante hinzugefügt wurde, wird der Iterationsdurchgang in diesem Attribut persisiert.
-Ein Wert von $1$ bedeuted demnach, dass die Kante in der ersten Iteration hinzugefügt wurde, währen ein Wert von $3$ bedeutet, dass die Kante im dritten Durchlauf zum Graphen hinzugefügt wurde.
+Eine weiteres Attribut ist ``Added in Run''. Gibt der User bei der Berechnung den Wert $3$ mit, so werden drei Kanten pro
+ausgewähltem Algorithmus nacheinander hinzugefügt. Damit nachträglich ersichtlich ist, in welchem Durchlauf eine
+Kante hinzugefügt wurde, wird der Iterationsdurchgang in diesem Attribut persistiert.
+Ein Wert von $1$ bedeutet demnach, dass die Kante in der ersten Iteration hinzugefügt wurde, während ein Wert von $3$ bedeutet, dass die Kante im dritten Durchlauf zum Graphen hinzugefügt wurde.
 Kanten, die bereits im initialen Graphen vorhanden waren, enthalten keinen Wert in dieser Spalte.
 
-Bei der dritten zusätzlichen Spalte "Last Value" wird der letzte berechnete Wert einer neu hinzugefügten Spalte eingetragen.
+Bei der dritten zusätzlichen Spalte ``Last Value'' wird der letzte berechnete Wert einer neu hinzugefügten Kante eingetragen.
 Damit kann nachträglich einfach nachvollzogen werden, aufgrund welcher Wahrscheinlichkeit eine Kante zum Graphen hinzugefügt wurde.
 Bei Kanten, die im initialen Graphen bereits vorhanden waren, ist dieses Attribut wiederum leer.
 
 \subsection{Filtern vorhergesagter Kanten}
 
 Die neu hinzugefügten Kanten sollen gefiltert werden können.
-Der folgende Abschnitt veranschaulicht, wie die Funktionlität im Gephi Plugin visualisiert wird.
+Der folgende Abschnitt veranschaulicht, wie die Funktionalität im Gephi Plugin visualisiert wird.
 
 \begin{figure}
     \includegraphics[width=\linewidth]{resources/SC-5.png}
@@ -296,22 +292,20 @@ Der folgende Abschnitt veranschaulicht, wie die Funktionlität im Gephi Plugin v
     \label{fig:screen5}
 \end{figure}
 
-In Abbilung \ref{fig:screen5} istzu sehen, wie der Link Prediction Filter in die bestehende Übersicht eingebunden wird.
+In Abbildung \ref{fig:screen5} auf der nächsten Seite ist zu sehen, wie der Link-Prediction-Filter in die bestehende Übersicht eingebunden wird.
 Unter der Schaltfläche \ovalbox{Filter} gibt es eine neue Kategorie ``Link Predictions''.
 Darin werden die Filter für die verschiedenen Algorithmen aufgeführt.
 Mithilfe eines grafischen Elements kann konfiguriert werden, welche Kanten des jeweiligen Algorithmus angezeigt werden sollen.
-Durch Positionieren des Sliders können alle Kanten ausgewählt werden, welche in einem gewünschten Iterationrange zum Graphen hinzugefügt wurden.
+Durch Positionieren des Sliders können alle Kanten ausgewählt werden, welche in einem gewünschten Iterationsrange zum Graphen hinzugefügt wurden.
 Der Filter wird durch Anwählen der Schaltfläche \ovalbox{Start} angewendet.
 
 Falls für den spezifischen Algorithmus noch keine Kanten zum Graphen hinzugefügt wurden, erscheint ein Pop-up Fenster mit entsprechendem Hinweis.
-Abbildung \ref{fig:screen6} zeigt das Pop-up Fenster.
-
+Abbildung \ref{fig:screen6} auf der nächsten Seite zeigt das Pop-up Fenster.
 \begin{figure}
     \includegraphics[width=\linewidth]{resources/SC-6.png}
     \caption{Fehlermeldung, wenn die Berechnung der Link Prediction noch nicht durchgeführt wurde.}
     \label{fig:screen6}
 \end{figure}
-
 Der Platzhalter ``Link Prediction Filter'' wird durch den gewählten Algorithmus, z.B. ``Common Neighbour Filter'' ersetzt.
 Ursprünglich war angedacht, dass im Fehlerfall die Berechnung direkt aus dem Pop-up Fenster angestossen werden soll.
 Um die Trennung zwischen den beiden Konzepten \textit{Filter} und \textit{Statistik} klar zu halten, wurde darauf verzichtet.
