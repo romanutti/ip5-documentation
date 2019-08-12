@@ -1,0 +1,44 @@
+\changetocdepth {2}
+\babel@toc {german}{}
+\contentsline {chapter}{Inhalt}{ii}{section*.1}% 
+\contentsline {chapter}{\chapternumberline {1}Einleitung}{1}{chapter.1}% 
+\contentsline {section}{\numberline {1.1}Ausgangslage}{1}{section.1.1}% 
+\contentsline {section}{\numberline {1.2}Zielsetzung}{1}{section.1.2}% 
+\contentsline {section}{\numberline {1.3}Verwendete Software und Lizenzen}{2}{section.1.3}% 
+\contentsline {chapter}{\chapternumberline {2}Theoretische Grundlagen}{3}{chapter.2}% 
+\contentsline {section}{\numberline {2.1}Begriffsdefinitionen}{3}{section.2.1}% 
+\contentsline {subsection}{\numberline {2.1.1}Social Network Analysis}{3}{subsection.2.1.1}% 
+\contentsline {subsection}{\numberline {2.1.2}Social Forces}{3}{subsection.2.1.2}% 
+\contentsline {subsection}{\numberline {2.1.3}Graph}{3}{subsection.2.1.3}% 
+\contentsline {subsection}{\numberline {2.1.4}Link-Prediction}{4}{subsection.2.1.4}% 
+\contentsline {chapter}{\chapternumberline {3}Daten}{6}{chapter.3}% 
+\contentsline {section}{\numberline {3.1}Anforderungen}{6}{section.3.1}% 
+\contentsline {section}{\numberline {3.2}Datenaufbereitung}{6}{section.3.2}% 
+\contentsline {section}{\numberline {3.3}Charakteristiken der Netzwerke}{7}{section.3.3}% 
+\contentsline {chapter}{\chapternumberline {4}Link Prediction}{10}{chapter.4}% 
+\contentsline {section}{\numberline {4.1}Algorithmen}{10}{section.4.1}% 
+\contentsline {subsection}{\numberline {4.1.1}Common Neighbours}{10}{subsection.4.1.1}% 
+\contentsline {subsection}{\numberline {4.1.2}Preferential Attachment}{12}{subsection.4.1.2}% 
+\contentsline {section}{\numberline {4.2}Evaluation}{14}{section.4.2}% 
+\contentsline {section}{\numberline {4.3}Gegen\IeC {\"u}berstellung der verschiedenen Algorithmen und Netzwerke}{15}{section.4.3}% 
+\contentsline {chapter}{\chapternumberline {5}Plugin}{18}{chapter.5}% 
+\contentsline {section}{\numberline {5.1}Software Architektur}{18}{section.5.1}% 
+\contentsline {subsection}{\numberline {5.1.1}Klassenstruktur}{19}{subsection.5.1.1}% 
+\contentsline {subsection}{\numberline {5.1.2}Loggingkonzept}{21}{subsection.5.1.2}% 
+\contentsline {subsection}{\numberline {5.1.3}Exception-Handling}{24}{subsection.5.1.3}% 
+\contentsline {section}{\numberline {5.2}GUI Konzept}{24}{section.5.2}% 
+\contentsline {subsection}{\numberline {5.2.1}Vorhersagen neuer Kanten}{24}{subsection.5.2.1}% 
+\contentsline {subsection}{\numberline {5.2.2}Filtern vorhergesagter Kanten}{28}{subsection.5.2.2}% 
+\contentsline {subsection}{\numberline {5.2.3}Beurteilung der Qualit\IeC {\"a}t verschiedener Algorithmen}{29}{subsection.5.2.3}% 
+\contentsline {section}{\numberline {5.3}Anleitung Software}{30}{section.5.3}% 
+\contentsline {chapter}{\chapternumberline {6}Diskussion und Ausblick}{31}{chapter.6}% 
+\contentsline {section}{\numberline {6.1}Erreichtes}{31}{section.6.1}% 
+\contentsline {section}{\numberline {6.2}Ausblick}{32}{section.6.2}% 
+\contentsline {chapter}{Abbildungsverzeichnis}{33}{section*.2}% 
+\contentsline {chapter}{Abk\IeC {\"u}rzungsverzeichnis}{34}{chapter*.3}% 
+\contentsline {chapter}{Glossar}{35}{chapter*.4}% 
+\contentsline {appendix}{\chapternumberline {A}Anhang Software}{37}{appendix.A}% 
+\contentsline {section}{\numberline {A.1}Proof of Concept}{37}{section.A.1}% 
+\contentsline {section}{\numberline {A.2}README.md}{40}{section.A.2}% 
+\contentsline {appendix}{\chapternumberline {B}Weiteres}{43}{appendix.B}% 
+\contentsline {section}{\numberline {B.1}Projektanforderungen}{43}{section.B.1}% 

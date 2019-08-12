@@ -1,0 +1,30 @@
+\BOOKMARK [0][-]{section*.1}{Inhalt}{}% 1
+\BOOKMARK [0][-]{chapter.1}{Einleitung}{}% 2
+\BOOKMARK [1][-]{section.1.1}{Ausgangslage}{chapter.1}% 3
+\BOOKMARK [1][-]{section.1.2}{Zielsetzung}{chapter.1}% 4
+\BOOKMARK [1][-]{section.1.3}{Verwendete Software und Lizenzen}{chapter.1}% 5
+\BOOKMARK [0][-]{chapter.2}{Theoretische Grundlagen}{}% 6
+\BOOKMARK [1][-]{section.2.1}{Begriffsdefinitionen}{chapter.2}% 7
+\BOOKMARK [0][-]{chapter.3}{Daten}{}% 8
+\BOOKMARK [1][-]{section.3.1}{Anforderungen}{chapter.3}% 9
+\BOOKMARK [1][-]{section.3.2}{Datenaufbereitung}{chapter.3}% 10
+\BOOKMARK [1][-]{section.3.3}{Charakteristiken der Netzwerke}{chapter.3}% 11
+\BOOKMARK [0][-]{chapter.4}{Link Prediction}{}% 12
+\BOOKMARK [1][-]{section.4.1}{Algorithmen}{chapter.4}% 13
+\BOOKMARK [1][-]{section.4.2}{Evaluation}{chapter.4}% 14
+\BOOKMARK [1][-]{section.4.3}{Gegen\374berstellung der verschiedenen Algorithmen und Netzwerke}{chapter.4}% 15
+\BOOKMARK [0][-]{chapter.5}{Plugin}{}% 16
+\BOOKMARK [1][-]{section.5.1}{Software Architektur}{chapter.5}% 17
+\BOOKMARK [1][-]{section.5.2}{GUI Konzept}{chapter.5}% 18
+\BOOKMARK [1][-]{section.5.3}{Anleitung Software}{chapter.5}% 19
+\BOOKMARK [0][-]{chapter.6}{Diskussion und Ausblick}{}% 20
+\BOOKMARK [1][-]{section.6.1}{Erreichtes}{chapter.6}% 21
+\BOOKMARK [1][-]{section.6.2}{Ausblick}{chapter.6}% 22
+\BOOKMARK [0][-]{section*.2}{Abbildungsverzeichnis}{}% 23
+\BOOKMARK [0][-]{chapter*.3}{Abk\374rzungsverzeichnis}{}% 24
+\BOOKMARK [0][-]{chapter*.4}{Glossar}{}% 25
+\BOOKMARK [0][-]{appendix.A}{Anhang Software}{}% 26
+\BOOKMARK [1][-]{section.A.1}{Proof of Concept}{appendix.A}% 27
+\BOOKMARK [1][-]{section.A.2}{README.md}{appendix.A}% 28
+\BOOKMARK [0][-]{appendix.B}{Weiteres}{}% 29
+\BOOKMARK [1][-]{section.B.1}{Projektanforderungen}{appendix.B}% 30
