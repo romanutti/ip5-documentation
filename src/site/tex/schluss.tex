@@ -8,13 +8,13 @@ In den folgenden Kapiteln werden die Resultate reflektiert und ein Ausblick auf 
 \section{Erreichtes}
 
 Das Ziel, ein Link-Prediction-Plugin zu entwickeln, ist erreicht worden.
-Neben den erforderlichen Funktionen zur Vorhersage von Links und zur Evaluation der verschiedenen Algorithmen wurde zusätzlich ein Filter zum selektieren der Kanten je Algorithmus entwickelt.
+Neben den erforderlichen Funktionen zur Vorhersage von Links und zur Evaluation der verschiedenen Algorithmen wurde zusätzlich ein Filter zum Selektieren der Kanten je Algorithmus entwickelt.
 Die verwendete Architektur erlaubt es, einfach neue Link-Prediction-Algorithmen und Kennzahlen zur Beurteilung der Qualität der Algorithmen hinzuzufügen.
 Als Reaktion auf die anfänglich langen Laufzeiten bei grossen Graphen wurde die Berechnung der Link-Predictions optimiert:
 Für die Berechnung der Link-Prediction-Werte müssen sämtliche Knoten initial zweimal durchlaufen werden.
-Indem beim Hinzufügen einer neuen Kante nur die beiden davon betroffenen Kanten geändert werden, kann der Aufwand für alle weiteren Iterationen drastisch reduziert werden.
+Indem beim Hinzufügen einer neuen Kante nur die noch möglichen Kanten der beiden veränderten Knoten neu berechnet werden, kann der Aufwand für alle weiteren Iterationen drastisch reduziert werden.
 
-Tests mit der aktuellen Implementierung haben gezeigt, das Link-Predictions in Graphen mit bis zu 1000 Knoten problemlos berechnet werden können.
+Tests mit der aktuellen Implementierung haben gezeigt, dass Link-Predictions in Graphen mit bis zu 1000 Knoten problemlos und schnell berechnet werden können.
 Das Berechnen in grösseren Graphen kann in längeren Laufzeiten resultieren.
 Ein entsprechender Hinweis wurde im README.md vermerkt.
 
@@ -34,8 +34,8 @@ Folgende Möglichkeiten würden sich dazu anbieten:
 Aktuell werden vom Plugin nur ungerichtete und ungewichtete Graphen unterstützt.
 Falls die Algorithmen auf gerichtete Graphen angewendet werden, werden ausgehende und eingehende Kanten zwischen denselben zwei Knoten als eine Kante betrachtet:
 Ein Graph mit einer Kante von Knoten $A$ nach Knoten $C$ und einer Kante von Knoten $C$ nach Knoten $A$ würde von den Algorithmen als eine Kante zwischen den beiden Knoten interpretiert.
-In künftigen Releasen könnte zusätzlich die Funktionalität angeboten werden, ungerichtete und gerichtete Graphen unterschiedlich zu behandeln.
+In künftigen Releases könnte zusätzlich die Funktionalität angeboten werden, ungerichtete und gerichtete Graphen unterschiedlich zu behandeln.
 
-Weiter könnten auch Kantengewichte mit in die Berechnungen einbezogen werden.
+Weiter könnten auch Kantengewichte und sofern vorhanden andere Attribute mit in die Berechnungen einbezogen werden.
 Aktuell werden diese ignoriert und neue Kanten nicht gewichtet.
 % TODO Verweis auf Literatur für Algorithmen mit gewichteten Kanten

@@ -69,17 +69,15 @@ Das Listing \ref{lstLinkPrediction} zeigt die vereinfachte Struktur der Methode.
 \end{lstlisting}
 
 Eine ähnliche Struktur wird bei der Evaluationskomponente verwendet.
-<<<<<<< HEAD
 Die Qualität der verschiedenen Algorithmen wird mit der bereits eingeführten Accuracy (vgl. Formel \ref{eq:acc}) bestimmt.
 Damit das Plugin später einfach um andere Evaluationsmetriken erweitert werden kann, wurde eine neue Basisklasse \texttt{EvaluationMetric} eingeführt.
 Diese enthält den zu evaluierenden Algorithmus, die Berechnung der Kennzahl und die erreichte Güte der Vorhersage. Konkrete Evaluationsmetriken wie \texttt{LinkPredictionAccuracy} erweitern die abstrakte Basisklasse mit einer konkreten Implementierung der \texttt{calculate}-Methode.
 Abbildung \ref{fig:class_eval} zeigt das vereinfachte Klassendiagramm der Evaluations-Klassen.
-=======
 Die Qualität der verschiedenen Algorythmen wird mit der bereits eingeführten Accuracy (vgl. Formel \ref{eq:acc}) bestimmt.
 Damit das Plugin später einfach um andere Evaluationsmetriken erweitert werden kann, wurde eine neue Basisklasse \texttt{EvaluationMetric} eingeführt.
 Diese enthält den zu evaluierenden Algorithmus, die Berechnung der Kennzahl und die erreichte Güte der Vorhersage. Konkrete Evaluationsmetriken, wie \texttt{LinkPredictionAccuracy} erweitern die abstrakte Basisklasse mit einer konkreten Implementierung der \texttt{calculate}-Methode.
 Abbildung \ref{fig:class_eval} auf der nächsten Seite zeigt das vereinfachte Klassendiagramm der Evaluation-Klassen.
->>>>>>> 5bc88793ec2aefe1b9c58aa97fd04fc2d99b376b
+
 \begin{figure}
     \centering
     \includegraphics[width=\linewidth]{resources/class_Evaluation.png}
@@ -101,22 +99,16 @@ Die Filter-Klassen wurden mithilfe des \acs{abstractfactory}\footnote{http://www
 \label{loggingkonzept}
 
 Im Plugin wird das Logging-Framework log4j\footnote{https://logging.apache.org/log4j/2.x/} eingesetzt.
-<<<<<<< HEAD
 Das Logging wird eingesetzt, um technische Probleme zurückverfolgen zu können: Die Logs zeichnen Ereignisse auf, die für die Entwicklung und den Einsatz des Plugins von Nutzen sein können.
 Insbesondere geht es darum, ein Fehlverhalten der Applikation nachvollziehen und dokumentieren zu können.
-=======
 Das Logging wird eingesetzt um technische Probleme rückverfolgen zu können: Die Logs zeichnen Ereignisse auf, die für die Entwicklung und den Einsatz des Plugin von Nutzen sein können.
 Insbesondere geht es darum ein Fehlverhalten der Applikation nachvollziehen und dokumentieren zu können. Das Logging kann in Gephi direkt in einer Konsole ausgegeben werden.
->>>>>>> 5bc88793ec2aefe1b9c58aa97fd04fc2d99b376b
 
 \newpage
 \textbf{Logger erzeugen}
-<<<<<<< HEAD
 Logger sind für das Verfassen von Meldungen verantwortlich. Sie werden direkt aus dem Code aufgerufen und bestimmen mit Hilfe von Appendern, wohin und in welchem Format die Meldungen geschrieben werden.
-=======
 
 Logger sind für das Verfassen von Meldungen verantwortlich. Sie werden direkt aus dem Code aufgerufen und bestimmen mit Hilfe von Appendern wohin und in welchem Format die Meldungen geschrieben werden.
->>>>>>> 5bc88793ec2aefe1b9c58aa97fd04fc2d99b376b
 Für jede Klasse wird ein separater Logger erzeugt. Das Codelisting \ref{lstLoggerCreate} zeigt, wie ein solcher Logger in der gewünschten Klasse erzeugt wird.
 
 \begin{lstlisting}[caption={Erzeugen eines Loggers},label=lstLoggerCreate]
@@ -265,12 +257,9 @@ Dieser besagt, wie viele Durchgänge bei der Link Prediction gemacht werden soll
 
 Die einzelnen Kanten werden iterativ zum Graphen hinzugefügt. Die Berechnung des nächsten vorhergesagten Wertes basiert immer auf dem Graphen des vorherigen Iterationsschrittes.
 
-<<<<<<< HEAD
 \item \textbf{Filter:} Die hinzugefügten Kanten können via Filter angezeigt werden.
 Dabei können die anzuzeigenden Kanten einerseits auf einen Alorithmus, andererseits auf eine gewünschte Anzahl hinzugefügter Kanten beschränkt werden.
-=======
 \item \textbf{Filter:} Die hinzugefügten Kanten können via Filter angezeigt werden. Dabei können die anzuzeigenden Kanten einerseits auf einen Algorithmus, andererseits auf eine gewünschte Anzahl hinzugefügter Kanten beschränkt werden.
->>>>>>> 5bc88793ec2aefe1b9c58aa97fd04fc2d99b376b
 
 % TODO: Weglassen? --> Eventuell sinnvoll bei Kapitel Ausblick einzufügen?
 %Die Funktion der zusätzlichen Konfiguration eines Algorithmus ("advanced" Button) wird offen gehalten, wird aber für die

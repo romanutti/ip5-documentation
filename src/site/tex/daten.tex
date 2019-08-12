@@ -1,18 +1,20 @@
 \chapter{Daten}
 \label{daten}
-Um die Korrektheit von Link Predictions testen zu können, und um die Güte der verschiedenen Algorithmen bestimmen zu können, werden bestehende Netzwerke verwendet.
+Um die Korrektheit von Link Predictions testen zu können und um die Güte der verschiedenen Algorithmen bestimmen zu können, werden bestehende Netzwerke verwendet.
 Es wurden dafür temporale Datensets, welche in der Literatur und auf dem GitHub-Repository von Gephi verfügbar sind, verwendet (vgl. \citeauthor{moll_datasets_2018} \citeyear{moll_datasets_2018}, online).
 
 \section{Anforderungen}
 Für den Aufbau der verschiedenen Tests wird ein Netzwerk zu einem bestimmten Zeitpunkt $t$ benötigt.
 Auf diesem werden anschliessend Link Predictions durchgeführt.
 Der veränderte Graph wird anschliessend mit dem effektiven Graphen zum Zeitpunkt $t + n$ verglichen.
-Dies bedingt, dass die Kanten mit einer Nummerierung oder einem Zeitstempel versehen sind.
+Dies bedingt, dass die Kanten mit einer fixen Nummerierung oder einem Zeitstempel versehen sind.
 Die Anforderung besteht nur für die Entwicklung und Charakterisierung der Evaluationskomponente.
-Im Plugin werden Graphen unabhängig von der Reihenfolge hinzugefügter Kanten bewertet.
+Im Plugin werden Graphen unabhängig von der Reihenfolge der hinzugefügten Kanten bewertet.
 
 Bei allen Netzwerken handelt es sich um ungerichtete Graphen.
 % TODO Begriffe Graph / Netzwerk abgrenzen?
+Bei einem Netzwerk kann es sich dabei beispielsweise, um die Kanten und Knoten eines sozialen Netwerks wie Twitter handeln.
+Bei $t$ followed Person A vielleicht 3 Personen, bei $t + n$ hingegen 5. Dies ergibt dann zwei verschiedene Graphen für dasselbe Netzwerk.
 
 \section{Datenaufbereitung}
 Um die Korrektheit einzelner und die Güte mehrerer Vorhersagen am effektiven Graphen zu überprüfen, müssen die Datensets in Initial- und Validierungsdaten unterteilt werden.
@@ -112,7 +114,7 @@ Die Formel dafür lautet folgendermassen:
 \end{equation}
 
 Mithilfe dieser Metriken lässt sich die gesamte Netzwerkstruktur einordnen.
-Tabelle \ref{tab_metrics} zeigt die berechneten Werte der verschiedenen Netzwerken.
+Tabelle \ref{tab_metrics} zeigt die berechneten Werte der verschiedenen Netzwerke.
 
 \begin{table}[h]
     \centering
