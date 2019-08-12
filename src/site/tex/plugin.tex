@@ -1,6 +1,6 @@
 \chapter{Plugin}
 
-Basierend auf den beschriebenen Erkenntnissen wurde ein Plugin für Gephi entwickelt, mit welchem Kanten mit verschiedenen Link Prediction Algorithmen vorhergesagt werden können.
+Basierend auf den beschriebenen Erkenntnissen wurde ein Plugin für Gephi entwickelt, mit welchem Kanten mit verschiedenen Link-Prediction-Algorithmen vorhergesagt werden können.
 Kanten, welche zum Netzwerk hinzugefügt worden sind, werden entsprechend gekennzeichnet. Die Anzahl vorhergesagter Kanten kann von den Benutzern angegeben werden.
 In der Literatur werden hauptsächlich Algorithmen beschrieben, welche auf ungerichtete Graphen anwendbar sind. Algorithmen für gerichtete Graphen weisen eine wesentlich höhere Komplexität auf. Die Arbeit beschränkt sich deshalb auf Link Predictions auf ungerichtete Graphen -
 ein entsprechender Hinweis wurde im Gephi Plugin implementiert. Das Plugin enthält zudem eine Evaluationskomponente, mit welcher die Qualität der verschiedenen Algorithmen verglichen werden kann.
@@ -12,16 +12,16 @@ Das Plugin wird unter der Apache 2.0 Lizenz veröffentlicht.
 Das Plugin besteht aus folgenden Hauptkomponenten:
 
 \begin{itemize}
-    \item \textbf{Statistik:} Neue Kanten können via Statistiken zu einem ungerichteten Graphen hinzugefügt werden. Für die ausgewählten Algorithmen werden die Link Preditction Werte berechnet und jeweils die Kante mit dem höchsten Wert zum Graphen hinzugefügt. Die Anzahl hinzuzufügender Kanten kann angegeben werden. Die einzelnen Kanten werden dabei iterativ hinzugefügt. Die Berechnung des nächsten vorhergesagten Wertes basiert immer auf dem Graphen des vorherigen Iterationsschrittes.
+    \item \textbf{Statistik:} Neue Kanten können via Statistiken zu einem ungerichteten Graphen hinzugefügt werden. Für die ausgewählten Algorithmen werden die Link-Prediction-Werte berechnet und jeweils die Kante mit dem höchsten Wert zum Graphen hinzugefügt. Die Anzahl hinzuzufügender Kanten kann angegeben werden. Die einzelnen Kanten werden dabei iterativ hinzugefügt. Die Berechnung des nächsten vorhergesagten Wertes basiert immer auf dem Graphen des vorherigen Iterationsschrittes.
     \item \textbf{Filter:} Die hinzugefügten Kanten können via Filter angezeigt werden. Dabei können die anzuzeigenden Kanten einerseits auf einen Alorithmus, andererseits auf eine gewünschte Anzahl hinzugefügter Kanten beschränkt werden.
-    \item \textbf{Evaluation:} Die Güte der vorhergesagten Kanten kann berechnet werden. Via Statistiken wird die Accurarcy von verschiedenen Algorithmen verglichen und beurteilt.
+    \item \textbf{Evaluation:} Die Güte der vorhergesagten Kanten kann berechnet werden. Via Statistiken wird die Accuracy von verschiedenen Algorithmen verglichen und beurteilt.
 \end{itemize}
 
 \subsection{Klassenstruktur}
 Die Klassenstruktur ist grösstenteils bereits durch das bestehende Grundgerüst von Gephi vorgegeben. Für eine möglichst einfache Erweiterbarkeit, werden entsprechende Design Patterns eingesetzt.
 
 %TODO Refresh UMLs
-Abbildung \ref{fig:class_statistic} zeigt das Klassendiagramm der Statistik-Klassen. Es basiert auf dem \acs{compositecommand}\footnote{https://en.wikipedia.org/wiki/Composite\_pattern}, um die Link Prediction Wahrscheinlichkeiten der verschiedenen Algorithmen zu berechnen. Das Composite Pattern beruht darauf, in einer abstrakten Klasse sowohl konkrete Objekte als auch ihre Behälter zu repräsentieren. Damit können sowohl einzelne Objekte als auch ihre Kompositionen einheitlich behandelt werden (\cite{noauthor_kompositum_2019}). Das Makro Command Objekt \texttt{LinkPredictionMacro} wird eingesetzt, um die Kennzahlen von mehreren ausgewählten Algorithmen zu berechnen.
+Abbildung \ref{fig:class_statistic} zeigt das Klassendiagramm der Statistik-Klassen. Es basiert auf dem \acs{compositecommand}\footnote{https://en.wikipedia.org/wiki/Composite\_pattern}, um die Link Prediction Wahrscheinlichkeiten der verschiedenen Algorithmen zu berechnen. Das Composite Pattern beruht darauf, in einer abstrakten Klasse sowohl konkrete Objekte als auch ihre Behälter zu repräsentieren. Damit können sowohl einzelne Objekte als auch ihre Kompositionen einheitlich behandelt werden (\cite{wikipedia_kompositum_2019}). Das Makro Command Objekt \texttt{LinkPredictionMacro} wird eingesetzt, um die Link-Prediction-Werte von mehreren ausgewählten Algorithmen zu berechnen.
 \begin{figure}
     \centering
     \includegraphics[width=\linewidth]{resources/class_Statistic.png}
@@ -33,13 +33,13 @@ Abbildung \ref{fig:class_statistic} zeigt das Klassendiagramm der Statistik-Klas
 Bei der \texttt{execute}-Methode wird auf das \acs{templatepattern}\footnote{https://de.wikipedia.org/wiki/Schablonenmethode} zurückgegriffen. Mit dem Template Pattern kann eine Grundstruktur eines Algorithmus vorgegeben werden, wobei Unterklassen ermöglicht wird, bestimmte Schritte des Algorithmus zu überschreiben ohne dessen grundlegende Struktur zu verändern.
 Das Pattern wird hier verwendet, um die unveränderlichen Teile eines Algorithmus einmalig zu implementieren, doppelten Code zu reduzieren, und die Erweiterungen der Unterklassen zu regulieren.
 In der \texttt{execute}-Methode wird der grobe Ablauf umschrieben.
-Dieser sieht vor, dass bei der initialen Berechnung der Link Prediction Werte sämtliche Knoten zweimal durchlaufen werden müssen.
-Beim Ausführen der Link-Prediction kann angegeben werden, wieviele Kanten hinzugefügt werden sollen.
+Dieser sieht vor, dass bei der initialen Berechnung der Link-Prediction-Werte sämtliche Knoten zweimal durchlaufen werden müssen.
+Beim Ausführen der Link Prediction kann angegeben werden, wieviele Kanten hinzugefügt werden sollen.
 Aus Performancegründen erwies es sich als sinnvoll, für die nachfolgenden Berechnungen nicht mehr sämtliche Werte nochmals zu berechnen.
 Stattdessen wird nach dem Hinzufügen einer Kante im nächsten Iterationsschritt nur die davon betroffenen Knoten neu berechnet.
 Falls beispielsweise eine Kante $(A, C)$ zum Graphen hinzugefügt wird, müssen anschliessend nur die Werte der Knoten $A$ und $C$ neu berechnet werden.
-Die \texttt{execute}-Methode entält deshalb den groben Ablauf, welcher die Unterscheidung zwischen initialem Durchlauf und nachfolgender Neuberechnung vorsieht.
-Die Methoden \texttt{calculateAll} und \texttt{recalculateAffected}, die von den konkreten Klassen implementiert werden und die effektiven Link Prediction Werte berechnent, werden als abstrakt definiert.
+Die \texttt{execute}-Methode enthält deshalb den groben Ablauf, welcher die Unterscheidung zwischen initialem Durchlauf und nachfolgender Neuberechnung vorsieht.
+Die Methoden \texttt{calculateAll} und \texttt{recalculateAffected}, die von den konkreten Klassen implementiert werden und die effektiven Link-Prediction-Werte berechnet, werden als abstrakt definiert.
 Das Listing \ref{lstLinkPrediction} zeigt die vereinfachte Struktur der Methode.
 
 %TODO: Make sure naming e.g. calculate is correct
@@ -56,16 +56,16 @@ Das Listing \ref{lstLinkPrediction} zeigt die vereinfachte Struktur der Methode.
         }
 
         // Add highest predicted edge to graph
-        addHighestPredictedEdgeToGraph(factory, getAlorithmName());
+        addHighestPredictedEdgeToGraph(factory, getAlgorithmName());
 
     }
 \end{lstlisting}
 
 Eine ähnliche Struktur wird bei der Evaluationskomponente verwendet.
-Die Qualität der verschiedenen Algoirthmen wird mit der bereits eingeführten Accuracy (vgl. Formel \ref{eq:acc}) bestimmt.
+Die Qualität der verschiedenen Algorythmen wird mit der bereits eingeführten Accuracy (vgl. Formel \ref{eq:acc}) bestimmt.
 Damit das Plugin später einfach um andere Evaluationsmetriken erweitert werden kann, wurde eine neue Basisklasse \texttt{EvaluationMetric} eingeführt.
 Diese enthält den zu evaluierenden Algorithmus, die Berechnung der Kennzahl und die erreichte Güte der Vorhersage. Konkrete Evaluationsmetriken, wie \texttt{LinkPredictionAccuracy} erweitern die abstrakte Basisklasse mit einer konkreten Implementierung der \texttt{calculate}-Methode.
-Abbildung \ref{fig:class_eval} zeigt das vereinfachte Klassendiagramm der Evaluation-Klassen.
+Abbildung \ref{fig:class_eval} auf der nächsten Seite zeigt das vereinfachte Klassendiagramm der Evaluation-Klassen.
 \begin{figure}
     \centering
     \includegraphics[width=\linewidth]{resources/class_Evaluation.png}
@@ -88,9 +88,11 @@ Die Filter-Klassen wurden mithilfe des \acs{abstractfactory}\footnote{http://www
 
 Im Plugin wird das Logging-Framework log4j\footnote{https://logging.apache.org/log4j/2.x/} eingesetzt.
 Das Logging wird eingesetzt um technische Probleme rückverfolgen zu können: Die Logs zeichnen Ereignisse auf, die für die Entwicklung und den Einsatz des Plugin von Nutzen sein können.
-Insbesondere geht es darum ein Fehlverhalten der Applikation nachvollziehen und dokumentieren zu können.
+Insbesondere geht es darum ein Fehlverhalten der Applikation nachvollziehen und dokumentieren zu können. Das Logging kann in Gephi direkt in einer Konsole ausgegeben werden.
 
+\newpage
 \textbf{Logger erzeugen}
+
 Logger sind für das Verfassen von Meldungen verantwortlich. Sie werden direkt aus dem Code aufgerufen und bestimmen mit Hilfe von Appendern wohin und in welchem Format die Meldungen geschrieben werden.
 Für jede Klasse wird ein separater Logger erzeugt. Das Codelisting \ref{lstLoggerCreate} zeigt, wie ein solcher Logger in der gewünschten Klasse erzeugt wird.
 
@@ -108,8 +110,9 @@ Für jede Klasse wird ein separater Logger erzeugt. Das Codelisting \ref{lstLogg
 
 \textbf{Log-Einträge erzeugen}
 %TODO: Add Log4j to Glossar
+
 Log4j bietet verschiedene Log-Levels an, mit welchen Log-Einträge geschrieben werden können.
-Tabelle \ref{tab_log_levels} zeigt die verschiedenen Log-Levels anhand der \acs{API}-Docs von log4i:
+Tabelle \ref{tab_log_levels} zeigt die verschiedenen Log-Levels anhand der \acs{api}-Docs von log4i:
 
 \begin{table}[]
     \centering
@@ -144,14 +147,19 @@ Listing \ref{lstLoggerUse} zeigt zwei solcher Beispiele.
 \end{lstlisting}
 
 \textbf{Logger Hierarchie}
-Alle Logger der verschiedenene Klassen erben vom Root-Logger. Über diesen kann die Konfiguration für alle Logger geändert werden.
+
+Alle Logger der verschiedenen Klassen erben vom Root-Logger. Über diesen kann die Konfiguration für alle Logger geändert werden.
 Einzelne Logger können die Root-Konfiguration bei Bedarf übersteuern.
 
 \textbf{Appender}
-Aktuell wird im Plugin hautpsächlich der \texttt{ConsoleAppender} eingesetzt.
+
+Aktuell wird im Plugin hauptsächlich der \texttt{ConsoleAppender} eingesetzt.
 Mit dessen Hilfe kann direkt in die Gephi-Konsole geloggt werden.
 
 \textbf{Konfiguration}
+
+Die Konfiguration kann direkt in der Konfigurationsdatei \texttt{log4j.xml} vorgenommen werden.
+Das Codelisting \ref{lstLoggerCreate} zeigt die wichtigsten Auszüge der Datei.
 
 \begin{lstlisting}[caption={log4j.xml},label=lstLoggerCreate]
     <?xml version="1.0" encoding="UTF-8" ?>
@@ -162,7 +170,7 @@ Mit dessen Hilfe kann direkt in die Gephi-Konsole geloggt werden.
     </Console>
 
     <Loggers>
-    <Logger name = "org.gephi.plugins.linkprediction.statistics.PreferentialAttachmentStatistics" additivity="false">
+    <Logger name = "org.gephi.plugins.linkprediction.statistics.PreferentialAttach mentStatistics" additivity="false">
     <AppenderRef ref="console" />
     </Logger>
 
@@ -233,7 +241,7 @@ neue Kanten dem Graphen hinzugefügt werden.
 
 Die einzelnen Kanten werden iterativ zum Graphen hinzugefügt. Die Berechnung des nächsten vorhergesagten Wertes basiert immer auf dem Graphen des vorherigen Iterationsschrittes.
 
-\item \textbf{Filter:} Die hinzugefügten Kanten können via Filter angezeigt werden. Dabei können die anzuzeigenden Kanten einerseits auf einen Alorithmus, andererseits auf eine gewünschte Anzahl hinzugefügter Kanten beschränkt werden.
+\item \textbf{Filter:} Die hinzugefügten Kanten können via Filter angezeigt werden. Dabei können die anzuzeigenden Kanten einerseits auf einen Algorithmus, andererseits auf eine gewünschte Anzahl hinzugefügter Kanten beschränkt werden.
 
 % TODO: Weglassen?
 %Die Funktion der zusätzlichen Konfiguration eines Algorithmus ("advanced" Button) wird offen gehalten, wird aber für die
