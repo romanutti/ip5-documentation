@@ -1,9 +1,8 @@
 \chapter{Plugin}
 
-Basierend auf den beschriebenen Erkenntnissen wurde ein Plugin für Gephi entwickelt, mit welchem Kanten mit verschiedenen Link-Prediction-Algorithmen vorhergesagt werden können.
+Basierend auf den beschriebenen Erkenntnissen wurde ein Plugin für Gephi entwickelt, mit welchem Kanten mit verschiedenen Link Prediction Algorithmen vorhergesagt werden können.
 Kanten, welche zum Netzwerk hinzugefügt worden sind, werden entsprechend gekennzeichnet. Die Anzahl vorhergesagter Kanten kann von den Benutzern angegeben werden.
-In der Literatur werden hauptsächlich Algorithmen beschrieben, welche auf ungerichtete Graphen anwendbar sind.
-Algorithmen für gerichtete Graphen weisen eine wesentlich höhere Komplexität auf. Die Arbeit beschränkt sich deshalb auf Link Predictions auf ungerichtete Graphen -
+In der Literatur werden hauptsächlich Algorithmen beschrieben, welche auf ungerichtete Graphen anwendbar sind. Algorithmen für gerichtete Graphen weisen eine wesentlich höhere Komplexität auf. Die Arbeit beschränkt sich deshalb auf Link Predictions auf ungerichtete Graphen -
 ein entsprechender Hinweis wurde im Gephi Plugin implementiert. Das Plugin enthält zudem eine Evaluationskomponente, mit welcher die Qualität der verschiedenen Algorithmen verglichen werden kann.
 
 Das Plugin wird unter der Apache 2.0 Lizenz veröffentlicht.
@@ -13,16 +12,16 @@ Das Plugin wird unter der Apache 2.0 Lizenz veröffentlicht.
 Das Plugin besteht aus folgenden Hauptkomponenten:
 
 \begin{itemize}
-    \item \textbf{Statistik:} Neue Kanten können via Statistiken zu einem ungerichteten Graphen hinzugefügt werden. Für die ausgewählten Algorithmen werden die Link-Prediction-Werte berechnet und jeweils die Kante mit dem höchsten Wert zum Graphen hinzugefügt. Die Anzahl hinzuzufügender Kanten kann angegeben werden. Die einzelnen Kanten werden dabei iterativ hinzugefügt. Die Berechnung des nächsten vorhergesagten Wertes basiert immer auf dem Graphen des vorherigen Iterationsschrittes.
+    \item \textbf{Statistik:} Neue Kanten können via Statistiken zu einem ungerichteten Graphen hinzugefügt werden. Für die ausgewählten Algorithmen werden die Link Preditction Werte berechnet und jeweils die Kante mit dem höchsten Wert zum Graphen hinzugefügt. Die Anzahl hinzuzufügender Kanten kann angegeben werden. Die einzelnen Kanten werden dabei iterativ hinzugefügt. Die Berechnung des nächsten vorhergesagten Wertes basiert immer auf dem Graphen des vorherigen Iterationsschrittes.
     \item \textbf{Filter:} Die hinzugefügten Kanten können via Filter angezeigt werden. Dabei können die anzuzeigenden Kanten einerseits auf einen Alorithmus, andererseits auf eine gewünschte Anzahl hinzugefügter Kanten beschränkt werden.
-    \item \textbf{Evaluation:} Die Güte der vorhergesagten Kanten kann berechnet werden. Via Statistiken wird die Accuracy von verschiedenen Algorithmen verglichen und beurteilt.
+    \item \textbf{Evaluation:} Die Güte der vorhergesagten Kanten kann berechnet werden. Via Statistiken wird die Accurarcy von verschiedenen Algorithmen verglichen und beurteilt.
 \end{itemize}
 
 \subsection{Klassenstruktur}
 Die Klassenstruktur ist grösstenteils bereits durch das bestehende Grundgerüst von Gephi vorgegeben. Für eine möglichst einfache Erweiterbarkeit, werden entsprechende Design Patterns eingesetzt.
 
 %TODO Refresh UMLs
-Abbildung \ref{fig:class_statistic} zeigt das Klassendiagramm der Statistik-Klassen. Es basiert auf dem \acs{compositecommand}\footnote{https://en.wikipedia.org/wiki/Composite\_pattern}, um die Link Prediction Wahrscheinlichkeiten der verschiedenen Algorithmen zu berechnen. Das Composite Pattern beruht darauf, in einer abstrakten Klasse sowohl konkrete Objekte als auch ihre Behälter zu repräsentieren. Damit können sowohl einzelne Objekte als auch ihre Kompositionen einheitlich behandelt werden (\cite{wikipedia_kompositum_2019}). Das Makro Command Objekt \texttt{LinkPredictionMacro} wird eingesetzt, um die Link-Prediction-Werte von mehreren ausgewählten Algorithmen zu berechnen.
+Abbildung \ref{fig:class_statistic} zeigt das Klassendiagramm der Statistik-Klassen. Es basiert auf dem \acs{compositecommand}\footnote{https://en.wikipedia.org/wiki/Composite\_pattern}, um die Link Prediction Wahrscheinlichkeiten der verschiedenen Algorithmen zu berechnen. Das Composite Pattern beruht darauf, in einer abstrakten Klasse sowohl konkrete Objekte als auch ihre Behälter zu repräsentieren. Damit können sowohl einzelne Objekte als auch ihre Kompositionen einheitlich behandelt werden (\cite{noauthor_kompositum_2019}). Das Makro Command Objekt \texttt{LinkPredictionMacro} wird eingesetzt, um die Kennzahlen von mehreren ausgewählten Algorithmen zu berechnen.
 \begin{figure}
     \centering
     \includegraphics[width=\linewidth]{resources/class_Statistic.png}
@@ -31,22 +30,16 @@ Abbildung \ref{fig:class_statistic} zeigt das Klassendiagramm der Statistik-Klas
     \label{fig:class_statistic}
 \end{figure}
 
-Bei der \texttt{execute}-Methode wird auf das \acs{templatepattern}\footnote{https://de.wikipedia.org/wiki/Schablonenmethode} zurückgegriffen. Mit dem Template Pattern kann eine Grundstruktur eines Algorithmus vorgegeben werden, wobei durch Unterklassen ermöglicht wird, bestimmte Schritte des Algorithmus zu überschreiben, ohne dessen grundlegende Struktur zu verändern.
-Das Pattern wird hier verwendet, um die unveränderlichen Teile eines Algorithmus einmalig zu implementieren, doppelten Code zu reduzieren und die Erweiterungen der Unterklassen zu regulieren.
+Bei der \texttt{execute}-Methode wird auf das \acs{templatepattern}\footnote{https://de.wikipedia.org/wiki/Schablonenmethode} zurückgegriffen. Mit dem Template Pattern kann eine Grundstruktur eines Algorithmus vorgegeben werden, wobei Unterklassen ermöglicht wird, bestimmte Schritte des Algorithmus zu überschreiben ohne dessen grundlegende Struktur zu verändern.
+Das Pattern wird hier verwendet, um die unveränderlichen Teile eines Algorithmus einmalig zu implementieren, doppelten Code zu reduzieren, und die Erweiterungen der Unterklassen zu regulieren.
 In der \texttt{execute}-Methode wird der grobe Ablauf umschrieben.
-Dieser sieht vor, dass bei der initialen Berechnung der Link-Prediction-Werte sämtliche Knoten zweimal durchlaufen werden müssen.
-Beim Ausführen der Link Prediction kann angegeben werden, wieviele Kanten hinzugefügt werden sollen.
+Dieser sieht vor, dass bei der initialen Berechnung der Link Prediction Werte sämtliche Knoten zweimal durchlaufen werden müssen.
+Beim Ausführen der Link-Prediction kann angegeben werden, wieviele Kanten hinzugefügt werden sollen.
 Aus Performancegründen erwies es sich als sinnvoll, für die nachfolgenden Berechnungen nicht mehr sämtliche Werte nochmals zu berechnen.
 Stattdessen wird nach dem Hinzufügen einer Kante im nächsten Iterationsschritt nur die davon betroffenen Knoten neu berechnet.
 Falls beispielsweise eine Kante $(A, C)$ zum Graphen hinzugefügt wird, müssen anschliessend nur die Werte der Knoten $A$ und $C$ neu berechnet werden.
-<<<<<<< HEAD
-Dies wird noch einmal detailierter im Kapitel \ref{Laufzeit-Optimierung der Algorithmen} beschrieben.
 Die \texttt{execute}-Methode entält deshalb den groben Ablauf, welcher die Unterscheidung zwischen initialem Durchlauf und nachfolgender Neuberechnung vorsieht.
 Die Methoden \texttt{calculateAll} und \texttt{recalculateAffected}, die von den konkreten Klassen implementiert werden und die effektiven Link Prediction Werte berechnent, werden als abstrakt definiert.
-=======
-Die \texttt{execute}-Methode enthält deshalb den groben Ablauf, welcher die Unterscheidung zwischen initialem Durchlauf und nachfolgender Neuberechnung vorsieht.
-Die Methoden \texttt{calculateAll} und \texttt{recalculateAffected}, die von den konkreten Klassen implementiert werden und die effektiven Link-Prediction-Werte berechnet, werden als abstrakt definiert.
->>>>>>> 5bc88793ec2aefe1b9c58aa97fd04fc2d99b376b
 Das Listing \ref{lstLinkPrediction} zeigt die vereinfachte Struktur der Methode.
 
 %TODO: Make sure naming e.g. calculate is correct
@@ -63,23 +56,16 @@ Das Listing \ref{lstLinkPrediction} zeigt die vereinfachte Struktur der Methode.
         }
 
         // Add highest predicted edge to graph
-        addHighestPredictedEdgeToGraph(factory, getAlgorithmName());
+        addHighestPredictedEdgeToGraph(factory, getAlorithmName());
 
     }
 \end{lstlisting}
 
 Eine ähnliche Struktur wird bei der Evaluationskomponente verwendet.
-<<<<<<< HEAD
-Die Qualität der verschiedenen Algorithmen wird mit der bereits eingeführten Accuracy (vgl. Formel \ref{eq:acc}) bestimmt.
-Damit das Plugin später einfach um andere Evaluationsmetriken erweitert werden kann, wurde eine neue Basisklasse \texttt{EvaluationMetric} eingeführt.
-Diese enthält den zu evaluierenden Algorithmus, die Berechnung der Kennzahl und die erreichte Güte der Vorhersage. Konkrete Evaluationsmetriken wie \texttt{LinkPredictionAccuracy} erweitern die abstrakte Basisklasse mit einer konkreten Implementierung der \texttt{calculate}-Methode.
-Abbildung \ref{fig:class_eval} zeigt das vereinfachte Klassendiagramm der Evaluations-Klassen.
-=======
-Die Qualität der verschiedenen Algorythmen wird mit der bereits eingeführten Accuracy (vgl. Formel \ref{eq:acc}) bestimmt.
+Die Qualität der verschiedenen Algoirthmen wird mit der bereits eingeführten Accuracy (vgl. Formel \ref{eq:acc}) bestimmt.
 Damit das Plugin später einfach um andere Evaluationsmetriken erweitert werden kann, wurde eine neue Basisklasse \texttt{EvaluationMetric} eingeführt.
 Diese enthält den zu evaluierenden Algorithmus, die Berechnung der Kennzahl und die erreichte Güte der Vorhersage. Konkrete Evaluationsmetriken, wie \texttt{LinkPredictionAccuracy} erweitern die abstrakte Basisklasse mit einer konkreten Implementierung der \texttt{calculate}-Methode.
-Abbildung \ref{fig:class_eval} auf der nächsten Seite zeigt das vereinfachte Klassendiagramm der Evaluation-Klassen.
->>>>>>> 5bc88793ec2aefe1b9c58aa97fd04fc2d99b376b
+Abbildung \ref{fig:class_eval} zeigt das vereinfachte Klassendiagramm der Evaluation-Klassen.
 \begin{figure}
     \centering
     \includegraphics[width=\linewidth]{resources/class_Evaluation.png}
@@ -88,7 +74,7 @@ Abbildung \ref{fig:class_eval} auf der nächsten Seite zeigt das vereinfachte Kl
     \label{fig:class_eval}
 \end{figure}
 
-Die Filter-Klassen wurden mithilfe des \acs{abstractfactory}\footnote{http://www.hsufengko.com/blog/abstract-factory-design-pattern-example} umgesetzt. Die Klassenstruktur besteht aus dem Factory Pattern mit verschiedenen Builder Klassen und dem Strategy Pattern, welches eine spezifische Umsetzung der Filter pro Algorithmus erlaubt. Abbildung \ref{fig:class_filter} zeigt das resultierende Klassendiagramm.
+Die Filter-Klassen wurden mithilfe des \acs{abstractfactory}\footnote{http://www.hsufengko.com/blog/abstract-factory-design-pattern-example} umgesetzt. Die Klassenstruktur besteht aus dem Factory Pattern mit verschiedenen Builder Klasse und dem Strategy Pattern, welches eine spezifische Umsetzung der Filter pro Algorithmus erlaubt. Abbildung \ref{fig:class_filter} zeigt das resultierende Klassendiagramm.
 \begin{figure}
     \centering
     \includegraphics[width=\linewidth]{resources/class_Filter.png}
@@ -101,22 +87,11 @@ Die Filter-Klassen wurden mithilfe des \acs{abstractfactory}\footnote{http://www
 \label{loggingkonzept}
 
 Im Plugin wird das Logging-Framework log4j\footnote{https://logging.apache.org/log4j/2.x/} eingesetzt.
-<<<<<<< HEAD
-Das Logging wird eingesetzt, um technische Probleme zurückverfolgen zu können: Die Logs zeichnen Ereignisse auf, die für die Entwicklung und den Einsatz des Plugins von Nutzen sein können.
-Insbesondere geht es darum, ein Fehlverhalten der Applikation nachvollziehen und dokumentieren zu können.
-=======
 Das Logging wird eingesetzt um technische Probleme rückverfolgen zu können: Die Logs zeichnen Ereignisse auf, die für die Entwicklung und den Einsatz des Plugin von Nutzen sein können.
-Insbesondere geht es darum ein Fehlverhalten der Applikation nachvollziehen und dokumentieren zu können. Das Logging kann in Gephi direkt in einer Konsole ausgegeben werden.
->>>>>>> 5bc88793ec2aefe1b9c58aa97fd04fc2d99b376b
+Insbesondere geht es darum ein Fehlverhalten der Applikation nachvollziehen und dokumentieren zu können.
 
-\newpage
 \textbf{Logger erzeugen}
-<<<<<<< HEAD
-Logger sind für das Verfassen von Meldungen verantwortlich. Sie werden direkt aus dem Code aufgerufen und bestimmen mit Hilfe von Appendern, wohin und in welchem Format die Meldungen geschrieben werden.
-=======
-
 Logger sind für das Verfassen von Meldungen verantwortlich. Sie werden direkt aus dem Code aufgerufen und bestimmen mit Hilfe von Appendern wohin und in welchem Format die Meldungen geschrieben werden.
->>>>>>> 5bc88793ec2aefe1b9c58aa97fd04fc2d99b376b
 Für jede Klasse wird ein separater Logger erzeugt. Das Codelisting \ref{lstLoggerCreate} zeigt, wie ein solcher Logger in der gewünschten Klasse erzeugt wird.
 
 \begin{lstlisting}[caption={Erzeugen eines Loggers},label=lstLoggerCreate]
@@ -133,9 +108,8 @@ Für jede Klasse wird ein separater Logger erzeugt. Das Codelisting \ref{lstLogg
 
 \textbf{Log-Einträge erzeugen}
 %TODO: Add Log4j to Glossar
-
 Log4j bietet verschiedene Log-Levels an, mit welchen Log-Einträge geschrieben werden können.
-Tabelle \ref{tab_log_levels} zeigt die verschiedenen Log-Levels anhand der \acs{api}-Docs von log4i:
+Tabelle \ref{tab_log_levels} zeigt die verschiedenen Log-Levels anhand der \acs{API}-Docs von log4i:
 
 \begin{table}[]
     \centering
@@ -156,7 +130,7 @@ Tabelle \ref{tab_log_levels} zeigt die verschiedenen Log-Levels anhand der \acs{
 \end{table}
 
 Grundsätzlich kann direkt mit den Funktionen auf dem Logger-Objekt (z.B. \texttt{trace}, \texttt{debug}, etc.) geloggt werden.
-Falls in der Log-Meldung Variabeln ausgewertet werden, empfiehlt sich jedoch die Lambda-Schreibweise mit Lazy-Evaluation.
+Falls in der Log-Meldung Variabeln ausgewertet werden, empfiehlt sich jedoch die Lambda schreibweise mit Lazy-Evaluation.
 Listing \ref{lstLoggerUse} zeigt zwei solcher Beispiele.
 
 \begin{lstlisting}[caption={Log-Einträge erzeugen},label=lstLoggerUse]
@@ -170,19 +144,14 @@ Listing \ref{lstLoggerUse} zeigt zwei solcher Beispiele.
 \end{lstlisting}
 
 \textbf{Logger Hierarchie}
-
-Alle Logger der verschiedenen Klassen erben vom Root-Logger. Über diesen kann die Konfiguration für alle Logger geändert werden.
+Alle Logger der verschiedenene Klassen erben vom Root-Logger. Über diesen kann die Konfiguration für alle Logger geändert werden.
 Einzelne Logger können die Root-Konfiguration bei Bedarf übersteuern.
 
 \textbf{Appender}
-
-Aktuell wird im Plugin hauptsächlich der \texttt{ConsoleAppender} eingesetzt.
+Aktuell wird im Plugin hautpsächlich der \texttt{ConsoleAppender} eingesetzt.
 Mit dessen Hilfe kann direkt in die Gephi-Konsole geloggt werden.
 
 \textbf{Konfiguration}
-
-Die Konfiguration kann direkt in der Konfigurationsdatei \texttt{log4j.xml} vorgenommen werden.
-Das Codelisting \ref{lstLoggerCreate} zeigt die wichtigsten Auszüge der Datei.
 
 \begin{lstlisting}[caption={log4j.xml},label=lstLoggerCreate]
     <?xml version="1.0" encoding="UTF-8" ?>
@@ -193,7 +162,7 @@ Das Codelisting \ref{lstLoggerCreate} zeigt die wichtigsten Auszüge der Datei.
     </Console>
 
     <Loggers>
-    <Logger name = "org.gephi.plugins.linkprediction.statistics.PreferentialAttach mentStatistics" additivity="false">
+    <Logger name = "org.gephi.plugins.linkprediction.statistics.PreferentialAttachmentStatistics" additivity="false">
     <AppenderRef ref="console" />
     </Logger>
 
@@ -210,22 +179,23 @@ Das Codelisting \ref{lstLoggerCreate} zeigt die wichtigsten Auszüge der Datei.
 
 Beim Handling von unerwarteten Situation wird zwischen Exceptions und Errors unterschieden.
 
-Exceptions sind unerwartete Zustände, bei denen das Plugin weiterlaufen kann, allenfalls ist dabei eine Handlung des Benutzers erforderlich.
+Exceptions sind unerwartete Zustände, bei deren das Plugin weiterlaufen kann. Allenfalls ist dabei eine Handlung des Benutzers erforderlich.
 In solchen Situationen wird dem Benutzer ein Pop-up Fenster mit einem entsprechenden Hinweis angezeigt.
 Im Plugin existiert dafür die Basisklasse \texttt{LinkPredictionWarning}, welche durch die konkreten Warning-Klassen erweitert wird.
-Im Gegensatz zu Exceptions tritt bei Errors ein Fehler auf, der ein korrektes Weiterlaufen des Plugins verhindert.
+Im Gegensatz zu Exceptions tritt bei Errors hingegen ein Fehler auf, der ein korrektes Weiterlaufen des Plugins verhindert.
 In diesem Fall wird auf das Gephi-interne Exception-Handling zurückgegriffen und der Stacktrace dem Benutzer angezeigt.
 
 \section{GUI Konzept}
 
 Die Link Prediction Funktionalität soll möglichst gut in die bestehende Gephi Benutzeroberfläche integriert werden.
 Bei der Analyse der bestehenden \acs{ui}-Elemente stellten sich die folgenden Punkte heraus:
+:
 
 \begin{itemize}
     \item Unter dem Menü-Punkt \ovalbox{Statistics} werden diverse Werte des Graphen berechnet und gegebenenfalls im Data Laboratory
           hinzugefügt. Die Darstellung der Ergebniswerte erfolgt über einen Report, sofern sinnvoll.
     \item Unter dem Menü-Punkt \ovalbox{Filter} werden lediglich bereits vorhandene Daten, gefiltert. Hierbei werden Graphen für gewöhnlich verkleinert dargestellt, also mit weniger Kanten oder Knoten.
-    \item Die Darstellung der verschiedenen Werte wird über den Menü-Punkt \ovalbox{Appearance} vorgenommen. Hier können Farben
+    \item Die Darstellung der verschiedenen Werte wird über den Menü-Punkt \ovalbox{Appearance} vorgenommen. Hier können Farben,
           und Grösse der Knoten und Kanten eingestellt werden. Beim Filtern werden keine neuen Werte berechnet oder generiert.
     \item Im \ovalbox{Data Laboratory} sind die aktuellen Daten zu finden. Werden neue Daten über Statistics berechnet
           oder die Daten im Laboratory verändert, werden nur die neusten Daten angezeigt. Um alte Daten zu erhalten,
@@ -257,27 +227,21 @@ nicht eingezeichnet.
 \end{figure}
 
 Falls die \ovalbox{Start}-Schaltfläche angewählt wird, öffnet sich ein Pop-up Fenster, in welchem man verschiedene Algorithmen auswählen
-kann. Für alle ausgewählten Algorithmen, werden Link Predictions durchgeführt.
-Abbildung \ref{fig:screen2} zeigt das Pop-up für die Auswahl der Berechnung.
-Weitere Informationen zum jeweiligen Algorithmus werden angezeigt, wenn mit der Maus über das entsprechende Element gefahren wird.
-In einem zusätzlichen Eingabefeld kann man einen Wert $>= 1$ eingeben.
-Dieser besagt, wie viele Durchgänge bei der Link Prediction gemacht werden sollen, respektive wie viele neue Kanten dem Graphen hinzugefügt werden.
+kann. Für alle ausgewählten Algorithmen, werden Link Predictions durchgeführt. Abbildung \ref{fig:screen2} zeigt das Pop-up für die Auswahl der Berechnung. Weitere Informationen zum jeweiligen Algorithmus werden angezeigt, wenn mit der Maus über das entsprechende Element gefahren wird. In einem zusätzlichen Eingabefeld kann man einen Wert
+$>= 1$ eingeben. Dieser besagt, wie viele Durchgänge bei der Link Prediction gemacht werden sollen, respektive wie viele
+neue Kanten dem Graphen hinzugefügt werden.
 
 Die einzelnen Kanten werden iterativ zum Graphen hinzugefügt. Die Berechnung des nächsten vorhergesagten Wertes basiert immer auf dem Graphen des vorherigen Iterationsschrittes.
 
-<<<<<<< HEAD
-\item \textbf{Filter:} Die hinzugefügten Kanten können via Filter angezeigt werden.
-Dabei können die anzuzeigenden Kanten einerseits auf einen Alorithmus, andererseits auf eine gewünschte Anzahl hinzugefügter Kanten beschränkt werden.
-=======
-\item \textbf{Filter:} Die hinzugefügten Kanten können via Filter angezeigt werden. Dabei können die anzuzeigenden Kanten einerseits auf einen Algorithmus, andererseits auf eine gewünschte Anzahl hinzugefügter Kanten beschränkt werden.
->>>>>>> 5bc88793ec2aefe1b9c58aa97fd04fc2d99b376b
+\item \textbf{Filter:} Die hinzugefügten Kanten können via Filter angezeigt werden. Dabei können die anzuzeigenden Kanten einerseits auf einen Alorithmus, andererseits auf eine gewünschte Anzahl hinzugefügter Kanten beschränkt werden.
 
-% TODO: Weglassen? --> Eventuell sinnvoll bei Kapitel Ausblick einzufügen?
+% TODO: Weglassen?
 %Die Funktion der zusätzlichen Konfiguration eines Algorithmus ("advanced" Button) wird offen gehalten, wird aber für die
 %Implementierung des Common Neighbour und Preferential Attachment Algorithmus derzeit nicht benötigt.
 
 Ein grosses Netzwerk oder auch eine hohe Anzahl an Iterationen kann in einer grossen Laufzeit resultieren.
-In diesem Fall soll eine Warnung an den User ausgegeben werden. Wird diese bestätigt, so wird der Algorithmus trotzdem berechnet. Andernfalls kann der User seine gewünschten
+In diesem Fall soll eine Warnung an den User ausgegeben
+werden. Wird diese bestätigt, so wird der Algorithmus trotzdem berechnet. Beim Abbruch kann der User seine gewünschten
 Parameter nochmals verändern.
 
 \begin{figure}
@@ -286,7 +250,7 @@ Parameter nochmals verändern.
     \label{fig:screen3}
 \end{figure}
 
-Abbildung \ref{fig:screen3} zeigt den Graph nach der Berechnung der Link Predictions.
+Abbildung \ref{fig:screen3} zeigt den Graph nach der Berechnung Link Predictions.
 Gegenüber dem initialen Graphen wurden neue Kanten hinzugefügt.
 Diese können mit Hilfe der Appearance-Einstellungen eingefärbt werden, da im Data Laboratory Felder enthalten sind, die aussagen, ob eine
 Kante mit einem Link Prediction Algorithmus hinzugefügt wurde oder ob sie bereits existiert hat.
@@ -299,16 +263,17 @@ Kante mit einem Link Prediction Algorithmus hinzugefügt wurde oder ob sie berei
 
 Abbildung \ref{fig:screen4} zeigt die neuen Kanten im \ovalbox{Data Laboratory}.
 Wie bereits erwähnt, wurden den Kanten neue Attribute hinzugefügt.
-Neu gibt es ein Attribut ``Chosen Link Prediction Algorithm'' - in der Abbildung ``Link Prediction Algorithm'', in welchem ersichtlich ist, mit welchem Algorithmus die Kante hinzugefügt wurde.
+% TODO: Heisst in impl neu anders?
+Neu gibt es ein Attribut ``Link Prediction Algorithm'', in welchem ersichtlich ist, mit welchem Algorithmus die Kante hinzugefügt wurde.
 Falls das Attribut keinen Wert enthält, war die Spalte bereits im initialen Graphen vorhanden.
 
-Ein weiteres Attribut ist ``Added in Run''. Gibt der User bei der Berechnung den Wert $3$ mit, so werden hier 3 Kanten pro
-ausgewähltem Algorithmus nacheinander hinzugefügt. Damit nachträglich ersichtlich ist, in welchem Durchlauf eine
-Kante hinzugefügt wurde, wird der Iterationsdurchgang in diesem Attribut persistiert.
-Ein Wert von $1$ bedeuted demnach, dass die Kante in der ersten Iteration hinzugefügt wurde, während ein Wert von $3$ bedeutet, dass die Kante im dritten Durchlauf zum Graphen hinzugefügt wurde.
+Eine weiteres Attribut ist ``Added in Run''. Gibt der User bei der Berechnung den Wert $3$ mit, so werden hier 3 Kanten pro
+ausgewähltem Algorithmus nacheinander hinzugefügt. Damit nachträglich erstlichich ist, in welchem Durchlauf eine
+Kante hinzugefügt wurde, wird der Iterationsdurchgang in diesem Attribut persisiert.
+Ein Wert von $1$ bedeuted demnach, dass die Kante in der ersten Iteration hinzugefügt wurde, währen ein Wert von $3$ bedeutet, dass die Kante im dritten Durchlauf zum Graphen hinzugefügt wurde.
 Kanten, die bereits im initialen Graphen vorhanden waren, enthalten keinen Wert in dieser Spalte.
 
-Bei der dritten zusätzlichen Spalte ``Last Link Predcition Value'', in der Abbildung ``Last Value'', wird der letzte berechnete Wert einer neu hinzugefügten Spalte eingetragen.
+Bei der dritten zusätzlichen Spalte "Last Value" wird der letzte berechnete Wert einer neu hinzugefügten Spalte eingetragen.
 Damit kann nachträglich einfach nachvollzogen werden, aufgrund welcher Wahrscheinlichkeit eine Kante zum Graphen hinzugefügt wurde.
 Bei Kanten, die im initialen Graphen bereits vorhanden waren, ist dieses Attribut wiederum leer.
 
@@ -323,11 +288,11 @@ Der folgende Abschnitt veranschaulicht, wie die Funktionlität im Gephi Plugin v
     \label{fig:screen5}
 \end{figure}
 
-In Abbilung \ref{fig:screen5} ist zu sehen, wie der Link Prediction Filter in die bestehende Übersicht eingebunden wird.
+In Abbilung \ref{fig:screen5} istzu sehen, wie der Link Prediction Filter in die bestehende Übersicht eingebunden wird.
 Unter der Schaltfläche \ovalbox{Filter} gibt es eine neue Kategorie ``Link Predictions''.
 Darin werden die Filter für die verschiedenen Algorithmen aufgeführt.
 Mithilfe eines grafischen Elements kann konfiguriert werden, welche Kanten des jeweiligen Algorithmus angezeigt werden sollen.
-Durch Positionieren des Sliders können alle Kanten ausgewählt werden, welche in einem gewünschten Iterations-Range zum Graphen hinzugefügt wurden.
+Durch Positionieren des Sliders können alle Kanten ausgewählt werden, welche in einem gewünschten Iterationrange zum Graphen hinzugefügt wurden.
 Der Filter wird durch Anwählen der Schaltfläche \ovalbox{Start} angewendet.
 
 Falls für den spezifischen Algorithmus noch keine Kanten zum Graphen hinzugefügt wurden, erscheint ein Pop-up Fenster mit entsprechendem Hinweis.
@@ -339,13 +304,14 @@ Abbildung \ref{fig:screen6} zeigt das Pop-up Fenster.
     \label{fig:screen6}
 \end{figure}
 
-Der Platzhalter ``Link Prediction Filter'' wird durch den gewählten Algorithmus, z. B. ``Common Neighbour Filter'' ersetzt.
+Der Platzhalter ``Link Prediction Filter'' wird durch den gewählten Algorithmus, z.B. ``Common Neighbour Filter'' ersetzt.
 Ursprünglich war angedacht, dass im Fehlerfall die Berechnung direkt aus dem Pop-up Fenster angestossen werden soll.
-Um die Trennung zwischen den beiden Konzepten \textit{Filter} und \textit{Statistik} klar zu halten, wurde aber schliesslich darauf verzichtet.
+Um die Trennung zwischen den beiden Konzepten \textit{Filter} und \textit{Statistik} klar zu halten, wurde darauf verzichtet.
 Die notwendige Berechnung kann weiterhin über \ovalbox{Statistics} vorgenommen werden (vgl. voriger Abschnitt).
 
-Abbildung \ref{fig:screen7} zeigt den gefilterten Graphen. Er enthält alle Kanten, welche mit dem gewählten Algorithmus hinzugefügt wurden und
-innerhalb der konfigurierten Iterationswerte liegen sowie alle initialen Kanten.
+Abbildung \ref{fig:screen7} zeigt den gefilterten Graph. Er enthält alle Kanten, welche mit dem gewählten Algorithmus hinzugefügt wurden und
+innerhalb der konfigurierten Iterationswerte liegen.
+% TODO: Initiale Kanten?
 
 \begin{figure}
     \includegraphics[width=\linewidth]{resources/SC-7.png}
@@ -355,59 +321,8 @@ innerhalb der konfigurierten Iterationswerte liegen sowie alle initialen Kanten.
 
 \subsection{Beurteilung der Qualität verschiedener Algorithmen}
 
-Bei der Implementierung verschiedener Algorithmen ist es für den User interessant zu wissen, welche Algorithmen am
-besten auf verschiedene Graphen angewendet werden können. Während diese Aussage für einen einzelnen Graphen nicht gemacht
-werden kann, ist bei zwei Graphen, die zwei verschiedene Zeitpunkte desselben Netzwerkes abbilden, ein Vergleich möglich.
+Dummy text.
 
-Aus diesem Grund wurde der zweite Teil des Plugins implementiert. Zuerst wurden verschiedene Konzepte zur Umsetzung
-erstellt. Nach einer Besprechung der Optionen wurde sich auf die Lösung geeignet, welche hier mit einem Papierprototyp
-beschrieben wird.
-
-\begin{figure}
-    \includegraphics[width=\linewidth]{resources/EV-1.png}
-    \caption{Graph bei X und X+n.}
-    \label{fig:screen8}
-\end{figure}
-
-Man mit zwei Graphen, gezeigt in Abbildung \ref{fig:screen8}. Graph 1 ist dabei ein Netzwerk zum Zeitpunkt X und Graph 2
-dasselbe Netzwerk zum Zeitpunkt X+n. Beim Klicken auf "Link Prediction Evaluation" öffnet sich ein Pop-Up Fenster, in
-welchem die beiden Graphen und die zu berechnenden Algorithmen ausgewählt werden können. Graph 1 wird dann für jeden
-Algorithmus dupliziert und die Berechnung auf dem jeweiligen Duplikat durchgeführt. Währenddessen werden die tatsächlich
-vorhandenen neuen Kanten aus Graph 2 mit den berechneten Kanten für Graph 1 verglichen. So wird ein Genauigkeitswert für
-das Ergebnis errechnet. In Abbildung \ref{fig:screen10} ist eine Auswertung diese Berechnung zu sehen. In der finalen
-Umsetzung wurde diese Auswertung beispielsweise durch eine Grafik, welche die Genauigkeit über Zeit darstellt, ergänzt.
-
-\begin{figure}
-    \includegraphics[width=\linewidth]{resources/EV-3.png}
-    \caption{Pop-Up zur Graph und Algorithmen-Auswahl.}
-    \label{fig:screen9}
-\end{figure}
-
-\begin{figure}
-    \includegraphics[width=\linewidth]{resources/EV-4.png}
-    \caption{Pop-Up mit Auswertung der Algorithmen-Genauigkeit.}
-    \label{fig:screen10}
-\end{figure}
-
-Zu Beginn wurden beispielsweise Fehlermeldungen wie diese in Abbildung \ref{fig:screen11} eingeplant. In der Umsetzung
-der neuen Funktion wurde dann aber entschlossen, dass jeweils der kleinere der beiden präsentierten Graphen als ``Graph 1''
-gewertet wird. Dies liegt daran, dass der Nutzer nicht die Anzahl der Iterationen selbst wählt, sondern die
-Kanten-Differenz der beiden Graphen als Anzahl Iterationen gewertet wird.
-
-\begin{figure}
-    \includegraphics[width=\linewidth]{resources/EV-5.png}
-    \caption{Beispiel-Fehlermeldung.}
-    \label{fig:screen11}
-\end{figure}
-
-In Abbildung \ref{fig:screen12}  sind nun die neuen Graphen mit der Link Prediction zu sehen, so dass der Nutzer diese genauer ansehen
-kann, wenn er diese analysiseren möchte.
-
-\begin{figure}
-    \includegraphics[width=\linewidth]{resources/EV-2.png}
-    \caption{Link Prediction Graphen.}
-    \label{fig:screen12}
-\end{figure}
 
 \section{Anleitung Software}
 

@@ -1,7 +1,7 @@
 \chapter{Link Prediction}
 
 \section{Algorithmen}
-Link-Predictions basieren auf einem bestehenden Netzwerk und versuchen, neue Kanten hervorzusagen.
+Link Predictions basieren auf einem bestehenden Netzwerk und versuchen, neue Kanten hervorzusagen.
 Es gibt verschiedene Algorithmen, um diese Kanten vorherzusagen.
 Initial werden im Plugin die Algorithmen ``Common Neighbours'' und ``Preferential Attachment'' implementiert. Diese werden nachfolgend genauer beschrieben.
 
@@ -11,8 +11,7 @@ Als Grundlage für die Vorhersagen wird der Beispielgraph aus Abbildung \ref{fig
 \begin{figure}[h]
     \centering
     \includegraphics[scale=0.7]{resources/graph_example.JPG}
-    \caption{Beispielgraph}
-    % TODO Add cite to SNA Script
+    \caption{Beispielgraph (in Anlehnung an \citeauthor{michael_henninger_soziale_2018} \citeyear{michael_henninger_soziale_2018}, S.97)}
     \label{fig:graph_bsp}
 \end{figure}
 
@@ -34,7 +33,7 @@ Der Wert, der aus der Berechnung für diesen Algorithmus resultiert, ist die Sum
 Nachbarn der beiden Knoten $X$ und $Y$. Dieser Wert muss für alle Knoten-Kombinationen berechnet und anschliessend der höchste
 Wert ausgewählt werden.
 
-Angewandt auf den eingangs eingeführten Beispielgraphen würde der Common Neibghour Algorithmus eine neue Kante zwischen den Nodes $A$ und $C$ vorhersagen.
+Angewandt auf den eingangs eingeführten Beispielgraphen würde der Common Neighbour Algorithmus eine neue Kante zwischen den Knoten $A$ und $C$ vorhersagen.
 Die folgenden Beispiele zeigen weitere Werte, welche durch Anwenden des Algorithmus resultieren.\\
 % Layout multiline-formula
 \\
@@ -105,7 +104,7 @@ Die Formel für den Preferential Attachment Algorithmus lautet wie folgt:
 Um den resulierenden Wert zu erhalten, wird die Anzahl Nachbarn zweier Knoten $X$ und $Y$ miteinander multipliziert.
 Dieser Wert muss für alle Knoten-Kombinationen berechnet und anschliessend der höchste Wert usgewählt werden.
 
-Angewandt auf den Beispielgraphen würde mit Preferential Attachment eine Kante zwischen den Knoten $A$ und $G$ vourausgesagt und folgende weiteren Werte berechnet:\\
+Angewandt auf den Beispielgraphen würde mit Preferential Attachment eine Kante zwischen den Knoten $A$ und $G$ vorausgesagt und folgende weiteren Werte berechnet:\\
 % Layout multiline-formula
 \\
 \vspace{4mm}
@@ -183,7 +182,7 @@ Die hinzugefügten Kanten $E_i$ sind dabei mit einer gestrichelten Linie eingeze
 Die Qualität des Algorithmus wird anhand der Genauigkeit der hinzugefügten Kanten bestimmt.
 Dazu wird ein Validierungsgraph $G_v_,_t_+_n$ verwendet, bei welchem die zusätzlichen Kanten $E_v$ zum Zeitpunkt $t + n$ bereits vorhanden sind.
 In unserem Beispielnetzwerk enthält dieser Graph gegenüber dem Graphen $G_i_,_t$ zusätzlich die Kanten $(A,C)$, $(E,H)$ und $(H,I)$.
-Abbildung \ref{fig:graph_validation} zeigt den Graphen $G_v_,_t_+_n$ zum Zeitpunkt $t + n$
+Abbildung \ref{fig:graph_validation} auf der nächsten Seite zeigt den Graphen $G_v_,_t_+_n$ zum Zeitpunkt $t + n$
 
 \begin{figure}[h]
     \centering
@@ -259,9 +258,9 @@ Auch bei den anderen Netzwerken sind die Vorhersagen da am genausten, wo ein hoh
 Dies legt die Vermutung nahe, dass für die Algorithmen eine Korrelation zwischen der Qualität der Vorhersagen und der Clustering Coefficient, resp. der Density vorliegen.
 Um die Vermutung empirisch zu überprüfen, müssten jedoch noch weitere Netzwerke untersucht werden.
 
-Weiter fällt auf, dass die erreichten Accuracy-Werte mit zunehmender Anzahl hinzugefügter Knoten steigen.
+Weiter fällt auf, dass die erreichten Accuracy-Werte mit zunehmender Anzahl hinzugefügter Kanten steigen.
 Dies ist auf die aktuelle Implementierung zurückzuführen: Für jede hinzugefügte Kante wird überprüft, ob diese im Graphen vorhanden ist.
-Je Grösser die Anzahl hinzugefügter Kanten, desto grösser auch die Wahrscheinlichkeit, dass eine hinzugefügte Kante im Graphen existiert.
+Je grösser die Anzahl hinzugefügter Kanten, desto grösser auch die Wahrscheinlichkeit, dass eine hinzugefügte Kante im Graphen existiert.
 Abbildung \ref{fig_hypertext} zeigt dies am Beispiel vom Hypertext Conference Network.
 
 \begin{figure}[h]
@@ -294,7 +293,7 @@ Abbildung \ref{fig_hypertext} zeigt dies am Beispiel vom Hypertext Conference Ne
 
 Bei den berechneten Werten kann festgestellt werden, dass die berechneten Prediction-Werte beim Common Neighbour weniger breit gestreut sind als beim Preferential Attachment.
 In der aktuellen Implementierung wird für die Wahl des nächsten Prediction Links eine Priority Queue verwendet. Falls es mehrere potentielle Kanten mit demselben Prediction-Wert gibt, wird willkürlich eine der Kanten ausgewählt.
-Da beim Preferential Attachment Algorithmus die Werte besser Streuen, kann eindeutiger gesagt werden, welche Kante als nächstes zum Netzwerk hinzugefügt werden soll.
+Da beim Preferential Attachment Algorithmus die Werte besser streuen, kann eindeutiger gesagt werden, welche Kante als nächstes zum Netzwerk hinzugefügt werden soll.
 Abbildung \ref{fig_histogram}
 zeigt die Verteilung der berechneten Werte bei 50\% hinzugefügter Kanten für das Hypertext Conference Network.
 
@@ -337,6 +336,6 @@ zeigt die Verteilung der berechneten Werte bei 50\% hinzugefügter Kanten für d
         \end{axis}
 \end{tikzpicture}
 \label{fig_histogram}
-\caption{Histogram der errechneten Werte im Hypertext Network}
+\caption{Histogramm der errechneten Werte im Hypertext Network}
 \end{figure}
 
