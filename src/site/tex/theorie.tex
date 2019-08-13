@@ -53,43 +53,41 @@ Welcher Algorithmus für die Link Prediction am sinnvollsten ist, kann von der A
 \subsection{Social Forces}
 \label{socialforces}
 In sozialen Netzwerken wird die Wahrscheinlichkeit für das Entstehen und Erhalten von Kanten durch unterschiedliche
-Faktoren begünstigt. Dazu gehören die Social Forces, die man in sechs Hauptkategorien unterteilen kann: Homophilie,
+Faktoren begünstigt. Zu diesen Faktoren gehören die Social Forces, die man nach \citeauthor{michael_henninger_soziale_2018} (\citeyear{michael_henninger_soziale_2018}, S. 12) in sechs Hauptkategorien unterteilen kann: Homophilie,
 Reziprozität, Nähe, Ansehen, soziale Anpassung und Transivität. Im folgenden Abschnitt werden diese Kategorien kurz
 beschrieben. Für die in dieser Arbeit implementierten Algorithmen sind dabei vor allem Transitivität und Ansehen
 relevant.
 
 \subsubsection{Homophilie}
-Homophilie beruht darauf, dass zwei Knoten, die Gemeinsamkeiten aufweisen, eine höhere Wahrscheinlichkeit dafür
-aufweisen, eine Verbindung aufzubauen. Hier sind beispielsweise Hobbys oder die politische Orientierung relevant. Wollte
+Homophilie beruht darauf, dass zwei Knoten mit Gemeinsamkeiten, eine höhere Wahrscheinlichkeit dafür
+aufweisen, eine Verbindung aufzubauen. Hier sind beispielsweise Hobbys oder die politische Orientierung relevant. Will
 man für diese Art der sozialen Kräfte einen Algorithmus zur Link Prediction entwerfen, müsste dieser vorhandene
-Attribute miteinander vergleichen, beispielsweise das Attribut "Lieblingsband". Stimmt die Band in diesem Attribut
-überein, wäre dann laut dem Prinzip der Homophilie die Wahrscheinlichkeit höher, dass eine neue Kante entsteht.
+Attribute miteinander vergleichen - beispielsweise das Attribut ``Lieblingsband''. Stimmt die Band in diesem Attribut
+überein, wäre laut dem Prinzip der Homophilie die Wahrscheinlichkeit höher, dass eine neue Kante entsteht.
 
 \subsubsection{Reziprozität}
-Reziprozität oder einfacher formuliert "Gegenseitigkeit" bedeutet, dass man eher mit einer Person Kontakt hat, wenn
-diese zuerst mit einem Kontakt aufnimmt. Wenn A also B eine Nachricht schreibt, erhöht dies die Wahrscheinlichkeit, dass B auf
-die Nachricht reagiert und A antwortet - eine Ausnahme stellen hier zum Beispiel prominente Personen dar.
-
-Diese Art der Social Forces wäre also vor allem in gerichteten Graphen relevant, da in ungerichteten Graphen die
-Richtung der Kanten nicht bestimmt ist. Eine Vorhersage zur Entstehung neuer Kanten müsste dabei dann aber auch über
-andere Social Forces geschehen, um den initialen Kontakt, bei dem A sich an B wendet, vorherzusagen.
+Reziprozität oder einfacher formuliert ``Gegenseitigkeit'' bedeutet, dass man eher mit einer Person Kontakt hat, wenn
+diese zuerst mit einem Kontakt aufnimmt. Wenn Person $A$ also $B$ eine Nachricht schreibt, erhöht dies die Wahrscheinlichkeit, dass $B$ auf
+die Nachricht reagiert - eine Ausnahme stellen hier zum Beispiel prominente Personen dar.
+Diese Art der Social Forces ist vor allem in gerichteten Graphen relevant, da in ungerichteten Graphen die
+Richtung der Kanten nicht bestimmt ist. Eine Vorhersage zur Entstehung neuer Kanten müsste dabei aber auch über
+andere Social Forces geschehen, um den initialen Kontakt zweier Personen vorherzusagen.
 
 \subsubsection{Nähe}
-Der Begriff Nähe kann in zwei Unterkategorien unterteilt werden. Hierbei geht es um "organisatorische" und
-"physikalische Nähe".
+Der Begriff Nähe kann in zwei Unterkategorien unterteilt werden. Hierbei geht es um ``organisatorische''- und
+``physikalische'' Nähe.
 
 Die organisatorische Nähe kommt beispielsweise durch Zusammenarbeit zustande, auch wenn man sich eventuell nicht
-am selben Ort befindet. Durch die Angehörigkeit derselben Abteilung in einer Firma steigt jedoch die Wahrscheinlichkeit
+am selben Ort befindet. Durch z.B. die Angehörigkeit derselben Abteilung in einem Unternehmen steigt die Wahrscheinlichkeit
 für eine Interaktion und somit für die Bildung einer Kante. Diese Art der sozialen Kraft könnte also beispielsweise
-über Attribute wie "Abteilung" oder "Firma" überprüft werden. In der Umsetzung eines Algorithmus wäre diese Art der
-Nähe also sehr ähnlich wie die der Homophilie.
+über Attribute wie ``Abteilung'' oder ``Arbeitgeber'' überprüft werden. In der Umsetzung eines Algorithmus ist diese Art der
+Nähe sehr ähnlich wie die der Homophilie.
 
 Die physikalische Nähe bezieht sich hingegen direkt darauf, wie oft man eine Person sieht. Ist man häufiger in
-unmittelbarer Nähe einer Person, bevorzugt man diese tendentiell. Für die Bestimmung dieses Wertes muss also ein Attribut
+unmittelbarer Nähe einer Person, bevorzugt man diese tendenziell. Für die Bestimmung dieses Wertes muss also ein Attribut
 gefunden werden, mit welchem sich die Distanz bestimmen lässt. Als Beispiel könnte man hier zwei Studenten nehmen,
 welche die gleiche Klasse besuchen und beide häufig anwesend sind. Die Wahrscheinlichkeit ist höher, dass sich die
-physikalische Nähe positiver auf ihre Beziehung zueinander auswirkt, als bei zwei Studenten, bei denen einer oder
-beide selten den Unterricht besuchen.
+physikalische Nähe positiver auf ihre Beziehung zueinander auswirkt, als bei zwei Studenten, die selten den Unterricht besuchen.
 
 \subsubsection{Ansehen}
 Das Ansehen wird hauptsächlich über die Vernetzung einer Person definiert. Bei der Vernetzung ist es von Vorteil, wenn
@@ -99,26 +97,27 @@ verschiedene Werte vertreten werden. Als Beispiel kann man Musiker nennen, die i
 haben zuvor einen Fankreis aufgebaut, der aus verschiedenen Gruppen besteht, die unterschiedliche Werte und Normen
 haben können. Äussert der Musiker nun zum ersten Mal eine politische Meinung, kann dies in einigen der Gruppen auf
 Zuneigung, in anderen auf Ablehnung stossen. Aus diesem Grund wird es auch solche Personen geben, die Meinungen, die
-nicht den Gruppennormen und -werten entsprechen, geheimhalten, um besser in die Gruppe zu passen und ihr Ansehen zu wahren.
+nicht den Gruppennormen und -werten entsprechen, geheim halten, um besser in die Gruppe zu passen und ihr Ansehen zu wahren.
 
-Es ist ausserdem wahrscheinlicher, dass die Personen, die in einem Netzwerk bereits einen breiten Bekanntheitskreis
-aufgebaut haben, also viele Kanten aufweisen und damit ein hohes Ansehen geniessen, neue Kanten bilden, wäre eher
-unpopuläre Knoten das Nachsehen haben.
+Es ist ausserdem wahrscheinlicher, dass die Personen mit einem grossen Bekanntheitskreis im Netzwerk neue Kanten bilden, während eher
+unpopuläre Personen (welche wenige Kanten aufweisen) das Nachsehen haben.
 
 \subsubsection{Soziale Anpassung}
-Die soziale Anpassung fliesst etwas in das Thema Ansehen hinein. Auch hier geht es um Gruppennormen und -werte. Hierbei
+Die soziale Anpassung überschneidet sich teilweise mit dem Ansehen. Auch hier stehen Gruppennormen und -werte im Fokus. Hierbei
 geht es aber explizit um die Anpassung der Meinung in Bezug auf die Zugehörigkeit einer Gruppe. Hier geht es weniger
 um die Vernetzung untereinander, sondern um die Auswirkungen eben jener Vernetzung.
 
 Analysieren könnte man eine solche soziale Anpassungen zum Beispiel, indem man Netzwerke über längere Zeiträume
-beobachtet. Wird hier beispielsweise Person A in eine Gruppe integriert und ändert daraufhin eines ihrer Merkmale,
-beispielsweise die politische Ausrichtung oder ihre Hobbies, und steht dies im Einklang mit der Gruppe, ist es
-wahrscheinlich, dass dies aufgrund des sozialen Drucks geschehen ist. Dies wird umso wahrscheinlicher, wenn A mit Person B,
-welche ein hohes Ansehen in der Gruppe geniesst, direkt vernetzt ist, da B einen sehr grossen Einfluss hat und dasselbe
-gruppenrelevante Merkmale teilen dürfte.
+beobachtet. Wird hier beispielsweise Person $A$ in eine Gruppe integriert und ändert daraufhin eines ihrer Merkmale
+(z.B die politische Ausrichtung oder ihre Hobbies) im Einklang mit der Gruppe, ist es
+wahrscheinlich, dass dies aufgrund des sozialen Drucks geschehen ist.
+Dies wird umso wahrscheinlicher, wenn $A$ mit Person $B$,
+welche ein hohes Ansehen in der Gruppe geniesst, direkt vernetzt ist, da $B$ einen sehr grossen Einfluss hat und dasselbe
+gruppenrelevante Merkmal teilen dürfte.
+% TODO Satz irgendwie kürzen?
 
 \subsubsection{Transitivität}
-Transitivität ist sehr ähnlich zur Homophilie. Hier geht es allerdings nicht darum, ob man gemeinsame Eigenschaften,
-soondern ob man gemeinsame Freunde vorzuweisen hat. Die Wahrscheinlichkeit, dass A, der mit B befreundet ist, irgendwann
-auf C trifft - ein Freund von B -, und dass A und C sich verstehen, ist höher als sich mit einer zufälligen Person auf
+Transitivität ist sehr ähnlich zur Homophilie. Hier stehen anstelle der gemeinsamen Eigenschaften allerdings gemeinsame Beziehungen im Vordergrund.
+Als Beispiel dienen drei Personen $A$, $B$ und $C$ - wobei $B$ mit $A$ und mit $C$ befreundet ist.
+Die Wahrscheinlichkeit, dass $A$ irgendwann auf $C$ trifft, und dass die beiden sich verstehen verstehen, ist höher als sich mit einer zufälligen Person auf
 der Strasse anzufreunden. Hier spielen sicherlich auch andere Kräfte wie das Ansehen, die Homophilie und die Nähe eine Rolle.

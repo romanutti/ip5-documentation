@@ -23,7 +23,7 @@ Die Klassenstruktur ist grösstenteils bereits durch das bestehende Grundgerüst
 
 %TODO Refresh UMLs
 Abbildung \ref{fig:class_statistic} zeigt das Klassendiagramm der Statistik-Klassen. Es basiert auf dem \acs{compositecommand}\footnote{https://en.wikipedia.org/wiki/Composite\_pattern}, um die Link Prediction Wahrscheinlichkeiten der verschiedenen Algorithmen zu berechnen. Das Composite Pattern beruht darauf, in einer abstrakten Klasse sowohl konkrete Objekte als auch ihre Behälter zu repräsentieren. Damit können sowohl einzelne Objekte als auch ihre Kompositionen einheitlich behandelt werden (\cite{wikipedia_kompositum_2019}). Das Makro Command Objekt \texttt{LinkPredictionMacro} wird eingesetzt, um die Link-Prediction-Werte von mehreren ausgewählten Algorithmen zu berechnen.
-\begin{figure}
+\begin{figure}[!b]
     \centering
     \includegraphics[width=\linewidth]{resources/class_Statistic.png}
     \caption{Klassendiagramm Statistiken}
@@ -67,7 +67,7 @@ Eine ähnliche Struktur wird bei der Evaluationskomponente verwendet.
 Die Qualität der verschiedenen Algorithmen wird mit der bereits eingeführten Accuracy (vgl. Formel \ref{eq:acc}) bestimmt.
 Damit das Plugin später einfach um andere Evaluationsmetriken erweitert werden kann, wurde eine neue Basisklasse \texttt{EvaluationMetric} eingeführt.
 Diese enthält den zu evaluierenden Algorithmus, die Berechnung der Kennzahl und die erreichte Güte der Vorhersage. Konkrete Evaluationsmetriken, wie \texttt{LinkPredictionAccuracy} erweitern die abstrakte Basisklasse mit einer konkreten Implementierung der \texttt{calculate}-Methode.
-Abbildung \ref{fig:class_eval} auf der nächsten Seite zeigt das vereinfachte Klassendiagramm der Evaluation-Klassen.
+Abbildung \ref{fig:class_eval} zeigt das vereinfachte Klassendiagramm der Evaluation-Klassen.
 \begin{figure}
     \centering
     \includegraphics[width=\linewidth]{resources/class_Evaluation.png}
@@ -94,7 +94,6 @@ Insbesondere geht es darum, ein Fehlverhalten der Applikation nachvollziehen und
 Das Logging wird eingesetzt um technische Probleme rückverfolgen zu können: Die Logs zeichnen Ereignisse auf, die für die Entwicklung und den Einsatz des Plugin von Nutzen sein können.
 Insbesondere geht es darum ein Fehlverhalten der Applikation nachvollziehen und dokumentieren zu können. Das Logging kann in Gephi direkt in einer Konsole ausgegeben werden.
 
-\newpage
 \textbf{Logger erzeugen}
 
 Logger sind für das Verfassen von Meldungen verantwortlich. Sie werden direkt aus dem Code aufgerufen und bestimmen mit Hilfe von Appendern, wohin und in welchem Format die Meldungen geschrieben werden.
@@ -213,7 +212,8 @@ Bei der Analyse der bestehenden \acs{ui}-Elemente stellten sich die folgenden Pu
           muss bei jeder Änderung ein neuer Workspace erstellt werden.
 \end{itemize}
 
-Das \acs{gui}-Konzept des Link Prediction Plugins basiert auf diesen Grundkonzepten.
+Das \acs{gui}-Konzept des Link Prediction Plugins basiert auf diesen Grundkonzepten. In den nachfolgenden Kapiteln werden die Wichtigsten UI-Elemente beschrieben.
+Die vollständigen Wireframes sind im Anhang \ref{wireframes} ersichtlich.
 
 \subsection{Vorhersagen neuer Kanten}
 
@@ -300,124 +300,52 @@ Unter der Schaltfläche \ovalbox{Filter} gibt es eine neue Kategorie ``Link Pred
 Darin werden die Filter für die verschiedenen Algorithmen aufgeführt.
 Mithilfe eines grafischen Elements kann konfiguriert werden, welche Kanten des jeweiligen Algorithmus angezeigt werden sollen.
 Durch Positionieren des Sliders können alle Kanten ausgewählt werden, welche in einem gewünschten Iterations-Range zum Graphen hinzugefügt wurden.
-Der Filter wird durch Anwählen der Schaltfläche \ovalbox{Start} angewendet.
+Der Filter wird durch Anwählen der Schaltfläche \ovalbox{Start} angewendet. Der gefilterte Graph enthält alle Kanten, welche mit dem gewählten Algorithmus hinzugefügt wurden und
+innerhalb der konfigurierten Iterationswerte liegen sowie alle initialen Kanten.
 
 Falls für den spezifischen Algorithmus noch keine Kanten zum Graphen hinzugefügt wurden, erscheint ein Pop-up Fenster mit entsprechendem Hinweis.
-Abbildung \ref{fig:screen6} auf der nächsten Seite zeigt das Pop-up Fenster.
-
-\begin{figure}
-    \includegraphics[width=\linewidth]{resources/SC-6.png}
-    \caption{Fehlermeldung, wenn die Berechnung der Link Prediction noch nicht durchgeführt wurde.}
-    \label{fig:screen6}
-\end{figure}
-
 Der Platzhalter ``Link Prediction Filter'' wird durch den gewählten Algorithmus, z.B. ``Common Neighbour Filter'' ersetzt.
 Ursprünglich war angedacht, dass im Fehlerfall die Berechnung direkt aus dem Pop-up Fenster angestossen werden soll.
 Um die Trennung zwischen den beiden Konzepten \textit{Filter} und \textit{Statistik} klar zu halten, wurde aber schliesslich darauf verzichtet.
 Die notwendige Berechnung kann weiterhin über \ovalbox{Statistics} vorgenommen werden (vgl. voriger Abschnitt).
 
-Abbildung \ref{fig:screen7} zeigt den gefilterten Graphen. Er enthält alle Kanten, welche mit dem gewählten Algorithmus hinzugefügt wurden und
-innerhalb der konfigurierten Iterationswerte liegen sowie alle initialen Kanten.
-
-\begin{figure}
-    \includegraphics[width=\linewidth]{resources/SC-7.png}
-    \caption{Gefilterter Graph.}
-    \label{fig:screen7}
-\end{figure}
-
 \subsection{Beurteilung der Qualität verschiedener Algorithmen}
 
 Bei der Implementierung verschiedener Algorithmen ist es für den User interessant zu wissen, welche Algorithmen am
-besten auf verschiedene Graphen angewendet werden können. Während diese Aussage für einen einzelnen Graphen nicht gemacht
-werden kann, ist bei zwei Graphen, die zwei verschiedene Zeitpunkte desselben Netzwerkes abbilden, ein Vergleich möglich.
-
-Aus diesem Grund wurde der zweite Teil des Plugins implementiert. Zuerst wurden verschiedene Konzepte zur Umsetzung
-erstellt. Nach einer Besprechung der Optionen wurde sich auf die Lösung geeignet, welche hier mit einem Papierprototyp
-beschrieben wird.
+besten auf verschiedene Graphen angewendet werden können. Eine solche Aussage kann nur für zwei Graphen, die zwei
+verschiedene Zeitpunkte desselben Netzwerkes abbilden, gemacht werden.
 
 \begin{figure}
     \includegraphics[width=\linewidth]{resources/EV-1.png}
-    \caption{Graph bei X und X+n.}
+    \caption{Auszuwertender Graph zum Zeitpunkt $t$ und $t + n$.}
     \label{fig:screen8}
 \end{figure}
 
-Man mit zwei Graphen, gezeigt in Abbildung \ref{fig:screen8}. Graph 1 ist dabei ein Netzwerk zum Zeitpunkt X und Graph 2
-dasselbe Netzwerk zum Zeitpunkt X+n. Beim Klicken auf "Link Prediction Evaluation" öffnet sich ein Pop-Up Fenster, in
-welchem die beiden Graphen und die zu berechnenden Algorithmen ausgewählt werden können. Graph 1 wird dann für jeden
+Ausgangspunkt für die Evaluation sind daher zwei Graphen, wie in Abbildung \ref{fig:screen8} dargestellt. Graph 1 auf der linken Seite ist dabei ein Netzwerk zum Zeitpunkt $t$ und entspricht dem initialen Graphen. Graph 2 auf der rechten Seite
+dasselbe Netzwerk zum Zeitpunkt $t + n$ und entspricht dem Validierungsgraphen. Beim Anwählen der Schaltfläcke ``Link Prediction Evaluation'' öffnet sich ein Pop-up Fenster, in
+welchem die beiden Graphen und die zu berechnenden Algorithmen ausgewählt werden können. Der initiale Graph wird dann für jeden
 Algorithmus dupliziert und die Berechnung auf dem jeweiligen Duplikat durchgeführt. Währenddessen werden die tatsächlich
-vorhandenen neuen Kanten aus Graph 2 mit den berechneten Kanten für Graph 1 verglichen. So wird ein Genauigkeitswert für
-das Ergebnis errechnet. In Abbildung \ref{fig:screen10} ist eine Auswertung diese Berechnung zu sehen. In der finalen
-Umsetzung wurde diese Auswertung beispielsweise durch eine Grafik, welche die Genauigkeit über Zeit darstellt, ergänzt.
+vorhandenen neuen Kanten aus dem Validierungsgraphen mit den hinzugefügten Kanten auf dem initialen Graphen verglichen. So wird ein Genauigkeitswert für
+das Ergebnis errechnet. Abbildung \ref{fig:screen9} zeigt das Pop-up für die Konfiguration.
+
+Die berechneten Genauigkeiten werden anschliessend in Form eines Reports ausgewiesen.
+Dabei werden einerseits die erreichten Accuracy-Werte in absteigender Reihenfolge dargestellt, andererseits ist aber auch die Entwicklung der Accuracy für die einzelnen Iterationen dargestellt.
+Abbildung \ref{fig:screen10} zeigt den Entwurf eines solchen Reports.
 
 \begin{figure}
-    \includegraphics[width=\linewidth]{resources/EV-3.png}
-    \caption{Pop-Up zur Graph und Algorithmen-Auswahl.}
+    \centering
+    \includegraphics[width=0.5\linewidth]{resources/EV-3.png}
+    \caption{Konfiguration für Evaluation der Algorithmen}
     \label{fig:screen9}
 \end{figure}
 
 \begin{figure}
-    \includegraphics[width=\linewidth]{resources/EV-4.png}
-    \caption{Pop-Up mit Auswertung der Algorithmen-Genauigkeit.}
+    \centering
+    \includegraphics[width=0.5\linewidth]{resources/EV-4.png}
+    \caption{Report der Evaluationsresultate}
     \label{fig:screen10}
-\end{figure}
-
-Zu Beginn wurden beispielsweise Fehlermeldungen wie diese in Abbildung \ref{fig:screen11} eingeplant. In der Umsetzung
-der neuen Funktion wurde dann aber entschlossen, dass jeweils der kleinere der beiden präsentierten Graphen als ``Graph 1''
-gewertet wird. Dies liegt daran, dass der Nutzer nicht die Anzahl der Iterationen selbst wählt, sondern die
-Kanten-Differenz der beiden Graphen als Anzahl Iterationen gewertet wird.
-
-\begin{figure}
-    \includegraphics[width=\linewidth]{resources/EV-5.png}
-    \caption{Beispiel-Fehlermeldung.}
-    \label{fig:screen11}
-\end{figure}
-
-In Abbildung \ref{fig:screen12}  sind nun die neuen Graphen mit der Link Prediction zu sehen, so dass der Nutzer diese genauer ansehen
-kann, wenn er diese analysiseren möchte.
-
-\begin{figure}
-    \includegraphics[width=\linewidth]{resources/EV-2.png}
-    \caption{Link Prediction Graphen.}
-    \label{fig:screen12}
 \end{figure}
 
 \section{Anleitung Software}
 
 Eine Anleitung der Software befindet sich im Anhang \ref{readme} in Form des README.md.
-
-%
-%
-%Nach Recherche über die verschiedenen Algorithmen wurde entschieden, die Algorithmen "Common Neighbours" und
-%"Preferential Attachment" zu implementieren. Diese Entscheidung beruhte darauf, dass sich die beiden Algorithmen
-%insofern unterscheiden, dass beim Common-Neighbours-Algorithmus nur Knoten eine Rolle spielen, welche gemeinsame
-%Nachbarn aufweisen. Beim zweiten Algorithmus ist dies anders: Dort werden alle Knoten im Bezug aufeinander
-%berücksichtigt - hier ist also die Popularität eines einzelnen entscheidend, während beim ersteren Gemeinsamkeiten im
-%Vordergrund stehen.
-%
-%In der Literatur werden hauptsächlich Algorithmen beschrieben, welche auf ungerichtete Graphen anwendbar sind. Algorithmen für gerichtete Graphen weisen eine wesentlich höhere Komplexität auf. Die Arbeit beschränkt sich deshalb auf Link Predictions auf ungerichtete Graphen -
-%ein entsprechender Hinweis wurde im Gephi Plugin implementiert.
-%
-%\subsection{Common Neighbours}
-%In Gephi ist die Berechnung dieses Werts bei den Statistiken unter Link Prediction zu finden. Die berechneten Werte
-%werden anschliessend im Data Laboratory gespeichert und können mit Hilfe von Filtern eingeschränkt werden.
-%
-%\begin{figure}[htbp]
-%    \includegraphics[width=\linewidth]{resources/gephi-CN.png}
-%    \caption{Gephi Common Neighbours Funktion.}
-%    \label{fig:screen8}
-%\end{figure}
-%
-%\subsection{Preferential Attachment}
-%In Gephi ist die Berechnung dieses Werts bei den Statistiken unter Link Prediction zu finden. Die berechneten Werte
-%werden anschliessend im Data Laboratory gespeichert und können mit Hilfe von Filtern eingeschränkt werden.
-%
-%\begin{figure}[htbp]
-%    \includegraphics[width=\linewidth]{resources/gephi-PA.png}
-%    \caption{Gephi Preferential Attachment Funktion.}
-%    \label{fig:screen9}
-%\end{figure}
-%
-%\section{Evaluationskomponente}
-%
-%Dummy text.
-%

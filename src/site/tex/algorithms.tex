@@ -153,17 +153,6 @@ Das Code-Listing \ref{lstPreferentialAttachment} zeigt die vereinfachte Implemen
     }
 \end{lstlisting}
 
-\subsection{Laufzeit-Optimierung der Algorithmen}
-Zu Beginn wurden die Algorithmen so implementiert, dass die Berechnungen jedes Mal über den gesamten Graphen durchgeführt
-werden. Dies hatte besonders bei grossen Graphen sehr hohe Laufzeiten zur Folge. Aus diesem Grund wurden Optimierungen
-vorgenommen. Die berechneten Werte werden nun in einer Liste gespeichert und nur die möglichen neuen Kanten neu
-berechnet, die von der zuvor hinzugefügten Kante beeinflusst werden, neu berechnet.
-
-Gibt es also eine neue Kante zwischen den Knoten A und B, müssen nur die Link Prediction Werte der möglichen Kanten
-zwischen A und allen Knoten, mit denen A noch keine Verbindung hat, und B und allen Knoten, mit denen B noch keine
-Verbindung hat, neu berechnet werden. Auf diese Weise wird die Berechnungszeit für den Graphen reduziert, da nur für
-zwei Knoten neue Berechnungen durchgeführt werden müssen und nicht für alle.
-
 \section{Evaluation}
 Basierend auf zwei Graphen wird die Genauigkeit der Vorhersagen unter Verwendung verschiedener Algorithmen bewertet.
 Ausgehend von einem initialen Graphen $G_i_,_t$ zum Zeitpunkt $t$ prognostizieren wir $n$ Kanten $E_i$, was zu einem Graphen $G_i_,_t_+_n$ zum Zeitpunkt $t + n$ führt.
