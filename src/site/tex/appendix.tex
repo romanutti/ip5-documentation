@@ -3,7 +3,7 @@
 \section{Proof of Concept}
 \label{poc}
 
-Für die Einarbeitung in die Gephi-Plugin Entwicklung und erste Ansätze für die Umsetzung des Projekts zu finden, hat
+Für die Einarbeitung in die Gephi-Plugin Entwicklung und um erste Ansätze für die Umsetzung des Projekts zu finden, hat
 sich das Projektteam entschlossen, ein Proof of Concept durchzuführen.
 
 \textbf{Ziel}
@@ -15,8 +15,8 @@ Andererseits soll die Funktionsweise von ersten Ideen und Konzepten überprüft 
 
 \begin{itemize}
     \item \textbf{Filter:} Filter werden in \acs{gephi} verwendet, um ein Netzwerk auf Knoten oder Kanten zu reduzieren, welche bestimmte Eigenschaften besitzen.
-    In Bezug auf Link-Prediction wurde deshalb eine neue Filterkategorie eingeführt, unter welcher nach verschiedenen Prediction-Algorithmen gefiltert werden kann.
-    Durch Auswahl eines Algorithmus können jene Kanten herausgefiltert werden, welche durch Anwenden des Algorithmus neu hinzugefügt werden.
+    In Bezug auf Link Prediction wurde deshalb eine neue Filterkategorie eingeführt, unter welcher nach verschiedenen Prediction-Algorithmen gefiltert werden kann.
+    Durch Auswahl eines Algorithmus können jene Kanten herausgefiltert werden, welche durch das Anwenden des Algorithmus neu hinzugefügt werden.
     Der Filter wird dabei um ein \acs{ui}-Element ergänzt, bei welchem die Anzahl der hinzugefügten Kanten eingegrenzt werden kann.
 
     \item \textbf{Statistiken:} Die Wahrscheinlinkteit, dass sich eine neue Kante zwischen zwei Knoten bildet, entspricht einem berechneten Wert.
@@ -30,7 +30,7 @@ Andererseits soll die Funktionsweise von ersten Ideen und Konzepten überprüft 
     Für die Implementierung des Algorithmus konnten bestehende Funktionen von \acs{gephi} verwendet werden um die Knoten aus dem Graphen, respektive
     dessen Nachbarn auszulesen. Die berechneten Werte konnten anschliessend bereits im \acs{datalaboratory} abgelegt werden.
 
-    % TODO: Redundant?
+    % TODO: Redundant? --> stimme zu
     %Da für die Umsetzung der Link Prediction aber nicht nur die direkte Anzahl der Nachbarn relevant ist, sondern vor allem
     %die Zahl der gemeinsamen Nachbarn zweier Knoten wurde auch dafür noch eine Statistik umgesetzt. Hier werden nacheinander
     %die Knoten durchgegangen und getestet, wie viele ihrer Nachbarn mit den Nachbarn eines anderen Knotens übereinstimmen.
@@ -49,7 +49,7 @@ Andererseits soll die Funktionsweise von ersten Ideen und Konzepten überprüft 
 
 Es konnten verschiedene Erkenntnisse aus der Umsetzung des Proof Of Concept gewonnen werden.
 Zum einen war es sehr hilfreich, sich zum ersten Mal aktiv mit dem \acs{api} von \acs{gephi} zu beschäftigen. Besonders wichtig war
-dabei die Erkenntnis, dass die Beispiele aus dem Bootcamp teilweise veraltet sind. Um solche Beispiele mit einer neuen \acs{gepi}-Version
+dabei die Erkenntnis, dass die Beispiele aus dem Bootcamp teilweise veraltet sind. Um solche Beispiele mit einer neuen \acs{gephi}-Version
 und den dadurch unterschiedlichen \acs{api}s zum Laufen zu bringen, muss zusätzlich Aufwand eingerechnet werden.
 
 Weiter konnte mithilfe des Proof Of Concepts sichergestellt werden, dass sämtliche Installationen, Konfigurationen und die
@@ -57,7 +57,7 @@ Entwicklungsumgebung korrekt funktionieren. Viele konfigurative Probleme konnten
 
 Vom technischen Aspekt her konnten wichtige Erkenntnisse für die spätere Umsetzung gewonnen werden - beispielsweise
 wie ein Gephi-Plugin aufgebaut ist. Diese Erkenntnisse fliessen direkt in die Überlegungen beim Entwurf der Software-Architektur ein.
-% TODO: Redundant?
+% TODO: Redundant? -> okay, weil in Software Architecture beschrieben
 %Um ein Beispiel zu nennen, konnte nach der Umsetzung des
 %Proof of Concept aber bereits festgelegt werden, wie sichergestellt werden kann, dass die Anzahl Algorithmen für die
 %Link Prediction beliebig erweitert werden kann, nämlich indem diverse Informationen in separate Klassen ausgelagert
@@ -81,7 +81,7 @@ wie ein Gephi-Plugin aufgebaut ist. Diese Erkenntnisse fliessen direkt in die Ü
 
 \section{Projektanforderungen}
 \label{projektanforderungen}
-Das Projekt wird im Rahmen des IP5 an der FHNW durchgeführt. Sein Hauptziel ist es, ein Plugin für das Datenanalyse-Tool Gephi zu entwickeln, mithilfe wessen Vorhersagen möglicher neuer Kanten zwischen Knoten in einem Netzwerk durchgeführt werden können. Solche Vorhersagen neuer Verbindungen zwischen zwei Knoten werden Link Predictions genannt. Das Projekt wird von Michael Henninger betreut und wurde auch von ihm in Auftrag gegeben.
+Das Projekt wird im Rahmen des IP5 an der FHNW durchgeführt. Sein Hauptziel ist es, ein Plugin für das Datenanalyse-Tool Gephi zu entwickeln, mithilfe dessen Vorhersagen möglicher neuer Kanten zwischen Knoten in einem Netzwerk durchgeführt werden können. Solche Vorhersagen neuer Verbindungen zwischen zwei Knoten werden Link Predictions genannt. Das Projekt wird von Michael Henninger betreut und wurde auch von ihm in Auftrag gegeben.
 Die genauen Vorgaben für die Umsetzung lauten, wie folgt:
 
 \begin{itemize}

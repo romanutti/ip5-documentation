@@ -16,11 +16,13 @@ Als Grundlage für die Vorhersagen wird der Beispielgraph aus Abbildung \ref{fig
 \end{figure}
 
 \subsection{Common Neighbours}
-Der Common Neighbours Algorithmus berechnet für zwei nicht verbundene Knoten, wie viele gemeinsame Nachbarn existieren. Die Wahrscheinlichkeit
-für das Entstehen einer neuen Kante ist umso höher, desto mehr gemeinsame Nachbarn zwei
-Knoten haben. Common Neighbours beruht auf dem Social Forces Prinzip der Homophilie: Je grösser die Anzahl Gemeinsamkeiten in Form von Nachbarn, desto wahrscheinlicher wird eine neue Kante zwischen den beiden Knoten hinzugefügt (vgl. Kapitel \ref{socialforces}).
+Der Common Neighbours Algorithmus berechnet für zwei nicht verbundene Knoten, wie viele gemeinsame Nachbarn existieren.
+Die Wahrscheinlichkeit für das Entstehen einer neuen Kante ist umso höher, desto mehr gemeinsame Nachbarn zwei
+Knoten haben. Common Neighbours beruht auf dem Social Forces Prinzip der Transitivität: Freunde, welche gemeinsame
+Freunde haben, werden sich wahrscheinlicher miteinander anfreunden. Je mehr gemeinsame Freunde zwei Knoten aufweisen können, desto
+höher ist also die Wahrscheinlichkeit, dass diese Knoten Kontakt knüpfen und eine neue Kante gebildet wird. (vgl. Kapitel \ref{socialforces}).
 
-Die folgende Formel zeigt, wie die Anzahl der gemeinsamen Nachbarn von zwei Knoten $X$ und $Y$ berechnet werden kann::
+Die folgende Formel zeigt, wie die Anzahl der gemeinsamen Nachbarn von zwei Knoten $X$ und $Y$ berechnet werden kann:
 
 \begin{equation}
 \label{eq:cn}
@@ -90,7 +92,7 @@ Weil initial zweimal über sämtliche Knoten iteriert werden muss, besitzt die I
 Mit dem Preferential Attachment Algorithmus werden ebenfalls die Nachbarn eines Knotens berücksichtigt. Diese müssen jedoch nicht
 mit den Nachbarn des anderen Knoten übereinstimmen - es geht lediglich um die Anzahl der eigenen Nachbarn. Bei Preferential Attachment
 wird von der Annahme ausgegangen, dass die Wahrscheinlichkeit einen neuen Kontakt zu knüpfen grösser wird, je grösser das eigene Netzwerk bereits ist.
-Die Entstehung eines neuen Edges wird in diesem Fall nicht über Homophilie bestimmt, sondern über Ansehen (vgl. Kapitel \ref{socialforces}).
+Die Entstehung eines neuen Edges wird in diesem Fall nicht über Transitivität bestimmt, sondern über Ansehen (vgl. Kapitel \ref{socialforces}).
 
 Die Formel für den Preferential Attachment Algorithmus lautet wie folgt:
 
@@ -99,8 +101,8 @@ Die Formel für den Preferential Attachment Algorithmus lautet wie folgt:
     preferential\_attachment(X,Y) = | N(X) | \cdot | N(Y ) |
 \end{equation}
 
-Um den resulierenden Wert zu erhalten, wie die Anzahl Nachbarn zweier Knoten $X$ und $Y$ miteinander multipliziert. Dieser Wert muss für alle Knoten-Kombinationen berechnet und anschliessend der höchste Wert
-ausgewählt werden.
+Um den resulierenden Wert zu erhalten, wird die Anzahl Nachbarn zweier Knoten $X$ und $Y$ miteinander multipliziert.
+Dieser Wert muss für alle Knoten-Kombinationen berechnet und anschliessend der höchste Wert usgewählt werden.
 
 Angewandt auf den Beispielgraphen würde mit Preferential Attachment eine Kante zwischen den Knoten $A$ und $G$ vorausgesagt und folgende weiteren Werte berechnet:\\
 % Layout multiline-formula
@@ -151,6 +153,17 @@ Das Code-Listing \ref{lstPreferentialAttachment} zeigt die vereinfachte Implemen
     }
 \end{lstlisting}
 
+\subsection{Laufzeit-Optimierung der Algorithmen}
+Zu Beginn wurden die Algorithmen so implementiert, dass die Berechnungen jedes Mal über den gesamten Graphen durchgeführt
+werden. Dies hatte besonders bei grossen Graphen sehr hohe Laufzeiten zur Folge. Aus diesem Grund wurden Optimierungen
+vorgenommen. Die berechneten Werte werden nun in einer Liste gespeichert und nur die möglichen neuen Kanten neu
+berechnet, die von der zuvor hinzugefügten Kante beeinflusst werden, neu berechnet.
+
+Gibt es also eine neue Kante zwischen den Knoten A und B, müssen nur die Link Prediction Werte der möglichen Kanten
+zwischen A und allen Knoten, mit denen A noch keine Verbindung hat, und B und allen Knoten, mit denen B noch keine
+Verbindung hat, neu berechnet werden. Auf diese Weise wird die Berechnungszeit für den Graphen reduziert, da nur für
+zwei Knoten neue Berechnungen durchgeführt werden müssen und nicht für alle.
+
 \section{Evaluation}
 Basierend auf zwei Graphen wird die Genauigkeit der Vorhersagen unter Verwendung verschiedener Algorithmen bewertet.
 Ausgehend von einem initialen Graphen $G_i_,_t$ zum Zeitpunkt $t$ prognostizieren wir $n$ Kanten $E_i$, was zu einem Graphen $G_i_,_t_+_n$ zum Zeitpunkt $t + n$ führt.
@@ -200,7 +213,7 @@ Die Herleitung dazu sieht folgendermassen aus:\\
 \forceindent $| E_i \ \cap \ E_v| = |\{(A,C), (H,I)\}| = 2$\\
 \vspace{4mm}
 \forceindent $Acc = | E_i \ \cap \ E_v| \ / \ |E_v| * 100 = 2 \ / \ 3 * 100 = 66.67$\\
-% TODO: Performance-Optimierung hier schon erwähnen?
+% TODO: Performance-Optimierung hier schon erwähnen? --> Hat nun ein Sub-Kapitel dazu, also muss das nicht unbedingt erwähnt werden
 
 \section{Gegenüberstellung der verschiedenen Algorithmen und Netzwerke}
 \label{comparison}
@@ -208,7 +221,7 @@ Die Qualität der verschiedenen Algorithmen kann beurteilt werden, indem die ebe
 Um die Qualität der Algorithmen besser beurteilen zu können, wird die Entwicklung mit zunehmender Anzahl Iterationen betrachtet.
 In jedem Iterationsschritt wird eine neue Kante zu den Graphen hinzugefügt und die Accuracy zu diesem Zeitpunkt berechnet.
 
-Die Tabelle \ref{tab_accuracy_iter} zeigt die Accuracy für die verschiedenen Datensets nach hinzufügen von 1\%, 5\%, 10\% und 50\% neuer Kanten.
+Die Tabelle \ref{tab_accuracy_iter} zeigt die Accuracy für die verschiedenen Datensets nach Hinzufügen von 1\%, 5\%, 10\% und 50\% neuen Kanten.
 Die Accuracy wird jeweils für die Algorithmen Common Neighbour (CN) und Preferential Attachment (PA) ausgewiesen.
 Für Einträge mit dem Symbol ``\textbf{-}'' sind keine temporalen Daten zur Verifizierung der Accuracy verfügbar.
 Diese Einträge werden bei der Interpretation in den folgenden Abschnitten nicht weiter berücksichtigt.
@@ -242,7 +255,7 @@ Diese Einträge werden bei der Interpretation in den folgenden Abschnitten nicht
 
 Bei der Analyse der erreichten Werte fällt auf, dass im College Message Network keine richtigen Vorhersagen getroffen werden konnten.
 Auch bei den anderen Netzwerken sind die Vorhersagen da am genausten, wo ein hoher Clustering Coefficient und eine hohe Density vorliegen.
-Dies legt die Vermutung nahe, dass für die Algorithmen eine Korrelation zwischen der Qualität der Vorhersagen und der Clustering Coefficient, resp. der Density vorliegen.
+Dies legt die Vermutung nahe, dass für die Algorithmen eine Korrelation zwischen der Qualität der Vorhersagen und der Clustering Coefficient resp. der Density vorliegen.
 Um die Vermutung empirisch zu überprüfen, müssten jedoch noch weitere Netzwerke untersucht werden.
 
 Weiter fällt auf, dass die erreichten Accuracy-Werte mit zunehmender Anzahl hinzugefügter Kanten steigen.
