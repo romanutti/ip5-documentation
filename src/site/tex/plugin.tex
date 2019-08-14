@@ -199,48 +199,46 @@ In diesem Fall wird auf das Gephi-interne Exception-Handling zurückgegriffen un
 \section{GUI Konzept}
 
 Die Link-Prediction-Funktionalität soll möglichst gut in die bestehende Gephi-Benutzeroberfläche integriert werden.
-Bei der Analyse der bestehenden \acs{ui}-Elemente stellten sich die folgenden Punkte heraus:
+Das \acs{gui}-Konzept des Plugins basiert auf den folgenden zentralen UI-Elementen:
 
 \begin{itemize}
     \item Unter dem Menü-Punkt \ovalbox{Statistics} werden diverse Werte des Graphen berechnet und gegebenenfalls im Data Laboratory
           hinzugefügt. Die Darstellung der Ergebniswerte erfolgt über einen Report, sofern sinnvoll.
-    \item Unter dem Menü-Punkt \ovalbox{Filter} werden lediglich bereits vorhandene Daten, gefiltert. Hierbei werden Graphen für gewöhnlich verkleinert dargestellt, also mit weniger Kanten oder Knoten.
-    \item Die Darstellung der verschiedenen Werte wird über den Menü-Punkt \ovalbox{Appearance} vorgenommen. Hier können Farben
-          und Grösse der Knoten und Kanten eingestellt werden. Beim Filtern werden keine neuen Werte berechnet oder generiert.
+    \item Unter dem Menü-Punkt \ovalbox{Filter} werden lediglich bereits vorhandene Daten, gefiltert. Hierbei werden Graphen auf Subgraphen reduziert.
+    \item Über den Menü-Punkt \ovalbox{Appearance} kann die Darstellung der Knoten und Kanten verändert werden.
     \item Im \ovalbox{Data Laboratory} sind die aktuellen Daten zu finden. Werden neue Daten über Statistics berechnet
           oder die Daten im Laboratory verändert, werden nur die neusten Daten angezeigt. Um alte Daten zu erhalten,
           muss bei jeder Änderung ein neuer Workspace erstellt werden.
 \end{itemize}
 
-Das \acs{gui}-Konzept des Link Prediction Plugins basiert auf diesen Grundkonzepten. In den nachfolgenden Kapiteln werden die Wichtigsten UI-Elemente beschrieben.
+In den nachfolgenden Kapiteln wird die Benutzerführung der wichtigsten Funktionalitäten beschrieben.
 Die vollständigen Wireframes sind im Anhang \ref{wireframes} ersichtlich.
 
 \subsection{Vorhersagen neuer Kanten}
 
 Die Berechnung der neuen Kanten muss im Bereich der \ovalbox{Statistics} passieren, da hier neue Werte berechnet und dem
-Data Laboratory hinzugefügt werden. Im Folgenden wird dieser Vorgang beschrieben:
-
-\begin{figure}
-    \includegraphics[width=\linewidth]{resources/SC-1.png}
-    \caption{Überblick der Ansicht Statistik.}
-    \label{fig:screen1}
-\end{figure}
-
-Abbildung \ref{fig:screen1} zeigt einen Überblick über die Benutzeroberfläche von Gephi. Grau hinterlegt sind die
+Data Laboratory hinzugefügt werden. Abbildung \ref{fig:screen1} zeigt einen Überblick über die Benutzeroberfläche von Gephi. Grau hinterlegt sind die
 angewählten Menü-Punkte. Unter dem Menü \ovalbox{Statistics} wird hier nun ein Element ``Link Prediction'' mit einem
 Start-Button eingefügt. Um die Darstellung auf die wesentlichen Elemente zu reduzieren, wurden bestehende Statistiken
 nicht eingezeichnet.
 
-\begin{figure}
-    \includegraphics[width=\linewidth]{resources/SC-2.png}
-    \caption{Pop-Up für die Auswahl der Berechnung.}
-    \label{fig:screen2}
+\begin{figure}[!b]
+    \includegraphics[width=\linewidth]{resources/sc1.png}
+    \caption{Überblick der Ansicht Statistik.}
+    \label{fig:screen1}
 \end{figure}
 
 Falls die \ovalbox{Start}-Schaltfläche angewählt wird, öffnet sich ein Pop-up Fenster, in welchem man verschiedene Algorithmen auswählen
 kann. Für alle ausgewählten Algorithmen, werden Link Predictions durchgeführt. Abbildung \ref{fig:screen2} zeigt das Pop-up für die Auswahl der Berechnung. Weitere Informationen zum jeweiligen Algorithmus werden angezeigt, wenn mit der Maus über das entsprechende Element gefahren wird. In einem zusätzlichen Eingabefeld kann man einen Wert
 $>= 1$ eingeben. Dieser besagt, wie viele Durchgänge bei der Link Prediction durchlaufen werden sollen, respektive wie viele
 neue Kanten dem Graphen hinzugefügt werden. Die einzelnen Kanten werden iterativ zum Graphen hinzugefügt. Die Berechnung des nächsten vorhergesagten Wertes basiert immer auf dem Graphen des vorherigen Iterationsschrittes.
+
+\begin{figure}
+    \centering
+    \includegraphics[width=0.5\linewidth]{resources/sc2.png}
+    \caption{Pop-up für die Auswahl der Berechnung.}
+    \label{fig:screen2}
+\end{figure}
 
 Die hinzugefügten Kanten können via Filter angezeigt werden. Dabei können die anzuzeigenden Kanten einerseits auf einen Algorithmus, andererseits auf eine gewünschte Anzahl hinzugefügter Kanten beschränkt werden.
 
@@ -252,19 +250,19 @@ Ein grosses Netzwerk oder auch eine hohe Anzahl an Iterationen kann in einer gro
 In diesem Fall wird eine Warnung an den User ausgegeben. Wird diese bestätigt, so wird der Algorithmus trotzdem berechnet. Andernfalls kann der User seine gewünschten
 Parameter nochmals verändern.
 
-\begin{figure}
-    \includegraphics[width=\linewidth]{resources/SC-3.png}
-    \caption{Modifizierter Graph mit vorhergesagtem Edge.}
-    \label{fig:screen3}
-\end{figure}
-
 Abbildung \ref{fig:screen3} zeigt den Graph nach der Berechnung der Link Predictions.
 Gegenüber dem initialen Graphen wurden neue Kanten hinzugefügt.
 Diese können mit Hilfe der Appearance-Einstellungen eingefärbt werden, da im Data Laboratory Felder enthalten sind, die aussagen, ob eine
 Kante mit einem Link-Prediction-Algorithmus hinzugefügt wurde oder ob sie bereits existiert hat.
 
 \begin{figure}
-    \includegraphics[width=\linewidth]{resources/SC-4.png}
+    \includegraphics[width=\linewidth]{resources/sc3.png}
+    \caption{Modifizierter Graph mit vorhergesagtem Edge.}
+    \label{fig:screen3}
+\end{figure}
+
+\begin{figure}
+    \includegraphics[width=\linewidth]{resources/sc4.png}
     \caption{Data Laboratory mit neuen Edges.}
     \label{fig:screen4}
 \end{figure}
@@ -289,12 +287,6 @@ Bei Kanten, die im initialen Graphen bereits vorhanden waren, ist dieses Attribu
 Die neu hinzugefügten Kanten sollen gefiltert werden können.
 Der folgende Abschnitt veranschaulicht, wie die Funktionalität im Gephi Plugin visualisiert wird.
 
-\begin{figure}
-    \includegraphics[width=\linewidth]{resources/SC-5.png}
-    \caption{Überblick der Ansicht Filter.}
-    \label{fig:screen5}
-\end{figure}
-
 In Abbildung \ref{fig:screen5} auf der nächsten Seite ist zu sehen, wie der Link-Prediction-Filter in die bestehende Übersicht eingebunden wird.
 Unter der Schaltfläche \ovalbox{Filter} gibt es eine neue Kategorie ``Link Predictions''.
 Darin werden die Filter für die verschiedenen Algorithmen aufgeführt.
@@ -302,6 +294,12 @@ Mithilfe eines grafischen Elements kann konfiguriert werden, welche Kanten des j
 Durch Positionieren des Sliders können alle Kanten ausgewählt werden, welche in einem gewünschten Iterations-Range zum Graphen hinzugefügt wurden.
 Der Filter wird durch Anwählen der Schaltfläche \ovalbox{Start} angewendet. Der gefilterte Graph enthält alle Kanten, welche mit dem gewählten Algorithmus hinzugefügt wurden und
 innerhalb der konfigurierten Iterationswerte liegen sowie alle initialen Kanten.
+
+\begin{figure}
+    \includegraphics[width=\linewidth]{resources/sc5.png}
+    \caption{Überblick der Ansicht Filter.}
+    \label{fig:screen5}
+\end{figure}
 
 Falls für den spezifischen Algorithmus noch keine Kanten zum Graphen hinzugefügt wurden, erscheint ein Pop-up Fenster mit entsprechendem Hinweis.
 Der Platzhalter ``Link Prediction Filter'' wird durch den gewählten Algorithmus, z.B. ``Common Neighbour Filter'' ersetzt.
@@ -313,20 +311,27 @@ Die notwendige Berechnung kann weiterhin über \ovalbox{Statistics} vorgenommen 
 
 Bei der Implementierung verschiedener Algorithmen ist es für den User interessant zu wissen, welche Algorithmen am
 besten auf verschiedene Graphen angewendet werden können. Eine solche Aussage kann nur für zwei Graphen, die zwei
-verschiedene Zeitpunkte desselben Netzwerkes abbilden, gemacht werden.
+verschiedene Zeitpunkte desselben Netzwerkes abbilden, gemacht werden. Ausgangspunkt für die Evaluation sind daher zwei Graphen, wie in Abbildung \ref{fig:screen8} dargestellt.
 
-\begin{figure}
-    \includegraphics[width=\linewidth]{resources/EV-1.png}
+\begin{figure}[h]
+    \includegraphics[width=\linewidth]{resources/sc6.png}
     \caption{Auszuwertender Graph zum Zeitpunkt $t$ und $t + n$.}
     \label{fig:screen8}
 \end{figure}
 
-Ausgangspunkt für die Evaluation sind daher zwei Graphen, wie in Abbildung \ref{fig:screen8} dargestellt. Graph 1 auf der linken Seite ist dabei ein Netzwerk zum Zeitpunkt $t$ und entspricht dem initialen Graphen. Graph 2 auf der rechten Seite
+Der Graph auf der linken Seite ist dabei ein Netzwerk zum Zeitpunkt $t$ und entspricht dem initialen Graphen. der Graph auf der rechten Seite
 dasselbe Netzwerk zum Zeitpunkt $t + n$ und entspricht dem Validierungsgraphen. Beim Anwählen der Schaltfläcke ``Link Prediction Evaluation'' öffnet sich ein Pop-up Fenster, in
 welchem die beiden Graphen und die zu berechnenden Algorithmen ausgewählt werden können. Der initiale Graph wird dann für jeden
 Algorithmus dupliziert und die Berechnung auf dem jeweiligen Duplikat durchgeführt. Währenddessen werden die tatsächlich
 vorhandenen neuen Kanten aus dem Validierungsgraphen mit den hinzugefügten Kanten auf dem initialen Graphen verglichen. So wird ein Genauigkeitswert für
 das Ergebnis errechnet. Abbildung \ref{fig:screen9} zeigt das Pop-up für die Konfiguration.
+
+\begin{figure}
+    \centering
+    \includegraphics[width=0.5\linewidth]{resources/sc7.png}
+    \caption{Konfiguration für Evaluation der Algorithmen}
+    \label{fig:screen9}
+\end{figure}
 
 Die berechneten Genauigkeiten werden anschliessend in Form eines Reports ausgewiesen.
 Dabei werden einerseits die erreichten Accuracy-Werte in absteigender Reihenfolge dargestellt, andererseits ist aber auch die Entwicklung der Accuracy für die einzelnen Iterationen dargestellt.
@@ -334,14 +339,7 @@ Abbildung \ref{fig:screen10} zeigt den Entwurf eines solchen Reports.
 
 \begin{figure}
     \centering
-    \includegraphics[width=0.5\linewidth]{resources/EV-3.png}
-    \caption{Konfiguration für Evaluation der Algorithmen}
-    \label{fig:screen9}
-\end{figure}
-
-\begin{figure}
-    \centering
-    \includegraphics[width=0.5\linewidth]{resources/EV-4.png}
+    \includegraphics[width=\linewidth]{resources/sc8.png}
     \caption{Report der Evaluationsresultate}
     \label{fig:screen10}
 \end{figure}
