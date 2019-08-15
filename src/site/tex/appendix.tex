@@ -21,24 +21,14 @@ Andererseits soll die Funktionsweise von ersten Ideen und Konzepten überprüft 
 
     \item \textbf{Statistiken:} Die Wahrscheinlinkteit, dass sich eine neue Kante zwischen zwei Knoten bildet, entspricht einem berechneten Wert.
     Diese Berechnung wird mittels Statistiken angestossen. Die gesamte Logik und Berechnung der verschiedenen Algorithmen wird anschliessend
-    durch verschiedene Statistik-Objekte gekapselt.
+    durch verschiedene Sta\-tis\-tik-Ob\-jek\-te gekapselt.
 
-    Die Funktionsweise für das Implementieren von neuen Statistik-Objekten ist im Gephi-Plugin Bootcamp gut dokumentiert. Darauf aufbauend
-    konnte ein neues Statistik-Objekt mit entstprechendem Button im \acs{ui} implementiert werden. Bei der Berechnung wurde der Algorithmsu
+    Die Funktionsweise für das Implementieren von neuen Sta\-tis\-tik-Ob\-jek\-ten ist im Gephi-Plugin Bootcamp gut dokumentiert. Darauf aufbauend
+    konnte ein neues Statistik-Objekt mit entstprechendem Button im \acs{ui} implementiert werden. Bei der Berechnung wurde der Algorithmus
     ``Common Neighbours'' eingesetzt, bei welchem die Anzahl Nachbarn jedes Knotens gezählt werden.
 
     Für die Implementierung des Algorithmus konnten bestehende Funktionen von \acs{gephi} verwendet werden um die Knoten aus dem Graphen, respektive
     dessen Nachbarn auszulesen. Die berechneten Werte konnten anschliessend bereits im \acs{datalaboratory} abgelegt werden.
-
-    % TODO: Redundant? --> stimme zu
-    %Da für die Umsetzung der Link Prediction aber nicht nur die direkte Anzahl der Nachbarn relevant ist, sondern vor allem
-    %die Zahl der gemeinsamen Nachbarn zweier Knoten wurde auch dafür noch eine Statistik umgesetzt. Hier werden nacheinander
-    %die Knoten durchgegangen und getestet, wie viele ihrer Nachbarn mit den Nachbarn eines anderen Knotens übereinstimmen.
-    %Wenn es noch keine Kante zwischen den beiden Knoten gibt, wird eine neue hinzugefügt und die Anzahl der gemeinsamen
-    %Knoten als neues Attribut eingefügt. Wenn es die Kante bereits gibt, wird nur das neue Attribut befüllt. Zusätzlich
-    %gibt es ein Attriut, das anzeigt, ob die Kante hinzugefügt wurde oder ob sie schon existiert hat. Zur Berechnung der
-    %gemeinsamen Nachbarn werden darüber hinaus nur Kanten gewertet, die nicht erst bei der Berechnung hinzugefügt worden
-    %sind.
 
     Damit dem Graphen Kanten hinzugefügt werden können, während diese noch gelesen und überarbeitet werden, muss ein Write-Lock
     verwendet werden. Die Logik, welche für den Algorithmus ``Common Neighbours'' implementiert wurde, kann für die spätere Umsetzung

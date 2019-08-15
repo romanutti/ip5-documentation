@@ -22,7 +22,6 @@ Ein Beispiel für einen ungerichteten Graphen ist das Freundes-Netzwerk von \tex
     \centering
     \includegraphics[scale=0.7]{resources/graph_undirected.JPG}
     \caption{Ungerichteter Graph}
-    % TODO Add cite to SNA Script
     \label{fig:graph_undirected}
 \end{figure}
 
@@ -34,7 +33,6 @@ Als Beispiel für einen gerichteten Graphen dient ein E-Mail-Netzwerk. Jede Nach
     \centering
     \includegraphics[scale=0.7]{resources/graph_directed.JPG}
     \caption{Gerichteter Graph}
-    % TODO Add cite to SNA Script
     \label{fig:graph_directed}
 \end{figure}
 
@@ -59,7 +57,7 @@ beschrieben. Für die in dieser Arbeit implementierten Algorithmen sind dabei vo
 relevant.
 
 \subsubsection{Homophilie}
-Homophilie beruht darauf, dass zwei Knoten mit Gemeinsamkeiten, eine höhere Wahrscheinlichkeit dafür
+Homophilie beruht darauf, dass zwei Knoten mit Gemeinsamkeiten eine höhere Wahrscheinlichkeit dafür
 aufweisen, eine Verbindung aufzubauen. Hier sind beispielsweise Hobbys oder die politische Orientierung relevant. Will
 man für diese Art der sozialen Kräfte einen Algorithmus zur Link Prediction entwerfen, müsste dieser vorhandene
 Attribute miteinander vergleichen - beispielsweise das Attribut ``Lieblingsband''. Stimmt die Band in diesem Attribut
@@ -109,15 +107,14 @@ um die Vernetzung untereinander, sondern um die Auswirkungen eben jener Vernetzu
 
 Analysieren könnte man eine solche soziale Anpassungen zum Beispiel, indem man Netzwerke über längere Zeiträume
 beobachtet. Wird hier beispielsweise Person $A$ in eine Gruppe integriert und ändert daraufhin eines ihrer Merkmale
-(z.B die politische Ausrichtung oder ihre Hobbies) im Einklang mit der Gruppe, ist es
+(z.B. die politische Ausrichtung oder ihre Hobbies) im Einklang mit der Gruppe, ist es
 wahrscheinlich, dass dies aufgrund des sozialen Drucks geschehen ist.
-Dies wird umso wahrscheinlicher, wenn $A$ mit Person $B$,
-welche ein hohes Ansehen in der Gruppe geniesst, direkt vernetzt ist, da $B$ einen sehr grossen Einfluss hat und dasselbe
-gruppenrelevante Merkmal teilen dürfte.
-% TODO Satz irgendwie kürzen?
+Dies wird umso wahrscheinlicher, wenn Person $A$ mit Person $B$,
+welche ein hohes Ansehen in der Gruppe geniesst, direkt vernetzt ist\footnote{Da Person $B$ durch das hohe Ansehen einen sehr grossen Einfluss hat und dasselbe
+gruppenrelevante Merkmal mit Person $A$ teilen dürfte}.
 
 \subsubsection{Transitivität}
 Transitivität ist sehr ähnlich zur Homophilie. Hier stehen anstelle der gemeinsamen Eigenschaften allerdings gemeinsame Beziehungen im Vordergrund.
 Als Beispiel dienen drei Personen $A$, $B$ und $C$ - wobei $B$ mit $A$ und mit $C$ befreundet ist.
-Die Wahrscheinlichkeit, dass $A$ irgendwann auf $C$ trifft, und dass die beiden sich verstehen verstehen, ist höher als sich mit einer zufälligen Person auf
-der Strasse anzufreunden. Hier spielen sicherlich auch andere Kräfte wie das Ansehen, die Homophilie und die Nähe eine Rolle.
+Die Wahrscheinlichkeit, dass $A$ irgendwann auf $C$ trifft, und dass die beiden sich verstehen, ist höher als sich mit einer zufälligen Person auf
+der Strasse anzufreunden. Hier spielen sicherlich auch andere Kräfte wie das Ansehen, die Homophilie und die Nähe eine Rolle (vgl. vorherige Abschnitte).

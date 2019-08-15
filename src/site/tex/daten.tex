@@ -7,14 +7,14 @@ Es wurden dafür temporale Datensets, welche in der Literatur und auf dem GitHub
 Für den Aufbau der verschiedenen Tests wird ein Netzwerk zu einem bestimmten Zeitpunkt $t$ benötigt.
 Auf diesem werden anschliessend Link Predictions durchgeführt.
 Der veränderte Graph wird anschliessend mit dem effektiven Graphen zum Zeitpunkt $t + n$ verglichen.
-Dies bedingt, dass die Kanten mit einer fixen Nummerierung oder einem Zeitstempel versehen sind.
+Bei einem Netzwerk kann es sich dabei beispielsweise um die Kanten und Knoten eines sozialen Netwerks wie \texit{Twitter} handeln:
+Während einer Person $A$ zum Zeitpunkt $t$ drei Personen folgen, sind es zum Zeitpunkt $t + n$ fünf Personen.
+Daraus resultieren zwei verschidene Graphen für dasselbe Netzwerk - allerdings zu unterschiedlichen Zeitpunkten.
+Voraussetzung für solche Graphen (sog. temporale oder dynamische Graphen) ist, dass die Kanten mit einer fixen Nummerierung oder einem Zeitstempel versehen sind.
 Die Anforderung besteht nur für die Entwicklung und Charakterisierung der Evaluationskomponente.
 Im Plugin werden Graphen unabhängig von der Reihenfolge hinzugefügter Kanten bewertet.
 
 Bei allen Netzwerken handelt es sich um ungerichtete Graphen.
-% TODO Begriffe Graph / Netzwerk abgrenzen?
-Bei einem Netzwerk kann es sich dabei beispielsweise, um die Kanten und Knoten eines sozialen Netwerks wie Twitter handeln.
-Bei $t$ followed Person A vielleicht 3 Personen, bei $t + n$ hingegen 5. Dies ergibt dann zwei verschiedene Graphen für dasselbe Netzwerk.
 
 \section{Datenaufbereitung}
 Um die Korrektheit einzelner und die Güte mehrerer Vorhersagen am effektiven Graphen zu überprüfen, müssen die Datensets in Initial- und Validierungsdaten unterteilt werden.
@@ -66,12 +66,11 @@ Der lokale Cluster Coefficient wird aus dem Quotienten der Anzahl direkten Kante
 
 Bei ungerichteten Graphen wird die Anzahl direkter Kanten mit dem Faktor 2 multipliziert. $k_i$ steht für die Anzahl benachbarter Knoten.
 Beim globalen Cluster Koeffizienten handelt es sich um den Mittelwert der lokalen Cluster Koeffizienten.
-In einem Graphen mit $N$ Knoten wird er folgendermassen berechnet:
+In einem Graphen mit $|V|$ Knoten wird er folgendermassen berechnet:
 
 \begin{equation}
     \label{eq:gcc}
-    GCC = \frac{1}{N}\sum\limits_{i=1}^{N}C_i
-% TODO Widerspruch zu Gao et. al
+    GCC = \frac{1}{|V|}\sum\limits_{i=1}^{|V|}C_i
 \end{equation}
 
 \textbf{Density}
@@ -80,7 +79,6 @@ Die \acs{density} (dt. Dichte) eines Graphen zeigt an, wie komplett die Knoten d
 Falls es in einem Netzwerk keine Kanten gibt, liegt der Density-Wert bei 0. Falls alle Knoten mit allen anderen Knoten verbunden sind, entspricht der Density-Wert 1.
 Die Dichte ist in der Regel ein Indikator, wie schnell sich Informationen in einem Netzwerk verbreiten.
 Die Density für ungerichtete Graphen berechnet sich mit unterstehender Gleichung, wobei $|E|$ für die Anzahl Kanten und $|V|$ für die Anzahl Knoten steht:
-%TODO Formeln vereinheitlichen
 
 \begin{equation}
     \label{eq:density}
@@ -105,7 +103,7 @@ Wobei $d(i,j)$ der kürzeste Pfad zwischen den Knoten $i$ und $j$ ist.
 
 \textbf{Average Shortest Path (ASP)}
 
-Mit dem \acs{avgsp} (ASP) wird die durchschnittliche Länge des kürzesten Pfads zwischen zwei Knoten $i$ und $j$ berechnet (\citeauthor{gao_link_2015} \citeyear{gao_link_2015}, S. 6).
+Mit dem \acs{avgsp} (ASP) wird die durchschnittliche Länge des kür\-zes\-ten Pfads zwischen zwei Knoten $i$ und $j$ berechnet (\citeauthor{gao_link_2015} \citeyear{gao_link_2015}, S. 6).
 Die Formel dafür lautet folgendermassen:
 
 \begin{equation}
@@ -137,5 +135,4 @@ Auffallend sind dabei insbesondere die tiefen Werte für \acs{gcc} und \acs{dens
 Daraus kann geschlossen werden, dass Knoten in diesem Netzwerk nur lose zusammenhängen und die Verknüpfung nicht sehr stark ausgeprägt ist.
 Beim Tortoise Network weichen ausserdem die Werte für Density und Diameter von den Werten der anderen Datensets ab.
 Die Werte legen die Vermutung nahe, dass dieses Netzwerk ebenfalls nicht sehr stark verknüpft ist.
-% TODO Aussagen verifizieren
 Diesen stark abweichenden Werten gilt bei der Interpretation der erzielten Resultate der verschiedenen Algorithmen (vgl. Kapitel \ref{comparison}) besonderes Augenmerk.

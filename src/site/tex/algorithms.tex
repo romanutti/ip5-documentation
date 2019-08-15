@@ -20,7 +20,7 @@ Der Common Neighbours Algorithmus berechnet für zwei nicht verbundene Knoten, w
 Die Wahrscheinlichkeit für das Entstehen einer neuen Kante ist umso höher, desto mehr gemeinsame Nachbarn zwei
 Knoten haben. Common Neighbours beruht auf dem Social Forces Prinzip der Transitivität: Freunde, welche gemeinsame
 Freunde haben, werden sich wahrscheinlicher miteinander anfreunden. Je mehr gemeinsame Freunde zwei Knoten aufweisen können, desto
-höher ist also die Wahrscheinlichkeit, dass diese Knoten Kontakt knüpfen und eine neue Kante gebildet wird. (vgl. Kapitel \ref{socialforces}).
+höher ist also die Wahrscheinlichkeit, dass diese Knoten Kontakt knüpfen und eine neue Kante gebildet wird (vgl. Kapitel \ref{socialforces}).
 
 Die folgende Formel zeigt, wie die Anzahl der gemeinsamen Nachbarn von zwei Knoten $X$ und $Y$ berechnet werden kann:
 
@@ -47,9 +47,8 @@ Die folgenden Beispiele zeigen weitere Werte, welche durch Anwenden des Algorith
 \forceindent $common\_neighbours(A,I) = |{\{\}}| = 0$\\
 
 Das Code-Listing \ref{lstCommonNeighbour} zeigt die vereinfachte Implementierung des Algorithmus.
-Weil initial zweimal über sämtliche Knoten iteriert werden muss, besitzt die Implementierung die Komplexitätsklasse $O(n^2)$.
+Weil initial für jeden Knoten durch sämtliche Knoten iteriert werden muss, besitzt die Implementierung die Komplexitätsklasse $O(n^2)$.
 
-%TODO: Make sure naming e.g. calculate is correct
 \begin{lstlisting}[caption={Common neighbour implementation},label=lstCommonNeighbour]
     // CommonNeighboursStatistics.java
     public void calculateAll(Graph graph) {
@@ -164,20 +163,18 @@ Die hinzugefügten Kanten $E_i$ sind dabei mit einer gestrichelten Linie eingeze
     \centering
     \includegraphics{resources/graph_init.JPG}
     \caption{Initialer Graph zum Zeitpunkt $t$, resp. $t + n$}
-    % TODO Add cite to SNA Script
     \label{fig:graph_init}
 \end{figure}
 
-Die Qualität des Algorithmus wird anhand der Genauigkeit der hinzugefügten Kanten bestimmt.
+Die Qualität des Algorithmus wird anhand der Genauigkeit der hin\-zu\-ge\-füg\-ten Kanten bestimmt.
 Dazu wird ein Validierungsgraph $G_v_,_t_+_n$ verwendet, bei welchem die zusätzlichen Kanten $E_v$ zum Zeitpunkt $t + n$ bereits vorhanden sind.
 In unserem Beispielnetzwerk enthält dieser Graph gegenüber dem Graphen $G_i_,_t$ zusätzlich die Kanten $(A,C)$, $(E,H)$ und $(H,I)$.
-Abbildung \ref{fig:graph_validation} auf der nächsten Seite zeigt den Graphen $G_v_,_t_+_n$ zum Zeitpunkt $t + n$
+Abbildung \ref{fig:graph_validation} auf der nächsten Seite zeigt den Graphen $G_v_,_t_+_n$ zum Zeitpunkt $t + n$.
 
 \begin{figure}[h]
     \centering
     \includegraphics{resources/graph_validation.JPG}
     \caption{Validierungsgraph zum Zeitpunkt $t + n$}
-    % TODO Add cite to SNA Script
     \label{fig:graph_validation}
 \end{figure}
 
@@ -202,7 +199,6 @@ Die Herleitung dazu sieht folgendermassen aus:\\
 \forceindent $| E_i \ \cap \ E_v| = |\{(A,C), (H,I)\}| = 2$\\
 \vspace{4mm}
 \forceindent $Acc = | E_i \ \cap \ E_v| \ / \ |E_v| * 100 = 2 \ / \ 3 * 100 = 66.67$\\
-% TODO: Performance-Optimierung hier schon erwähnen? --> Hat nun ein Sub-Kapitel dazu, also muss das nicht unbedingt erwähnt werden
 
 \section{Gegenüberstellung der verschiedenen Algorithmen und Netzwerke}
 \label{comparison}
@@ -210,14 +206,10 @@ Die Qualität der verschiedenen Algorithmen kann beurteilt werden, indem die ebe
 Um die Qualität der Algorithmen besser beurteilen zu können, wird die Entwicklung mit zunehmender Anzahl Iterationen betrachtet.
 In jedem Iterationsschritt wird eine neue Kante zu den Graphen hinzugefügt und die Accuracy zu diesem Zeitpunkt berechnet.
 
-Die Tabelle \ref{tab_accuracy_iter} zeigt die Accuracy für die verschiedenen Datensets nach Hinzufügen von 1\%, 5\%, 10\% und 50\% neuen Kanten.
+Die Tabelle 4.1 zeigt die Accuracy für die verschiedenen Datensets nach Hinzufügen von 1\%, 5\%, 10\% und 50\% neuen Kanten. % Achtung fixe Referenz
 Die Accuracy wird jeweils für die Algorithmen Common Neighbour (CN) und Preferential Attachment (PA) ausgewiesen.
 Für Einträge mit dem Symbol ``\textbf{-}'' sind keine temporalen Daten zur Verifizierung der Accuracy verfügbar.
 Diese Einträge werden bei der Interpretation in den folgenden Abschnitten nicht weiter berücksichtigt.
-%\end{tablenotes}
-% Please add the following required packages to your document preamble:
-% \usepackage{booktabs}
-% \usepackage{graphicx}
 \begin{table}[]
     \centering
     \label{tab_accuracy_iter}
@@ -236,10 +228,6 @@ Diese Einträge werden bei der Interpretation in den folgenden Abschnitten nicht
         Tortoise Network                & - \tnote{1}   & - \tnote{1}   & - \tnote{1}   & - \tnote{1}   & 11.54         & 0.00          & 9.73      & 8.85            \\ \bottomrule
     \end{tabular}%
     }
-    %\begin{tablenotes}[\flushleft]
-    %\footnotesize
-    %\item Keine temporalen Daten zur Verifizierung der prozentualen Anzahl neuer Knoten verfügbar
-    %\end{tablenotes}
 \end{table}
 
 Bei der Analyse der erreichten Werte fällt auf, dass im College Message Network keine richtigen Vorhersagen getroffen werden konnten.
@@ -250,14 +238,15 @@ Um die Vermutung empirisch zu überprüfen, müssten jedoch noch weitere Netzwer
 Weiter fällt auf, dass die erreichten Accuracy-Werte mit zunehmender Anzahl hinzugefügter Kanten steigen.
 Dies ist auf die aktuelle Implementierung zurückzuführen: Für jede hinzugefügte Kante wird überprüft, ob diese im Graphen vorhanden ist.
 Je grösser die Anzahl hinzugefügter Kanten, desto grösser auch die Wahrscheinlichkeit, dass eine hinzugefügte Kante im Graphen existiert.
-Abbildung \ref{fig_hypertext} zeigt dies am Beispiel vom Hypertext Conference Network.
+Abbildung 4.4 zeigt dies am Beispiel vom Hypertext Conference Network. % Achtung fixe Referenz
 
+\vspace{5mm}
 \begin{figure}[h]
 \centering
 \begin{tikzpicture}
     \begin{axis}[
     xlabel=Neue Kanten in \%,
-    ylabel=Accuracy]
+    ylabel=Accuracy in \%]
         \addplot[smooth,mark=*,blue] plot coordinates {
         (1,22.22)
         (5,27.70)
@@ -276,14 +265,15 @@ Abbildung \ref{fig_hypertext} zeigt dies am Beispiel vom Hypertext Conference Ne
         \addlegendentry{PA}
     \end{axis}
 \end{tikzpicture}
-\label{fig_hypertext}
+\label{fig:hypertext}
 \caption{Accuracy im Hypertext Network}
 \end{figure}
 
+\newpage
 Bei den berechneten Werten kann festgestellt werden, dass die berechneten Prediction-Werte beim Common Neighbour weniger breit gestreut sind als beim Preferential Attachment.
 In der aktuellen Implementierung wird für die Wahl des nächsten Prediction Links eine Priority Queue verwendet. Falls es mehrere potentielle Kanten mit demselben Prediction-Wert gibt, wird willkürlich eine der Kanten ausgewählt.
 Da beim Preferential Attachment Algorithmus die Werte besser streuen, kann eindeutiger gesagt werden, welche Kante als nächstes zum Netzwerk hinzugefügt werden soll.
-Abbildung \ref{fig_histogram}
+Abbildung 4.5 % Achtunge fixe Referenz
 zeigt die Verteilung der berechneten Werte bei 50\% hinzugefügter Kanten für das Hypertext Conference Network.
 
 \begin{figure}
@@ -324,7 +314,7 @@ zeigt die Verteilung der berechneten Werte bei 50\% hinzugefügter Kanten für d
          \addlegendentry{PA}
         \end{axis}
 \end{tikzpicture}
-\label{fig_histogram}
+\label{fig:histogram}
 \caption{Histogramm der errechneten Werte im Hypertext Network}
 \end{figure}
 
