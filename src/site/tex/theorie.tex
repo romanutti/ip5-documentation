@@ -52,7 +52,7 @@ Welcher Algorithmus für die Link Prediction am sinnvollsten ist, kann von der A
 \label{socialforces}
 In sozialen Netzwerken wird die Wahrscheinlichkeit für das Entstehen und Erhalten von Kanten durch unterschiedliche
 Faktoren begünstigt. Zu diesen Faktoren gehören die Social Forces, die man nach \citeauthor{michael_henninger_soziale_2018} (\citeyear{michael_henninger_soziale_2018}, S. 12) in sechs Hauptkategorien unterteilen kann: Homophilie,
-Reziprozität, Nähe, Ansehen, soziale Anpassung und Transivität. Im folgenden Abschnitt werden diese Kategorien kurz
+Reziprozität, Nähe, Ansehen, soziale Anpassung und Transitivität. Im folgenden Abschnitt werden diese Kategorien kurz
 beschrieben. Für die in dieser Arbeit implementierten Algorithmen sind dabei vor allem Transitivität und Ansehen
 relevant.
 
@@ -72,12 +72,12 @@ Richtung der Kanten nicht bestimmt ist. Eine Vorhersage zur Entstehung neuer Kan
 andere Social Forces geschehen, um den initialen Kontakt zweier Personen vorherzusagen.
 
 \subsubsection{Nähe}
-Der Begriff Nähe kann in zwei Unterkategorien unterteilt werden. Hierbei geht es um ``organisatorische''- und
+Der Begriff Nähe kann in zwei Unterkategorien unterteilt werden. Hierbei geht es um ``organisatorische'' und
 ``physikalische'' Nähe.
 
 Die organisatorische Nähe kommt beispielsweise durch Zusammenarbeit zustande, auch wenn man sich eventuell nicht
-am selben Ort befindet. Durch z.B. die Angehörigkeit derselben Abteilung in einem Unternehmen steigt die Wahrscheinlichkeit
-für eine Interaktion und somit für die Bildung einer Kante. Diese Art der sozialen Kraft könnte also beispielsweise
+am selben Ort befindet. Durch die Angehörigkeit derselben Abteilung in einem Unternehmen steigt die Wahrscheinlichkeit
+für eine Interaktion und somit für die Bildung einer Kante. Diese Art der sozialen Kraft könnte also zum Beispiel
 über Attribute wie ``Abteilung'' oder ``Arbeitgeber'' überprüft werden. In der Umsetzung eines Algorithmus ist diese Art der
 Nähe sehr ähnlich wie die der Homophilie.
 
@@ -94,20 +94,20 @@ kann ausserdem auch sein, dass man sich gruppenübergreifend vernetzt. In diesem
 verschiedene Werte vertreten werden. Als Beispiel kann man Musiker nennen, die ihre politische Meinung äussern. Sie
 haben zuvor einen Fankreis aufgebaut, der aus verschiedenen Gruppen besteht, die unterschiedliche Werte und Normen
 haben können. Äussert der Musiker nun zum ersten Mal eine politische Meinung, kann dies in einigen der Gruppen auf
-Zuneigung, in anderen auf Ablehnung stossen. Aus diesem Grund wird es auch solche Personen geben, die Meinungen, die
-nicht den Gruppennormen und -werten entsprechen, geheim halten, um besser in die Gruppe zu passen und ihr Ansehen zu wahren.
+Zuneigung, in anderen auf Ablehnung stossen. Aus diesem Grund wird es auch solche Personen geben, die Meinungen geheim halten, die
+nicht den Gruppennormen und -werten entsprechen, um besser in die Gruppe zu passen und ihr Ansehen zu wahren.
 
 Es ist ausserdem wahrscheinlicher, dass die Personen mit einem grossen Bekanntheitskreis im Netzwerk neue Kanten bilden, während eher
 unpopuläre Personen (welche wenige Kanten aufweisen) das Nachsehen haben.
 
 \subsubsection{Soziale Anpassung}
 Die soziale Anpassung überschneidet sich teilweise mit dem Ansehen. Auch hier stehen Gruppennormen und -werte im Fokus. Hierbei
-geht es aber explizit um die Anpassung der Meinung in Bezug auf die Zugehörigkeit einer Gruppe. Hier geht es weniger
+geht es aber explizit um die Anpassung der Meinung in Bezug auf die Zugehörigkeit einer Gruppe. Es handelt sich also weniger
 um die Vernetzung untereinander, sondern um die Auswirkungen eben jener Vernetzung.
 
-Analysieren könnte man eine solche soziale Anpassungen zum Beispiel, indem man Netzwerke über längere Zeiträume
+Analysieren könnte man eine solche soziale Anpassung zum Beispiel, indem man Netzwerke über längere Zeiträume
 beobachtet. Wird hier beispielsweise Person $A$ in eine Gruppe integriert und ändert daraufhin eines ihrer Merkmale
-(z.B. die politische Ausrichtung oder ihre Hobbies) im Einklang mit der Gruppe, ist es
+(z.B. die politische Ausrichtung oder ihre Hobbys) im Einklang mit der Gruppe, ist es
 wahrscheinlich, dass dies aufgrund des sozialen Drucks geschehen ist.
 Dies wird umso wahrscheinlicher, wenn Person $A$ mit Person $B$,
 welche ein hohes Ansehen in der Gruppe geniesst, direkt vernetzt ist\footnote{Da Person $B$ durch das hohe Ansehen einen sehr grossen Einfluss hat und dasselbe

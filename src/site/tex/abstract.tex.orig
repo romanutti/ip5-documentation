@@ -16,14 +16,10 @@
   Bei den von uns verwendeten Datensets sind die Vorhersagen da am genauesten, wo die Knoten im Graphen untereinander am stärksten verknüpft sind.
   Ob effektiv eine Korrelation vorliegt, müsste mit weiteren Netzwerken und grösseren Datenmengen überprüft werden.
 
-  Die Durchführbarkeit und Korrektheit der Konzepte für das Plugin wurde mittels einem Proof of Concept geprüft.
+  Die Durchführbarkeit und Korrektheit der Konzepte für das Plugin wurde mittels eines Proof of Concepts geprüft.
   Die daraus gewonnenen Erkenntnisse wurden in die anschliessende Umsetzung übernommen.
   Die erforderlichen Funktionalitäten des Plugins konnten umgesetzt werden.
   Das Plugin kann weiter verbessert werden, indem gerichtete und auch gewichtete Graphen unterstützt werden.
-<<<<<<< HEAD
-  Aktuell kann ausserdem nur für Netzwerken mit bis zu 1000 Knoten eine schnelle Laufzeit garantiert werden.
-=======
   Aktuell kann ausserdem nur für Netzwerke mit bis zu 1000 Knoten eine schnelle Laufzeit garantiert werden.
->>>>>>> 5bc88793ec2aefe1b9c58aa97fd04fc2d99b376b
   Um auch bei grösseren Netzwerken eine schnellere Performance zu erreichen, müssten weitere Optimierungsmassnahmen in Betracht gezogen werden.
 \end{abstract}

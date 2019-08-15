@@ -5,22 +5,23 @@
 \contentsline {figure}{\numberline {2.2}{\ignorespaces Gerichteter Graph}}{4}{figure.2.2}% 
 \addvspace {10pt}
 \addvspace {10pt}
-\contentsline {figure}{\numberline {4.1}{\ignorespaces Beispielgraph}}{10}{figure.4.1}% 
-\contentsline {figure}{\numberline {4.2}{\ignorespaces Initialer Graph zum Zeitpunkt $t$, resp. $t + n$}}{14}{figure.4.2}% 
-\contentsline {figure}{\numberline {4.3}{\ignorespaces Validierungsgraph zum Zeitpunkt $t + n$}}{14}{figure.4.3}% 
-\contentsline {figure}{\numberline {4.4}{\ignorespaces Accuracy im Hypertext Network}}{16}{figure.4.4}% 
-\contentsline {figure}{\numberline {4.5}{\ignorespaces Histogram der errechneten Werte im Hypertext Network}}{17}{figure.4.5}% 
+\contentsline {figure}{\numberline {4.1}{\ignorespaces Beispielgraph (in Anlehnung an \citeauthor {michael_henninger_soziale_2018} \citeyear {michael_henninger_soziale_2018}, S.97)}}{12}{figure.4.1}% 
+\contentsline {figure}{\numberline {4.2}{\ignorespaces Initialer Graph zum Zeitpunkt $t$, resp. $t + n$}}{16}{figure.4.2}% 
+\contentsline {figure}{\numberline {4.3}{\ignorespaces Validierungsgraph zum Zeitpunkt $t + n$}}{17}{figure.4.3}% 
+\contentsline {figure}{\numberline {4.4}{\ignorespaces Accuracy im Hypertext Network}}{18}{figure.4.4}% 
+\contentsline {figure}{\numberline {4.5}{\ignorespaces Histogramm der errechneten Werte im Hypertext Network}}{19}{figure.4.5}% 
 \addvspace {10pt}
-\contentsline {figure}{\numberline {5.1}{\ignorespaces Klassendiagramm Statistiken}}{19}{figure.5.1}% 
-\contentsline {figure}{\numberline {5.2}{\ignorespaces Klassendiagramm Evaluationskomponente}}{21}{figure.5.2}% 
-\contentsline {figure}{\numberline {5.3}{\ignorespaces Klassendiagramm Filter}}{22}{figure.5.3}% 
-\contentsline {figure}{\numberline {5.4}{\ignorespaces \IeC {\"U}berblick der Ansicht Statistik.}}{25}{figure.5.4}% 
-\contentsline {figure}{\numberline {5.5}{\ignorespaces Pop-Up f\IeC {\"u}r die Auswahl der Berechnung.}}{26}{figure.5.5}% 
-\contentsline {figure}{\numberline {5.6}{\ignorespaces Modifizierter Graph mit vorhergesagtem Edge.}}{27}{figure.5.6}% 
-\contentsline {figure}{\numberline {5.7}{\ignorespaces Data Laboratory mit neuen Edges.}}{27}{figure.5.7}% 
-\contentsline {figure}{\numberline {5.8}{\ignorespaces \IeC {\"U}berblick der Ansicht Filter.}}{28}{figure.5.8}% 
-\contentsline {figure}{\numberline {5.9}{\ignorespaces Fehlermeldung, wenn die Berechnung der Link Prediction noch nicht durchgef\IeC {\"u}hrt wurde.}}{29}{figure.5.9}% 
-\contentsline {figure}{\numberline {5.10}{\ignorespaces Gefilterter Graph.}}{30}{figure.5.10}% 
+\contentsline {figure}{\numberline {5.1}{\ignorespaces Klassendiagramm Statistiken}}{21}{figure.5.1}% 
+\contentsline {figure}{\numberline {5.2}{\ignorespaces Klassendiagramm Evaluationskomponente}}{23}{figure.5.2}% 
+\contentsline {figure}{\numberline {5.3}{\ignorespaces Klassendiagramm Filter}}{24}{figure.5.3}% 
+\contentsline {figure}{\numberline {5.4}{\ignorespaces \IeC {\"U}berblick der Ansicht Statistik.}}{27}{figure.5.4}% 
+\contentsline {figure}{\numberline {5.5}{\ignorespaces Pop-up f\IeC {\"u}r die Auswahl der Berechnung.}}{28}{figure.5.5}% 
+\contentsline {figure}{\numberline {5.6}{\ignorespaces Modifizierter Graph mit vorhergesagtem Edge.}}{29}{figure.5.6}% 
+\contentsline {figure}{\numberline {5.7}{\ignorespaces Data Laboratory mit neuen Edges.}}{29}{figure.5.7}% 
+\contentsline {figure}{\numberline {5.8}{\ignorespaces \IeC {\"U}berblick der Ansicht Filter.}}{31}{figure.5.8}% 
+\contentsline {figure}{\numberline {5.9}{\ignorespaces Auszuwertender Graph zum Zeitpunkt $t$ und $t + n$.}}{31}{figure.5.9}% 
+\contentsline {figure}{\numberline {5.10}{\ignorespaces Konfiguration f\IeC {\"u}r Evaluation der Algorithmen}}{32}{figure.5.10}% 
+\contentsline {figure}{\numberline {5.11}{\ignorespaces Report der Evaluationsresultate}}{33}{figure.5.11}% 
 \addvspace {10pt}
 \addvspace {10pt}
 \addvspace {10pt}

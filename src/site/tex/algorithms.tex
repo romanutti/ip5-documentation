@@ -1,7 +1,7 @@
 \chapter{Link Prediction}
 
 \section{Algorithmen}
-Link Predictions basieren auf einem bestehenden Netzwerk und versuchen, neue Kanten hervorzusagen.
+Link Predictions basieren auf einem bestehenden Netzwerk und versuchen, neue Kanten zu prognostizieren.
 Es gibt verschiedene Algorithmen, um diese Kanten vorherzusagen.
 Initial werden im Plugin die Algorithmen ``Common Neighbours'' und ``Preferential Attachment'' implementiert. Diese werden nachfolgend genauer beschrieben.
 
@@ -91,7 +91,7 @@ Weil initial für jeden Knoten durch sämtliche Knoten iteriert werden muss, bes
 Mit dem Preferential Attachment Algorithmus werden ebenfalls die Nachbarn eines Knotens berücksichtigt. Diese müssen jedoch nicht
 mit den Nachbarn des anderen Knoten übereinstimmen - es geht lediglich um die Anzahl der eigenen Nachbarn. Bei Preferential Attachment
 wird von der Annahme ausgegangen, dass die Wahrscheinlichkeit einen neuen Kontakt zu knüpfen grösser wird, je grösser das eigene Netzwerk bereits ist.
-Die Entstehung eines neuen Edges wird in diesem Fall nicht über Transitivität bestimmt, sondern über Ansehen (vgl. Kapitel \ref{socialforces}).
+Die Entstehung einer neuen Kante wird in diesem Fall nicht über Transitivität bestimmt, sondern über Ansehen (vgl. Kapitel \ref{socialforces}).
 
 Die Formel für den Preferential Attachment Algorithmus lautet wie folgt:
 
@@ -100,8 +100,8 @@ Die Formel für den Preferential Attachment Algorithmus lautet wie folgt:
     preferential\_attachment(X,Y) = | N(X) | \cdot | N(Y ) |
 \end{equation}
 
-Um den resulierenden Wert zu erhalten, wird die Anzahl Nachbarn zweier Knoten $X$ und $Y$ miteinander multipliziert.
-Dieser Wert muss für alle Knoten-Kombinationen berechnet und anschliessend der höchste Wert usgewählt werden.
+Um den resultierenden Wert zu erhalten, wird die Anzahl Nachbarn zweier Knoten $X$ und $Y$ miteinander multipliziert.
+Dieser Wert muss für alle Knoten-Kombinationen berechnet und anschliessend der höchste Wert ausgewählt werden.
 
 Angewandt auf den Beispielgraphen würde mit Preferential Attachment eine Kante zwischen den Knoten $A$ und $G$ vorausgesagt und folgende weiteren Werte berechnet:\\
 % Layout multiline-formula
@@ -187,7 +187,7 @@ Diese berechnet sich als prozentualer Anteil der korrekt vorhergesagten Kanten i
 \end{equation}
 
 Im obigen Beispiel mit drei zusätzlichen Kanten wurden die Kanten $(A,C)$ und $(H,I)$ korrekt vorhergesagt.
-Daraus folgt eine Accuracy von 66.67\%.
+Daraus folgt eine Accuracy von 66.67 \%.
 Die Herleitung dazu sieht folgendermassen aus:\\
 % Layout multiline-formula
 \\
@@ -206,7 +206,7 @@ Die Qualität der verschiedenen Algorithmen kann beurteilt werden, indem die ebe
 Um die Qualität der Algorithmen besser beurteilen zu können, wird die Entwicklung mit zunehmender Anzahl Iterationen betrachtet.
 In jedem Iterationsschritt wird eine neue Kante zu den Graphen hinzugefügt und die Accuracy zu diesem Zeitpunkt berechnet.
 
-Die Tabelle 4.1 zeigt die Accuracy für die verschiedenen Datensets nach Hinzufügen von 1\%, 5\%, 10\% und 50\% neuen Kanten. % Achtung fixe Referenz
+Die Tabelle 4.1 zeigt die Accuracy für die verschiedenen Datensets nach Hinzufügen von 1 \%, 5 \%, 10 \% und 50 \% neuen Kanten. % Achtung fixe Referenz
 Die Accuracy wird jeweils für die Algorithmen Common Neighbour (CN) und Preferential Attachment (PA) ausgewiesen.
 Für Einträge mit dem Symbol ``\textbf{-}'' sind keine temporalen Daten zur Verifizierung der Accuracy verfügbar.
 Diese Einträge werden bei der Interpretation in den folgenden Abschnitten nicht weiter berücksichtigt.
@@ -231,13 +231,13 @@ Diese Einträge werden bei der Interpretation in den folgenden Abschnitten nicht
 \end{table}
 
 Bei der Analyse der erreichten Werte fällt auf, dass im College Message Network keine richtigen Vorhersagen getroffen werden konnten.
-Auch bei den anderen Netzwerken sind die Vorhersagen da am genausten, wo ein hoher Clustering Coefficient und eine hohe Density vorliegen.
-Dies legt die Vermutung nahe, dass für die Algorithmen eine Korrelation zwischen der Qualität der Vorhersagen und der Clustering Coefficient resp. der Density vorliegen.
+Auch bei den anderen Netzwerken sind die Vorhersagen da am genausten, wo ein hoher Clustering Koeffizient und eine hohe Density vorliegen.
+Dies legt die Vermutung nahe, dass für die Algorithmen eine Korrelation zwischen der Qualität der Vorhersagen und der Clustering Koeffizient resp. der Density vorliegt.
 Um die Vermutung empirisch zu überprüfen, müssten jedoch noch weitere Netzwerke untersucht werden.
 
 Weiter fällt auf, dass die erreichten Accuracy-Werte mit zunehmender Anzahl hinzugefügter Kanten steigen.
 Dies ist auf die aktuelle Implementierung zurückzuführen: Für jede hinzugefügte Kante wird überprüft, ob diese im Graphen vorhanden ist.
-Je grösser die Anzahl hinzugefügter Kanten, desto grösser auch die Wahrscheinlichkeit, dass eine hinzugefügte Kante im Graphen existiert.
+Je grösser die Anzahl hinzugefügter Kanten, desto grösser ist auch die Wahrscheinlichkeit, dass eine hinzugefügte Kante im Graphen existiert.
 Abbildung 4.4 zeigt dies am Beispiel vom Hypertext Conference Network. % Achtung fixe Referenz
 
 \vspace{5mm}
@@ -270,7 +270,7 @@ Abbildung 4.4 zeigt dies am Beispiel vom Hypertext Conference Network. % Achtung
 \end{figure}
 
 \newpage
-Bei den berechneten Werten kann festgestellt werden, dass die berechneten Prediction-Werte beim Common Neighbour weniger breit gestreut sind als beim Preferential Attachment.
+Bei den berechneten Werten kann festgestellt werden, dass die berechneten Prediction-Werte beim Common Neighbour Algorithmus weniger breit gestreut sind als beim Preferential Attachment Algorithmus.
 In der aktuellen Implementierung wird für die Wahl des nächsten Prediction Links eine Priority Queue verwendet. Falls es mehrere potentielle Kanten mit demselben Prediction-Wert gibt, wird willkürlich eine der Kanten ausgewählt.
 Da beim Preferential Attachment Algorithmus die Werte besser streuen, kann eindeutiger gesagt werden, welche Kante als nächstes zum Netzwerk hinzugefügt werden soll.
 Abbildung 4.5 % Achtunge fixe Referenz

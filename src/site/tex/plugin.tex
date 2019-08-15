@@ -14,7 +14,7 @@ Das Plugin besteht aus folgenden Hauptkomponenten:
 
 \begin{itemize}
     \item \textbf{Statistik:} Neue Kanten können via Statistiken zu einem ungerichteten Graphen hinzugefügt werden. Für die ausgewählten Algorithmen werden die Link-Prediction-Werte berechnet und jeweils die Kante mit dem höchsten Wert zum Graphen hinzugefügt. Die Anzahl hin\-zu\-zu\-fü\-gen\-der Kanten kann angegeben werden. Die einzelnen Kanten werden dabei iterativ hinzugefügt. Die Berechnung des nächsten vorhergesagten Wertes basiert immer auf dem Graphen des vorherigen Iterationsschrittes.
-    \item \textbf{Filter:} Die hinzugefügten Kanten können via Filter angezeigt werden. Dabei können die anzuzeigenden Kanten einerseits auf einen Alorithmus, andererseits auf eine gewünschte Anzahl hinzugefügter Kanten beschränkt werden.
+    \item \textbf{Filter:} Die hinzugefügten Kanten können via Filter angezeigt werden. Dabei können die anzuzeigenden Kanten einerseits auf einen Algorithmus, andererseits auf eine gewünschte Anzahl hinzugefügter Kanten beschränkt werden.
     \item \textbf{Evaluation:} Die Güte der vorhergesagten Kanten kann berechnet werden. Via Statistiken wird die Accuracy von verschiedenen Algorithmen verglichen und beurteilt.
 \end{itemize}
 
@@ -33,10 +33,11 @@ Bei der \texttt{execute}-Methode wird auf das \acs{templatepattern}\footnote{htt
 Das Pattern wird hier verwendet, um die unveränderlichen Teile eines Algorithmus einmalig zu implementieren, doppelten Code zu reduzieren und die Erweiterungen der Unterklassen zu regulieren.
 In der \texttt{execute}-Methode wird der grobe Ablauf umschrieben.
 Dieser sieht vor, dass bei der initialen Berechnung der Link-Prediction-Werte für alle Knoten durch sämtliche Knoten iteriert werden muss.
+
 Beim Ausführen der Link Prediction kann angegeben werden, wieviele Kanten hinzugefügt werden sollen.
 Aus Performancegründen erwies es sich als sinnvoll, für die nachfolgenden Berechnungen nicht mehr sämtliche Werte nochmals zu berechnen.
-Stattdessen wird nach dem Hinzufügen einer Kante im nächsten Iterationsschritt nur die davon betroffenen Knoten neu berechnet.
-Falls beispielsweise eine Kante $(A, C)$ zum Graphen hinzugefügt wird, müssen anschliessend nur die Werte der Knoten $A$ und $C$ neu berechnet werden.
+Stattdessen werden nach dem Hinzufügen einer Kante im nächsten Iterationsschritt nur die davon betroffenen Kanten neu berechnet.
+Falls beispielsweise eine Kante $(A, C)$ zum Graphen hinzugefügt wird, müssen anschliessend nur die Werte der Kanten mit den Knoten $A$ und $C$ neu berechnet werden.
 Die \texttt{execute}-Methode enthält deshalb den groben Ablauf, welcher die Unterscheidung zwischen initialem Durchlauf und nachfolgender Neuberechnung vorsieht.
 Die Methoden \texttt{calculateAll} und \texttt{recalculateAffected}, die von den konkreten Klassen implementiert werden und die effektiven Link-Prediction-Werte berechnen, werden als abstrakt definiert.
 Das Listing \ref{lstLinkPrediction} zeigt die vereinfachte Struktur der Methode.
@@ -86,6 +87,7 @@ Im Plugin wird das Logging-Framework log4j\footnote{https://logging.apache.org/l
 Das Logging wird eingesetzt um technische Probleme rückverfolgen zu können: Die Logs zeichnen Ereignisse auf, die für die Entwicklung und den Einsatz des Plugin von Nutzen sein können.
 Insbesondere geht es darum ein Fehlverhalten der Applikation nachvollziehen und dokumentieren zu können. Das Logging kann in Gephi direkt in einer Konsole ausgegeben werden.
 
+\newpage
 \textbf{Logger erzeugen}
 
 Logger sind für das Verfassen von Meldungen verantwortlich. Sie werden direkt aus dem Code aufgerufen und bestimmen mit Hilfe von Appendern, wohin und in welchem Format die Meldungen geschrieben werden.
@@ -290,9 +292,9 @@ innerhalb der konfigurierten Iterationswerte liegen, sowie alle initialen Kanten
 
 Falls für den spezifischen Algorithmus noch keine Kanten zum Graphen hinzugefügt wurden, erscheint ein Pop-up Fenster mit entsprechendem Hinweis.
 Der Platzhalter ``Link Prediction Filter'' wird durch den gewählten Algorithmus, z.B. ``Common Neighbour Filter'' ersetzt.
-Ursprünglich war angedacht, dass im Fehlerfall die Berechnung direkt aus dem Pop-up Fenster angestossen werden soll.
+Ursprünglich war angedacht, dass im Fehlerfall die Berechnung direkt aus dem Pop-up Fenster angestossen werden kann.
 Um die Trennung zwischen den beiden Konzepten \textit{Filter} und \textit{Statistik} klar zu halten, wurde aber schliesslich darauf verzichtet.
-Die notwendige Berechnung kann weiterhin über \ovalbox{Statistics} vorgenommen werden (vgl. voriger Abschnitt).
+Die notwendige Berechnung kann weiterhin über \ovalbox{Statistics} vorgenommen werden (vgl. vorheriger Abschnitt).
 
 \subsection{Beurteilung der Qualität verschiedener Algorithmen}
 
@@ -311,7 +313,7 @@ dasselbe Netzwerk zum Zeitpunkt $t + n$ und entspricht dem Validierungsgraphen. 
 welchem die beiden Graphen und die zu berechnenden Algorithmen ausgewählt werden können. Der initiale Graph wird dann für jeden
 Algorithmus dupliziert und die Berechnung auf dem jeweiligen Duplikat durchgeführt. Währenddessen werden die tatsächlich
 vorhandenen neuen Kanten aus dem Validierungsgraphen mit den hinzugefügten Kanten auf dem initialen Graphen verglichen. So wird ein Genauigkeitswert für
-das Ergebnis errechnet. Abbildung \ref{fig:screen9} auf der nächsten Seite zeigt das Pop-up für die Konfiguration.
+das Ergebnis errechnet. Abbildung \ref{fig:screen9} zeigt das Pop-up für die Konfiguration.
 
 \begin{figure}
     \centering

@@ -2,14 +2,14 @@
 
 Das Erarbeiten des Link-Prediction-Plugins war eine herausfordernde und zugleich lehrreiche Arbeit.
 Mit dem Projekt einher ging die Möglichkeit, im Open-Source-Umfeld zu einer etablierten Software beizutragen.
-Insbesondere das modulübergreifende Anwenden von Wissen aus dem Studiengang und der Austausch im Team und mit dem Betreuer bereitete grosse Freude.
+Insbesondere das modulübergreifende Anwenden von Wissen aus dem Studiengang und der Austausch im Team und mit dem Betreuer bereiteten grosse Freude.
 In den folgenden Kapiteln werden die Resultate reflektiert und ein Ausblick auf nachfolgende Tätigkeiten dargeboten.
 
 \section{Erreichtes}
 
 Das Ziel, ein Link-Prediction-Plugin zu entwickeln, ist erreicht worden. Der Pull-Request des Plugins wurde fristgerecht gestellt.
 Bis zur Fertigstellung der Arbeit wurde der Pull-Request allerdings weder genehmigt, noch kommentiert.
-Neben den erforderlichen Funktionen zur Vorhersage von Links und zur Evaluation der verschiedenen Algorithmen wurde zusätzlich ein Filter zum Selektieren der Kanten je Algorithmus entwickelt.
+Neben den erforderlichen Funktionen zur Vorhersage von Links und zur Evaluation der verschiedenen Algorithmen wurde zusätzlich ein Filter zum Selektieren der Kanten pro Algorithmus entwickelt.
 Die verwendete Architektur erlaubt es, einfach neue Link-Prediction-Algorithmen und Kennzahlen zur Beurteilung der Qualität der Algorithmen hinzuzufügen.
 Als Reaktion auf die anfänglich langen Laufzeiten bei grossen Graphen wurde die Berechnung der Link Predictions optimiert:
 Für die Berechnung der Link-Prediction-Werte müssen initial für sämtliche Knoten alle Knoten durchlaufen werden.
@@ -37,7 +37,7 @@ Falls die Algorithmen auf gerichtete Graphen angewendet werden, werden ausgehend
 Ein Graph mit einer Kante von Knoten $A$ nach Knoten $C$ und einer Kante von Knoten $C$ nach Knoten $A$ würde von den Algorithmen als eine Kante zwischen den beiden Knoten interpretiert.
 In künftigen Releases könnte zusätzlich die Funktionalität angeboten werden, ungerichtete und gerichtete Graphen unterschiedlich zu behandeln.
 
-Weiter könnten auch Kantengewichte und sofern vorhanden andere Attribute mit in die Berechnungen einbezogen werden.
+Weiter könnten auch Kantengewichte und - sofern vorhanden - andere Attribute mit in die Berechnungen einbezogen werden.
 Aktuell werden diese ignoriert und neue Kanten nicht gewichtet. Mögliche Ansätze zu Algorithmen mit gerichteten Graphen zeigen \citeauthor{garcia-gasulla_pdf_2014} (\citeyear{garcia-gasulla_pdf_2014}, S. 5).
 
 Darüber hinaus beschränkte sich das User-Feedback auf den Auftraggeber.

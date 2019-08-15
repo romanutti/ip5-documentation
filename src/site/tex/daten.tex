@@ -9,25 +9,25 @@ Auf diesem werden anschliessend Link Predictions durchgeführt.
 Der veränderte Graph wird anschliessend mit dem effektiven Graphen zum Zeitpunkt $t + n$ verglichen.
 Bei einem Netzwerk kann es sich dabei beispielsweise um die Kanten und Knoten eines sozialen Netwerks wie \texit{Twitter} handeln:
 Während einer Person $A$ zum Zeitpunkt $t$ drei Personen folgen, sind es zum Zeitpunkt $t + n$ fünf Personen.
-Daraus resultieren zwei verschidene Graphen für dasselbe Netzwerk - allerdings zu unterschiedlichen Zeitpunkten.
+Daraus resultieren zwei verschiedene Graphen für dasselbe Netzwerk - allerdings zu unterschiedlichen Zeitpunkten.
 Voraussetzung für solche Graphen (sog. temporale oder dynamische Graphen) ist, dass die Kanten mit einer fixen Nummerierung oder einem Zeitstempel versehen sind.
-Die Anforderung besteht nur für die Entwicklung und Charakterisierung der Evaluationskomponente.
+Diese Anforderung besteht nur für die Entwicklung und Charakterisierung der Evaluationskomponente.
 Im Plugin werden Graphen unabhängig von der Reihenfolge hinzugefügter Kanten bewertet.
 
-Bei allen Netzwerken handelt es sich um ungerichtete Graphen.
+Bei allen aufgeführten Netzwerken handelt es sich um ungerichtete Graphen.
 
 \section{Datenaufbereitung}
 Um die Korrektheit einzelner und die Güte mehrerer Vorhersagen am effektiven Graphen zu überprüfen, müssen die Datensets in Initial- und Validierungsdaten unterteilt werden.
-Die Unterteilung wird anhand der Kanten gemacht. Dazu werden die Kanten aufsteigend sortiert (neuste Kanten zuerst).
-Anschliessend werden alle Daten aus dem Initialset dem Validierungsset zugeordnet. Auf dem Initialset werden danach für die verschiedenen Durchläufe die neuesten 1\%, 5\%, 10\% und 50\% der Kanten gelöscht. Das Initialset bildet das Basisnetzwerk zum Zeitpunkt $t$.
+Die Unterteilung wird anhand der Kanten gemacht. Dazu werden die Kanten aufsteigend sortiert (neueste Kanten zuerst).
+Anschliessend werden alle Daten aus dem Initialset dem Validierungsset zugeordnet. Auf dem Initialset werden danach für die verschiedenen Durchläufe die neuesten 1 \%, 5 \%, 10 \% und 50 \% der Kanten gelöscht. Das Initialset bildet das Basisnetzwerk zum Zeitpunkt $t$.
 Das Validierungsset entspricht dem effektiven Netzwerk zum Zeitpunkt $t + n$.
 
 In der Tabelle \ref{dataset_info} sind die Informationen zu den einzelnen Datensets ersichtlich.
 
 \begin{threeparttable}
     \centering
-    \label{dataset_info}
     \caption{Informationen der verwendeten Datensets}
+    \label{dataset_info}
     \begin{tabular}{@{}lllr@{}}
         \toprule
         Datenset                        & Anzahl Knoten & Anzahl Kanten & Grösse \\ \midrule
@@ -57,7 +57,7 @@ Der \acs{cc} zeigt das Mass der Cliquenbildung in einem Graphen (\citeauthor{mic
 Unter \acs{clique}n wird ein Subgraph innerhalb eines Graphen, in welchem die Knoten untereinander stark verbunden sind, verstanden.
 In Cliquen stammt ein Grossteil der Informationen von denselben Informationslieferanten - dank der starken Verbundenheit kann sich die Gruppe schnell austauschen.
 
-Der lokale Cluster Coefficient wird aus dem Quotienten der Anzahl direkten Kanten $d$ zwischen den Nachbarn eines Knoten und der maximal möglichen Anzahl direkter Kanten $k_i(k_i -1)$ berechnet:
+Der lokale Cluster Koeffizient wird aus dem Quotienten der Anzahl direkten Kanten $d$ zwischen den Nachbarn eines Knoten und der maximal möglichen Anzahl direkter Kanten $k_i(k_i -1)$ berechnet:
 
 \begin{equation}
     \label{eq:ci}

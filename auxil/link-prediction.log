@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (MiKTeX 2.9.7140 64-bit) (preloaded format=pdflatex 2019.8.11)  11 AUG 2019 13:52
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (MiKTeX 2.9.7140 64-bit) (preloaded format=pdflatex 2019.8.11)  15 AUG 2019 21:00
 entering extended mode
 **./link-prediction.tex
 (link-prediction.tex
@@ -1696,25 +1696,32 @@ Style option: `fancybox' v1.4 <2010/05/15> (tvz)
 LaTeX Warning: Unused global option(s):
     [titlepage].
 
-No file link-prediction.aux.
+
+(C:/Users\Saskia\Documents\FHNW\8-SemesterFS2019\IP5\Git-Projekt\ip5-documentat
+ion\auxil\link-prediction.aux
+
+LaTeX Warning: Label `lstLoggerCreate' multiply defined.
+
+)
 \openout1 = `link-prediction.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 102.
-LaTeX Font Info:    ... okay on input line 102.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 102.
-LaTeX Font Info:    ... okay on input line 102.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 102.
-LaTeX Font Info:    ... okay on input line 102.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 102.
-LaTeX Font Info:    ... okay on input line 102.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 102.
-LaTeX Font Info:    ... okay on input line 102.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 102.
-LaTeX Font Info:    ... okay on input line 102.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 102.
-LaTeX Font Info:    ... okay on input line 102.
-LaTeX Font Info:    Try loading font information for OT1+pplx on input line 102
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 101.
+LaTeX Font Info:    ... okay on input line 101.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 101.
+LaTeX Font Info:    ... okay on input line 101.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 101.
+LaTeX Font Info:    ... okay on input line 101.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 101.
+LaTeX Font Info:    ... okay on input line 101.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 101.
+LaTeX Font Info:    ... okay on input line 101.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 101.
+LaTeX Font Info:    ... okay on input line 101.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 101.
+LaTeX Font Info:    ... okay on input line 101.
+LaTeX Font Info:    Try loading font information for OT1+pplx on input line 101
 .
+
 ("C:\Users\Saskia\AppData\Local\Programs\MiKTeX 2.9\tex/latex/psnfss\ot1pplx.fd
 "
 File: ot1pplx.fd 2004/09/06 font definitions for OT1/pplx.
@@ -1766,206 +1773,206 @@ enefit from \pgfplotsset{compat=1.16} (current compat level: 1.9).
 
 \c@lstlisting=\count434
 LaTeX Font Info:    Font shape `OT1/pplx/bx/n' in size <10.95> not available
-(Font)              Font shape `OT1/pplx/b/n' tried instead on input line 102.
+(Font)              Font shape `OT1/pplx/b/n' tried instead on input line 101.
 LaTeX Font Info:    Font shape `OT1/pplx/bx/n' in size <12> not available
-(Font)              Font shape `OT1/pplx/b/n' tried instead on input line 102.
+(Font)              Font shape `OT1/pplx/b/n' tried instead on input line 101.
 Package pdfcprot Info: I didn't find pplxbxnOT1.cpa.
 (pdfcprot)              As a fallback I will try pplmnOT1.cpa. on input line 10
-2.
+1.
 
 ("C:\Users\Saskia\AppData\Local\Programs\MiKTeX 2.9\tex/latex/pdfcprot\pplmnOT1
 .cpa")
 Package pdfcprot Info: File pplmnOT1.cpa{} used for the adjustment
 (pdfcprot)             of the char protruding. It seems that it isn't the one
-(pdfcprot)             you intended to use. on input line 102.
+(pdfcprot)             you intended to use. on input line 101.
 Package pdfcprot Info: I didn't find pplxbxnOT1.cpa.
 (pdfcprot)              As a fallback I will try pplmnOT1.cpa. on input line 10
-2.
+1.
 Package pdfcprot Info: File pplmnOT1.cpa{} used for the adjustment
 (pdfcprot)             of the char protruding. It seems that it isn't the one
-(pdfcprot)             you intended to use. on input line 102.
+(pdfcprot)             you intended to use. on input line 101.
 LaTeX Font Info:    Font shape `OT1/pplx/bx/n' in size <10> not available
-(Font)              Font shape `OT1/pplx/b/n' tried instead on input line 102.
+(Font)              Font shape `OT1/pplx/b/n' tried instead on input line 101.
 Package pdfcprot Info: I didn't find pplxbxnOT1.cpa.
 (pdfcprot)              As a fallback I will try pplmnOT1.cpa. on input line 10
-2.
+1.
 Package pdfcprot Info: File pplmnOT1.cpa{} used for the adjustment
 (pdfcprot)             of the char protruding. It seems that it isn't the one
-(pdfcprot)             you intended to use. on input line 102.
+(pdfcprot)             you intended to use. on input line 101.
 LaTeX Font Info:    Font shape `OT1/pplx/bx/n' in size <9> not available
-(Font)              Font shape `OT1/pplx/b/n' tried instead on input line 102.
+(Font)              Font shape `OT1/pplx/b/n' tried instead on input line 101.
 Package pdfcprot Info: I didn't find pplxbxnOT1.cpa.
 (pdfcprot)              As a fallback I will try pplmnOT1.cpa. on input line 10
-2.
+1.
 Package pdfcprot Info: File pplmnOT1.cpa{} used for the adjustment
 (pdfcprot)             of the char protruding. It seems that it isn't the one
-(pdfcprot)             you intended to use. on input line 102.
+(pdfcprot)             you intended to use. on input line 101.
 Package pdfcprot Info: I didn't find cmssbxnOT1.cpa.
 (pdfcprot)              As a fallback I will try pplmnOT1.cpa. on input line 10
-2.
+1.
 Package pdfcprot Info: File pplmnOT1.cpa{} used for the adjustment
 (pdfcprot)             of the char protruding. It seems that it isn't the one
-(pdfcprot)             you intended to use. on input line 102.
+(pdfcprot)             you intended to use. on input line 101.
 Package pdfcprot Info: I didn't find cmssbxnOT1.cpa.
 (pdfcprot)              As a fallback I will try pplmnOT1.cpa. on input line 10
-2.
+1.
 Package pdfcprot Info: File pplmnOT1.cpa{} used for the adjustment
 (pdfcprot)             of the char protruding. It seems that it isn't the one
-(pdfcprot)             you intended to use. on input line 102.
+(pdfcprot)             you intended to use. on input line 101.
 Package pdfcprot Info: I didn't find cmssbxnOT1.cpa.
 (pdfcprot)              As a fallback I will try pplmnOT1.cpa. on input line 10
-2.
+1.
 Package pdfcprot Info: File pplmnOT1.cpa{} used for the adjustment
 (pdfcprot)             of the char protruding. It seems that it isn't the one
-(pdfcprot)             you intended to use. on input line 102.
+(pdfcprot)             you intended to use. on input line 101.
 Package pdfcprot Info: I didn't find cmssbxnOT1.cpa.
 (pdfcprot)              As a fallback I will try pplmnOT1.cpa. on input line 10
-2.
+1.
 Package pdfcprot Info: File pplmnOT1.cpa{} used for the adjustment
 (pdfcprot)             of the char protruding. It seems that it isn't the one
-(pdfcprot)             you intended to use. on input line 102.
+(pdfcprot)             you intended to use. on input line 101.
 Package pdfcprot Info: I didn't find pplxmnOT1.cpa.
 (pdfcprot)              As a fallback I will try pplmnOT1.cpa. on input line 10
-2.
+1.
 Package pdfcprot Info: File pplmnOT1.cpa{} used for the adjustment
 (pdfcprot)             of the char protruding. It seems that it isn't the one
-(pdfcprot)             you intended to use. on input line 102.
+(pdfcprot)             you intended to use. on input line 101.
 Package pdfcprot Info: I didn't find pplxmnOT1.cpa.
 (pdfcprot)              As a fallback I will try pplmnOT1.cpa. on input line 10
-2.
+1.
 Package pdfcprot Info: File pplmnOT1.cpa{} used for the adjustment
 (pdfcprot)             of the char protruding. It seems that it isn't the one
-(pdfcprot)             you intended to use. on input line 102.
+(pdfcprot)             you intended to use. on input line 101.
 Package pdfcprot Info: I didn't find pplxmnOT1.cpa.
 (pdfcprot)              As a fallback I will try pplmnOT1.cpa. on input line 10
-2.
+1.
 Package pdfcprot Info: File pplmnOT1.cpa{} used for the adjustment
 (pdfcprot)             of the char protruding. It seems that it isn't the one
-(pdfcprot)             you intended to use. on input line 102.
+(pdfcprot)             you intended to use. on input line 101.
 Package pdfcprot Info: I didn't find pplxmnOT1.cpa.
 (pdfcprot)              As a fallback I will try pplmnOT1.cpa. on input line 10
-2.
+1.
 Package pdfcprot Info: File pplmnOT1.cpa{} used for the adjustment
 (pdfcprot)             of the char protruding. It seems that it isn't the one
-(pdfcprot)             you intended to use. on input line 102.
+(pdfcprot)             you intended to use. on input line 101.
 Package pdfcprot Info: I didn't find pplxmitOT1.cpa.
 (pdfcprot)              As a fallback I will try pplmnOT1.cpa. on input line 10
-2.
+1.
 Package pdfcprot Info: File pplmnOT1.cpa{} used for the adjustment
 (pdfcprot)             of the char protruding. It seems that it isn't the one
-(pdfcprot)             you intended to use. on input line 102.
+(pdfcprot)             you intended to use. on input line 101.
 Package pdfcprot Info: I didn't find pplxmitOT1.cpa.
 (pdfcprot)              As a fallback I will try pplmnOT1.cpa. on input line 10
-2.
+1.
 Package pdfcprot Info: File pplmnOT1.cpa{} used for the adjustment
 (pdfcprot)             of the char protruding. It seems that it isn't the one
-(pdfcprot)             you intended to use. on input line 102.
+(pdfcprot)             you intended to use. on input line 101.
 Package pdfcprot Info: I didn't find pplxmitOT1.cpa.
 (pdfcprot)              As a fallback I will try pplmnOT1.cpa. on input line 10
-2.
+1.
 Package pdfcprot Info: File pplmnOT1.cpa{} used for the adjustment
 (pdfcprot)             of the char protruding. It seems that it isn't the one
-(pdfcprot)             you intended to use. on input line 102.
+(pdfcprot)             you intended to use. on input line 101.
 Package pdfcprot Info: I didn't find pplxmitOT1.cpa.
 (pdfcprot)              As a fallback I will try pplmnOT1.cpa. on input line 10
-2.
+1.
 Package pdfcprot Info: File pplmnOT1.cpa{} used for the adjustment
 (pdfcprot)             of the char protruding. It seems that it isn't the one
-(pdfcprot)             you intended to use. on input line 102.
+(pdfcprot)             you intended to use. on input line 101.
 Package pdfcprot Info: I didn't find cmssmnOT1.cpa.
 (pdfcprot)              As a fallback I will try pplmnOT1.cpa. on input line 10
-2.
+1.
 Package pdfcprot Info: File pplmnOT1.cpa{} used for the adjustment
 (pdfcprot)             of the char protruding. It seems that it isn't the one
-(pdfcprot)             you intended to use. on input line 102.
+(pdfcprot)             you intended to use. on input line 101.
 Package pdfcprot Info: I didn't find cmssmnOT1.cpa.
 (pdfcprot)              As a fallback I will try pplmnOT1.cpa. on input line 10
-2.
+1.
 Package pdfcprot Info: File pplmnOT1.cpa{} used for the adjustment
 (pdfcprot)             of the char protruding. It seems that it isn't the one
-(pdfcprot)             you intended to use. on input line 102.
+(pdfcprot)             you intended to use. on input line 101.
 Package pdfcprot Info: I didn't find cmssmnOT1.cpa.
 (pdfcprot)              As a fallback I will try pplmnOT1.cpa. on input line 10
-2.
+1.
 Package pdfcprot Info: File pplmnOT1.cpa{} used for the adjustment
 (pdfcprot)             of the char protruding. It seems that it isn't the one
-(pdfcprot)             you intended to use. on input line 102.
+(pdfcprot)             you intended to use. on input line 101.
 Package pdfcprot Info: I didn't find cmssmnOT1.cpa.
 (pdfcprot)              As a fallback I will try pplmnOT1.cpa. on input line 10
-2.
+1.
 Package pdfcprot Info: File pplmnOT1.cpa{} used for the adjustment
 (pdfcprot)             of the char protruding. It seems that it isn't the one
-(pdfcprot)             you intended to use. on input line 102.
+(pdfcprot)             you intended to use. on input line 101.
 
 
 LaTeX Font Warning: Font shape `OT1/cmss/m/it' in size <9> not available
-(Font)              Font shape `OT1/cmss/m/sl' tried instead on input line 102.
+(Font)              Font shape `OT1/cmss/m/sl' tried instead on input line 101.
 
 
 
 LaTeX Font Warning: Font shape `OT1/cmss/m/it' in size <12> not available
-(Font)              Font shape `OT1/cmss/m/sl' tried instead on input line 102.
+(Font)              Font shape `OT1/cmss/m/sl' tried instead on input line 101.
 
 
 Package pdfcprot Info: I didn't find cmssmitOT1.cpa.
 (pdfcprot)              As a fallback I will try pplmnOT1.cpa. on input line 10
-2.
+1.
 Package pdfcprot Info: File pplmnOT1.cpa{} used for the adjustment
 (pdfcprot)             of the char protruding. It seems that it isn't the one
-(pdfcprot)             you intended to use. on input line 102.
+(pdfcprot)             you intended to use. on input line 101.
 
 LaTeX Font Warning: Font shape `OT1/cmss/m/it' in size <10.95> not available
-(Font)              Font shape `OT1/cmss/m/sl' tried instead on input line 102.
+(Font)              Font shape `OT1/cmss/m/sl' tried instead on input line 101.
 
 
 Package pdfcprot Info: I didn't find cmssmitOT1.cpa.
 (pdfcprot)              As a fallback I will try pplmnOT1.cpa. on input line 10
-2.
+1.
 Package pdfcprot Info: File pplmnOT1.cpa{} used for the adjustment
 (pdfcprot)             of the char protruding. It seems that it isn't the one
-(pdfcprot)             you intended to use. on input line 102.
+(pdfcprot)             you intended to use. on input line 101.
 
 LaTeX Font Warning: Font shape `OT1/cmss/m/it' in size <10> not available
-(Font)              Font shape `OT1/cmss/m/sl' tried instead on input line 102.
+(Font)              Font shape `OT1/cmss/m/sl' tried instead on input line 101.
 
 
 Package pdfcprot Info: I didn't find cmssmitOT1.cpa.
 (pdfcprot)              As a fallback I will try pplmnOT1.cpa. on input line 10
-2.
+1.
 Package pdfcprot Info: File pplmnOT1.cpa{} used for the adjustment
 (pdfcprot)             of the char protruding. It seems that it isn't the one
-(pdfcprot)             you intended to use. on input line 102.
+(pdfcprot)             you intended to use. on input line 101.
 Package pdfcprot Info: I didn't find cmssmitOT1.cpa.
 (pdfcprot)              As a fallback I will try pplmnOT1.cpa. on input line 10
-2.
+1.
 Package pdfcprot Info: File pplmnOT1.cpa{} used for the adjustment
 (pdfcprot)             of the char protruding. It seems that it isn't the one
-(pdfcprot)             you intended to use. on input line 102.
+(pdfcprot)             you intended to use. on input line 101.
 Package pdfcprot Info: I didn't find cmssmslOT1.cpa.
 (pdfcprot)              As a fallback I will try pplmnOT1.cpa. on input line 10
-2.
+1.
 Package pdfcprot Info: File pplmnOT1.cpa{} used for the adjustment
 (pdfcprot)             of the char protruding. It seems that it isn't the one
-(pdfcprot)             you intended to use. on input line 102.
+(pdfcprot)             you intended to use. on input line 101.
 Package pdfcprot Info: I didn't find cmssmslOT1.cpa.
 (pdfcprot)              As a fallback I will try pplmnOT1.cpa. on input line 10
-2.
+1.
 Package pdfcprot Info: File pplmnOT1.cpa{} used for the adjustment
 (pdfcprot)             of the char protruding. It seems that it isn't the one
-(pdfcprot)             you intended to use. on input line 102.
+(pdfcprot)             you intended to use. on input line 101.
 Package pdfcprot Info: I didn't find cmssmslOT1.cpa.
 (pdfcprot)              As a fallback I will try pplmnOT1.cpa. on input line 10
-2.
+1.
 Package pdfcprot Info: File pplmnOT1.cpa{} used for the adjustment
 (pdfcprot)             of the char protruding. It seems that it isn't the one
-(pdfcprot)             you intended to use. on input line 102.
+(pdfcprot)             you intended to use. on input line 101.
 Package pdfcprot Info: I didn't find cmssmslOT1.cpa.
 (pdfcprot)              As a fallback I will try pplmnOT1.cpa. on input line 10
-2.
+1.
 Package pdfcprot Info: File pplmnOT1.cpa{} used for the adjustment
 (pdfcprot)             of the char protruding. It seems that it isn't the one
-(pdfcprot)             you intended to use. on input line 102.
-Package hyperref Info: Link coloring ON on input line 102.
+(pdfcprot)             you intended to use. on input line 101.
+Package hyperref Info: Link coloring ON on input line 101.
 
 ("C:\Users\Saskia\AppData\Local\Programs\MiKTeX 2.9\tex/latex/hyperref\nameref.
 sty"
@@ -1980,167 +1987,143 @@ LaTeX Info: Redefining \Ref on input line 515.
 )
 Redoing nameref's sectioning
 Redoing nameref's label
-LaTeX Info: Redefining \nameref on input line 102.
-LaTeX Info: Redefining \ref on input line 102.
-LaTeX Info: Redefining \pageref on input line 102.
-LaTeX Info: Redefining \nameref on input line 102.
+LaTeX Info: Redefining \nameref on input line 101.
+LaTeX Info: Redefining \ref on input line 101.
+LaTeX Info: Redefining \pageref on input line 101.
+LaTeX Info: Redefining \nameref on input line 101.
+
+(C:/Users\Saskia\Documents\FHNW\8-SemesterFS2019\IP5\Git-Projekt\ip5-documentat
+ion\auxil\link-prediction.out)
+(C:/Users\Saskia\Documents\FHNW\8-SemesterFS2019\IP5\Git-Projekt\ip5-documentat
+ion\auxil\link-prediction.out)
 \@outlinefile=\write6
 \openout6 = `link-prediction.out'.
 
-LaTeX Info: Redefining \Ref on input line 102.
-<FHNWlogo.pdf, id=6, 471.7625pt x 107.40125pt>
+LaTeX Info: Redefining \Ref on input line 101.
+<FHNWlogo.pdf, id=178, 471.7625pt x 107.40125pt>
 File: FHNWlogo.pdf Graphic file (type pdf)
 <use FHNWlogo.pdf>
-Package pdftex.def Info: FHNWlogo.pdf  used on input line 111.
+Package pdftex.def Info: FHNWlogo.pdf  used on input line 110.
 (pdftex.def)             Requested size: 471.76134pt x 107.40097pt.
-[1
+ [1
 
 
 {C:/Users/Saskia/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map} <./FHNWlogo
 .pdf>] (abstract.tex
-
-Package acronym Warning: Acronym `sna' is not defined on input line 5.
-
-
-Package acronym Warning: Acronym `sna' is not defined on input line 5.
-
-LaTeX Font Info:    Font shape `OT1/pplx/bx/n' in size <8> not available
-(Font)              Font shape `OT1/pplx/b/n' tried instead on input line 5.
-
-Package acronym Warning: Acronym `plugin' is not defined on input line 6.
-
-
-Overfull \hbox (1.49988pt too wide) in paragraph at lines 18--22
-[]\OT1/pplx/m/n/10 Die er-for-der-li-chen Funk-tio-na-lit[]aten des Plug-ins ko
-nn-ten um-ge-setzt wer-
+Overfull \hbox (1.49988pt too wide) in paragraph at lines 19--25
+\OT1/pplx/m/n/10 Die er-for-der-li-chen Funk-tio-na-lit[]aten des Plug-ins konn
+-ten um-ge-setzt wer-
  []
 
 )pdfTeX warning (ext4): destination with the same identifier (name{page.i}) has
  been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.118 \cleartorecto
+l.117 \cleartorecto
                     [1
 
-] [2
-
-] (einleitung.tex
-LaTeX Font Info:    Font shape `OT1/pplx/bx/n' in size <14.4> not available
-(Font)              Font shape `OT1/pplx/b/n' tried instead on input line 2.
-
-
-Package acronym Warning: Acronym `gephi' is not defined on input line 3.
-
-LaTeX Font Info:    Font shape `OT1/pplx/bx/it' in size <9> not available
-(Font)              Font shape `OT1/pplx/b/it' tried instead on input line 3.
-
-Overfull \hbox (13.99121pt too wide) in paragraph at lines 9--10
-\OT1/pplx/m/n/10.95 wickeln. Un-ter dem Be-griff ``Link-Prediction'' wird die V
-or-her-sa-ge der n[]achsten
- []
-
-LaTeX Font Info:    Try loading font information for OMS+pplx on input line 12.
-
-LaTeX Font Info:    No file OMSpplx.fd. on input line 12.
-
-LaTeX Font Warning: Font shape `OMS/pplx/m/n' undefined
-(Font)              using `OMS/cmsy/m/n' instead
-(Font)              for symbol `textbullet' on input line 12.
-
-
-Overfull \hbox (5.2275pt too wide) in paragraph at lines 12--13
-\OT1/pplx/m/n/10.95 zum Netz-werk hin-zu-gef[]ugt wer-den, m[]ussen ent-spre-ch
-end ge-kenn-zeich-
- []
-
-
-LaTeX Warning: Reference `projektvereinbarung' on page 1 undefined on input lin
-e 17.
-
-[1
-
-
 ]
-Overfull \hbox (5.02322pt too wide) in paragraph at lines 25--26
-\OT1/pplx/m/n/10.95 wick-lungs-um-ge-bung Net-Be-ans ein-ge-setzt. Ge-gen[]uber
- an-de-ren Ent-wick-
- []
-
-
-Overfull \hbox (9.04832pt too wide) in paragraph at lines 25--26
-\OT1/pplx/m/n/10.95 beim De-bug-ging und beim Er-stel-len von gra-fi-schen Be-n
-ut-ze-ro-ber-fl[]achen. 
- []
-
-LaTeX Font Info:    Try loading font information for OML+zplm on input line 26.
+(C:/Users\Saskia\Documents\FHNW\8-SemesterFS2019\IP5\Git-Projekt\ip5-documentat
+ion\auxil\link-prediction.toc
+LaTeX Font Info:    Try loading font information for OML+zplm on input line 3.
 
 ("C:\Users\Saskia\AppData\Local\Programs\MiKTeX 2.9\tex/latex/psnfss\omlzplm.fd
 "
 File: omlzplm.fd 2002/09/08 Fontinst v1.914 font definitions for OML/zplm.
 )
-LaTeX Font Info:    Try loading font information for OMS+zplm on input line 26.
-
+LaTeX Font Info:    Try loading font information for OMS+zplm on input line 3.
 
 ("C:\Users\Saskia\AppData\Local\Programs\MiKTeX 2.9\tex/latex/psnfss\omszplm.fd
 "
 File: omszplm.fd 2002/09/08 Fontinst v1.914 font definitions for OMS/zplm.
 )
-LaTeX Font Info:    Try loading font information for OMX+zplm on input line 26.
-
+LaTeX Font Info:    Try loading font information for OMX+zplm on input line 3.
 
 ("C:\Users\Saskia\AppData\Local\Programs\MiKTeX 2.9\tex/latex/psnfss\omxzplm.fd
 "
 File: omxzplm.fd 2002/09/08 Fontinst v1.914 font definitions for OMX/zplm.
 )
-LaTeX Font Info:    Try loading font information for OT1+zplm on input line 26.
-
+LaTeX Font Info:    Try loading font information for OT1+zplm on input line 3.
 
 ("C:\Users\Saskia\AppData\Local\Programs\MiKTeX 2.9\tex/latex/psnfss\ot1zplm.fd
 "
 File: ot1zplm.fd 2002/09/08 Fontinst v1.914 font definitions for OT1/zplm.
 )
 LaTeX Font Info:    Font shape `U/msa/m/n' will be
-(Font)              scaled to size 11.40997pt on input line 26.
+(Font)              scaled to size 11.40997pt on input line 3.
 LaTeX Font Info:    Font shape `U/msa/m/n' will be
-(Font)              scaled to size 8.33606pt on input line 26.
+(Font)              scaled to size 8.33606pt on input line 3.
 LaTeX Font Info:    Font shape `U/msa/m/n' will be
-(Font)              scaled to size 6.25204pt on input line 26.
+(Font)              scaled to size 6.25204pt on input line 3.
 LaTeX Font Info:    Font shape `U/msb/m/n' will be
-(Font)              scaled to size 11.40997pt on input line 26.
+(Font)              scaled to size 11.40997pt on input line 3.
 LaTeX Font Info:    Font shape `U/msb/m/n' will be
-(Font)              scaled to size 8.33606pt on input line 26.
+(Font)              scaled to size 8.33606pt on input line 3.
 LaTeX Font Info:    Font shape `U/msb/m/n' will be
-(Font)              scaled to size 6.25204pt on input line 26.
-LaTeX Font Info:    Try loading font information for U+rsfs on input line 26.
+(Font)              scaled to size 6.25204pt on input line 3.
+LaTeX Font Info:    Try loading font information for U+rsfs on input line 3.
 
 ("C:\Users\Saskia\AppData\Local\Programs\MiKTeX 2.9\tex/latex/jknappen\ursfs.fd
 "
 File: ursfs.fd 1998/03/24 rsfs font definition file (jk)
 )
-LaTeX Font Info:    Try loading font information for U+esvect on input line 26.
-
+LaTeX Font Info:    Try loading font information for U+esvect on input line 3.
 
 ("C:\Users\Saskia\AppData\Local\Programs\MiKTeX 2.9\tex/latex/esvect\uesvect.fd
 "
 File: uesvect.fd 
-)
-LaTeX Font Info:    Font shape `U/msa/m/n' will be
-(Font)              scaled to size 9.37807pt on input line 26.
-LaTeX Font Info:    Font shape `U/msa/m/n' will be
-(Font)              scaled to size 7.29405pt on input line 26.
-LaTeX Font Info:    Font shape `U/msa/m/n' will be
-(Font)              scaled to size 5.21004pt on input line 26.
-LaTeX Font Info:    Font shape `U/msb/m/n' will be
-(Font)              scaled to size 9.37807pt on input line 26.
-LaTeX Font Info:    Font shape `U/msb/m/n' will be
-(Font)              scaled to size 7.29405pt on input line 26.
-LaTeX Font Info:    Font shape `U/msb/m/n' will be
-(Font)              scaled to size 5.21004pt on input line 26.
+) [2
+
+]) [3] (einleitung.tex
+LaTeX Font Info:    Font shape `OT1/pplx/bx/n' in size <14.4> not available
+(Font)              Font shape `OT1/pplx/b/n' tried instead on input line 2.
+
+Overfull \hbox (13.99121pt too wide) in paragraph at lines 9--11
+\OT1/pplx/m/n/10.95 wickeln. Un-ter dem Be-griff ``Link-Prediction'' wird die V
+or-her-sa-ge der n[]achsten
+ []
+
+LaTeX Font Info:    Try loading font information for OMS+pplx on input line 13.
+
+LaTeX Font Info:    No file OMSpplx.fd. on input line 13.
+
+LaTeX Font Warning: Font shape `OMS/pplx/m/n' undefined
+(Font)              using `OMS/cmsy/m/n' instead
+(Font)              for symbol `textbullet' on input line 13.
 
 
-Package natbib Warning: Citation `noauthor_comparison_2019' on page 2 undefined
- on input line 29.
+Overfull \hbox (5.2275pt too wide) in paragraph at lines 13--14
+\OT1/pplx/m/n/10.95 zum Netz-werk hin-zu-gef[]ugt wer-den, m[]ussen ent-spre-ch
+end ge-kenn-zeich-
+ []
 
+[1
+
+
+]
+Overfull \hbox (5.02322pt too wide) in paragraph at lines 26--27
+\OT1/pplx/m/n/10.95 wick-lungs-um-ge-bung Net-Be-ans ein-ge-setzt. Ge-gen[]uber
+ an-de-ren Ent-wick-
+ []
+
+
+Overfull \hbox (9.04832pt too wide) in paragraph at lines 26--27
+\OT1/pplx/m/n/10.95 beim De-bug-ging und beim Er-stel-len von gra-fi-schen Be-n
+ut-ze-ro-ber-fl[]achen. 
+ []
+
+LaTeX Font Info:    Font shape `U/msa/m/n' will be
+(Font)              scaled to size 9.37807pt on input line 27.
+LaTeX Font Info:    Font shape `U/msa/m/n' will be
+(Font)              scaled to size 7.29405pt on input line 27.
+LaTeX Font Info:    Font shape `U/msa/m/n' will be
+(Font)              scaled to size 5.21004pt on input line 27.
+LaTeX Font Info:    Font shape `U/msb/m/n' will be
+(Font)              scaled to size 9.37807pt on input line 27.
+LaTeX Font Info:    Font shape `U/msb/m/n' will be
+(Font)              scaled to size 7.29405pt on input line 27.
+LaTeX Font Info:    Font shape `U/msb/m/n' will be
+(Font)              scaled to size 5.21004pt on input line 27.
 ) (theorie.tex [2]
 
 Package natbib Warning: Citation `ulrike_baumol_soziale_2019' on page 3 undefin
@@ -2149,9 +2132,6 @@ ed on input line 9.
 
 Package natbib Warning: Citation `ulrike_baumol_soziale_2019' on page 3 undefin
 ed on input line 9.
-
-
-Package acronym Warning: Acronym `sna' is not defined on input line 10.
 
 
 Package natbib Warning: Citation `wikipedia_soziale_2019' on page 3 undefined o
@@ -2167,227 +2147,207 @@ ed on input line 11.
 
 
 Package natbib Warning: Citation `ottmann_algorithmen_2017' on page 3 undefined
- on input line 20.
+ on input line 16.
 
 
 Package natbib Warning: Citation `ottmann_algorithmen_2017' on page 3 undefined
- on input line 20.
+ on input line 16.
 
-
-LaTeX Warning: Reference `fig:graph_undirected' on page 3 undefined on input li
-ne 22.
-
-<resources/graph_undirected.JPG, id=48, 423.29572pt x 219.82124pt>
+<resources/graph_undirected.JPG, id=264, 423.29572pt x 219.82124pt>
 File: resources/graph_undirected.JPG Graphic file (type jpg)
 <use resources/graph_undirected.JPG>
-Package pdftex.def Info: resources/graph_undirected.JPG  used on input line 27.
+Package pdftex.def Info: resources/graph_undirected.JPG  used on input line 23.
 
 (pdftex.def)             Requested size: 296.30498pt x 153.87381pt.
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
 [3
 
 ]
-
-LaTeX Warning: Reference `fig:graph_directed' on page 4 undefined on input line
- 34.
-
-<resources/graph_directed.JPG, id=59, 423.72589pt x 225.41357pt>
+<resources/graph_directed.JPG, id=273, 423.72589pt x 225.41357pt>
 File: resources/graph_directed.JPG Graphic file (type jpg)
 <use resources/graph_directed.JPG>
-Package pdftex.def Info: resources/graph_directed.JPG  used on input line 39.
+Package pdftex.def Info: resources/graph_directed.JPG  used on input line 34.
 (pdftex.def)             Requested size: 296.6061pt x 157.7884pt.
 
+
 Package natbib Warning: Citation `gao_link_2015' on page 4 undefined on input l
-ine 49.
+ine 43.
 
 
-Package natbib Warning: Citation `citeauthor' on page 4 undefined on input line
- 49.
-
-
-LaTeX Warning: Reference `daten' on page 4 undefined on input line 53.
-
-) (daten.tex
-Overfull \hbox (1.78833pt too wide) in paragraph at lines 46--1
-\OT1/pplx/m/n/10.95 allf[]alliger Kon-tex-t-in-for-ma-tio-nen lie-fert ein Al-g
-o-rith-mus bes-se-re oder schlech-
- []
+Package natbib Warning: Citation `gao_link_2015' on page 4 undefined on input l
+ine 43.
 
 [4 <./resources/graph_undirected.JPG> <./resources/graph_directed.JPG>]
-[5]
 
-Package acronym Warning: Acronym `gephi' is not defined on input line 4.
+Package natbib Warning: Citation `michael_henninger_soziale_2018' on page 5 und
+efined on input line 54.
 
 
-Package natbib Warning: Citation `moll_datasets_2018' on page 6 undefined on in
+Package natbib Warning: Citation `michael_henninger_soziale_2018' on page 5 und
+efined on input line 54.
+
+[5] [6]) (daten.tex [7]
+
+Package natbib Warning: Citation `moll_datasets_2018' on page 8 undefined on in
 put line 4.
 
 
-Package natbib Warning: Citation `moll_datasets_2018' on page 6 undefined on in
+Package natbib Warning: Citation `moll_datasets_2018' on page 8 undefined on in
 put line 4.
 
+daten.tex:10: Undefined control sequence.
+l.10 ... Knoten eines sozialen Netwerks wie \texit
+                                                  {Twitter} handeln:
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
 
-LaTeX Warning: Reference `dataset_info' on page 6 undefined on input line 23.
-
-[6
+[8
 
 ]
-daten.tex:38: Missing \endcsname inserted.
+daten.tex:40: Missing \endcsname inserted.
 <to be read again> 
                    \parsep 
-l.38     \begin{tablenotes}[\flushleft]
+l.40     \begin{tablenotes}[\flushleft]
                                        
 The control sequence marked <to be read again> should
 not appear between \csname and \endcsname.
 
-daten.tex:38: Extra \endcsname.
+daten.tex:40: Extra \endcsname.
 \@nameuse #1->\csname #1\endcsname 
                                    
-l.38     \begin{tablenotes}[\flushleft]
+l.40     \begin{tablenotes}[\flushleft]
                                        
 I'm ignoring this, since I wasn't doing a \csname.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 42--43
+Underfull \hbox (badness 10000) in paragraph at lines 44--45
 []\OT1/pplx/m/n/9 Interaction net-work of spar-rows bet-ween two points of ti-m
 e. In-ter-ac-ti-on
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 42--43
+Underfull \hbox (badness 10000) in paragraph at lines 44--45
 \OT1/pplx/m/n/9 is de-fi-ned as birds wi-thin an ap-pro-xi-ma-te-ly 5-metre ra-
 di-us. Sour-ce: htt-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 43--44
+Underfull \hbox (badness 10000) in paragraph at lines 45--46
 []\OT1/pplx/m/n/9 Social net-work that re-pres-ents 151 En-ron em-ploy-ees. In 
 this net-work
  []
 
 
-Underfull \hbox (badness 8170) in paragraph at lines 43--44
+Underfull \hbox (badness 8170) in paragraph at lines 45--46
 \OT1/pplx/m/n/9 each ex-change of at least 5 emails bet-ween any pair of agents
  across
  []
 
 
-Underfull \hbox (badness 4531) in paragraph at lines 43--44
+Underfull \hbox (badness 4531) in paragraph at lines 45--46
 \OT1/pplx/m/n/9 the en-ti-re ti-me ran-ge (1998 to 2002) is con-si-de-red as a 
 link. Sour-ce: htt-
  []
 
 
-Overfull \hbox (2.33229pt too wide) in paragraph at lines 26--47
+Overfull \hbox (2.33229pt too wide) in paragraph at lines 28--49
 [] 
  []
 
 
-Package natbib Warning: Citation `gao_link_2015' on page 7 undefined on input l
-ine 50.
+Package natbib Warning: Citation `gao_link_2015' on page 9 undefined on input l
+ine 52.
 
 
-Package natbib Warning: Citation `gao_link_2015' on page 7 undefined on input l
-ine 50.
+Package natbib Warning: Citation `gao_link_2015' on page 9 undefined on input l
+ine 52.
 
 
-Package acronym Warning: Acronym `cc' is not defined on input line 54.
+Package natbib Warning: Citation `michael_henninger_soziale_2018' on page 9 und
+efined on input line 56.
 
 
-Package natbib Warning: Citation `michael_henninger_soziale_2018' on page 7 und
-efined on input line 54.
+Package natbib Warning: Citation `michael_henninger_soziale_2018' on page 9 und
+efined on input line 56.
+
+[9]
+
+Package natbib Warning: Citation `michael_henninger_soziale_2018' on page 10 un
+defined on input line 90.
 
 
-Package natbib Warning: Citation `michael_henninger_soziale_2018' on page 7 und
-efined on input line 54.
+Package natbib Warning: Citation `michael_henninger_soziale_2018' on page 10 un
+defined on input line 90.
 
 
-Package acronym Warning: Acronym `clique' is not defined on input line 55.
-
-[7]
-
-Package acronym Warning: Acronym `density' is not defined on input line 78.
+Package natbib Warning: Citation `michael_henninger_soziale_2018' on page 10 un
+defined on input line 94.
 
 
-Package natbib Warning: Citation `michael_henninger_soziale_2018' on page 8 und
-efined on input line 91.
+Package natbib Warning: Citation `michael_henninger_soziale_2018' on page 10 un
+defined on input line 94.
 
-
-Package natbib Warning: Citation `michael_henninger_soziale_2018' on page 8 und
-efined on input line 91.
-
-
-Package acronym Warning: Acronym `diameter' is not defined on input line 95.
-
-
-Package natbib Warning: Citation `michael_henninger_soziale_2018' on page 8 und
-efined on input line 95.
-
-
-Package natbib Warning: Citation `michael_henninger_soziale_2018' on page 8 und
-efined on input line 95.
-
-daten.tex:100: Double subscript.
-l.100     Diameter = max_i_
-                           jd(i,j)
+daten.tex:99: Double subscript.
+l.99     Diameter = max_i_
+                          jd(i,j)
 I treat `x_1_2' essentially like `x_1{}_2'.
 
+[10]
 
-Package acronym Warning: Acronym `avgsp' is not defined on input line 107.
-
-
-Package natbib Warning: Citation `gao_link_2015' on page 8 undefined on input l
-ine 107.
+Package natbib Warning: Citation `gao_link_2015' on page 11 undefined on input 
+line 106.
 
 
-Package natbib Warning: Citation `gao_link_2015' on page 8 undefined on input l
-ine 107.
+Package natbib Warning: Citation `gao_link_2015' on page 11 undefined on input 
+line 106.
 
-[8]
+) (algorithms.tex
+Overfull \hbox (5.06244pt too wide) in paragraph at lines 134--1
+\OT1/pplx/m/n/10.95 Kno-ten in die-sem Netz-werk nur lo-se zu-sam-menh[]angen u
+nd die Ver-kn[]upfung
+ []
 
-LaTeX Warning: Reference `tab_metrics' on page 9 undefined on input line 116.
-
-
-Package acronym Warning: Acronym `gcc' is not defined on input line 135.
-
-
-Package acronym Warning: Acronym `density' is not defined on input line 135.
-
-
-LaTeX Warning: Reference `comparison' on page 9 undefined on input line 140.
-
-) (algorithms.tex [9]
-
-LaTeX Warning: Reference `fig:graph_bsp' on page 10 undefined on input line 9.
-
-<resources/graph_example.JPG, id=101, 321.3434pt x 176.80339pt>
+[11]
+<resources/graph_example.JPG, id=330, 321.3434pt x 176.80339pt>
 File: resources/graph_example.JPG Graphic file (type jpg)
 <use resources/graph_example.JPG>
 Package pdftex.def Info: resources/graph_example.JPG  used on input line 13.
 (pdftex.def)             Requested size: 224.93884pt x 123.76152pt.
 
-LaTeX Warning: Reference `socialforces' on page 10 undefined on input line 22.
 
-[10
+Package natbib Warning: Citation `michael_henninger_soziale_2018' on page 12 un
+defined on input line 14.
+
+
+Package natbib Warning: Citation `michael_henninger_soziale_2018' on page 12 un
+defined on input line 14.
+
+
+Package natbib Warning: Citation `michael_henninger_soziale_2018' on page 12 un
+defined on input line 14.
+
+
+Package natbib Warning: Citation `michael_henninger_soziale_2018' on page 12 un
+defined on input line 14.
+
+[12
 
  <./resources/graph_example.JPG>]
-Underfull \hbox (badness 10000) in paragraph at lines 35--47
+Underfull \hbox (badness 10000) in paragraph at lines 36--48
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 35--47
+Underfull \hbox (badness 10000) in paragraph at lines 36--48
 
  []
 
-
-LaTeX Warning: Reference `lstCommonNeighbour' on page 11 undefined on input lin
-e 48.
-
-[11]
-
-LaTeX Warning: Reference `socialforces' on page 12 undefined on input line 94.
-
-
+[13]
 Underfull \hbox (badness 10000) in paragraph at lines 106--114
 
  []
@@ -2397,11 +2357,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 106--114
 
  []
 
-[12]
-
-LaTeX Warning: Reference `lstPreferentialAttachment' on page 13 undefined on in
-put line 115.
-
+[14] [15]
 algorithms.tex:157: Double subscript.
 l.157 Ausgehend von einem initialen Graphen $G_i_
                                                  ,_t$ zum Zeitpunkt $t$ prog...
@@ -2452,10 +2408,6 @@ l.158 Dieser neue Graph $G_i_,_t_+_
                                    n$  wird zur Validierung der vorhergesagt...
 I treat `x_1_2' essentially like `x_1{}_2'.
 
-
-LaTeX Warning: Reference `fig:graph_init' on page 13 undefined on input line 15
-9.
-
 algorithms.tex:159: Double subscript.
 l.159 ...f{fig:graph_init} zeigt die Graphen $G_i_
                                                   ,_t$ (links) und $G_i_,_t_...
@@ -2486,217 +2438,131 @@ l.159 ...Graphen $G_i_,_t$ (links) und $G_i_,_t_+_
                                                   n$ (rechts) anhand des vor...
 I treat `x_1_2' essentially like `x_1{}_2'.
 
-[13]
-<resources/graph_init.JPG, id=199, 321.3434pt x 116.5784pt>
+<resources/graph_init.JPG, id=428, 321.3434pt x 116.5784pt>
 File: resources/graph_init.JPG Graphic file (type jpg)
 <use resources/graph_init.JPG>
 Package pdftex.def Info: resources/graph_init.JPG  used on input line 164.
 (pdftex.def)             Requested size: 321.3426pt x 116.57811pt.
-
-algorithms.tex:171: Double subscript.
-l.171 Dazu wird ein Validierungsgraph $G_v_
+algorithms.tex:170: Double subscript.
+l.170 Dazu wird ein Validierungsgraph $G_v_
                                            ,_t_+_n$ verwendet, bei welchem d...
 I treat `x_1_2' essentially like `x_1{}_2'.
 
-algorithms.tex:171: Double subscript.
-l.171 Dazu wird ein Validierungsgraph $G_v_,_
+algorithms.tex:170: Double subscript.
+l.170 Dazu wird ein Validierungsgraph $G_v_,_
                                              t_+_n$ verwendet, bei welchem d...
 I treat `x_1_2' essentially like `x_1{}_2'.
 
-algorithms.tex:171: Double subscript.
-l.171 Dazu wird ein Validierungsgraph $G_v_,_t_
+algorithms.tex:170: Double subscript.
+l.170 Dazu wird ein Validierungsgraph $G_v_,_t_
                                                +_n$ verwendet, bei welchem d...
 I treat `x_1_2' essentially like `x_1{}_2'.
 
-algorithms.tex:171: Double subscript.
-l.171 Dazu wird ein Validierungsgraph $G_v_,_t_+_
+algorithms.tex:170: Double subscript.
+l.170 Dazu wird ein Validierungsgraph $G_v_,_t_+_
                                                  n$ verwendet, bei welchem d...
 I treat `x_1_2' essentially like `x_1{}_2'.
 
-algorithms.tex:172: Double subscript.
-l.172 ...dieser Graph gegenüber dem Graphen $G_i_
+algorithms.tex:171: Double subscript.
+l.171 ...dieser Graph gegenüber dem Graphen $G_i_
                                                   ,_t$ zusätzlich die Kante...
 I treat `x_1_2' essentially like `x_1{}_2'.
 
-algorithms.tex:172: Double subscript.
-l.172 ...eser Graph gegenüber dem Graphen $G_i_,_
+algorithms.tex:171: Double subscript.
+l.171 ...eser Graph gegenüber dem Graphen $G_i_,_
                                                   t$ zusätzlich die Kanten ...
 I treat `x_1_2' essentially like `x_1{}_2'.
 
-
-LaTeX Warning: Reference `fig:graph_validation' on page 14 undefined on input l
-ine 173.
-
-algorithms.tex:173: Double subscript.
-l.173 ...graph_validation} zeigt den Graphen $G_v_
+algorithms.tex:172: Double subscript.
+l.172 ...r nächsten Seite zeigt den Graphen $G_v_
                                                   ,_t_+_n$ zum Zeitpunkt $t ...
 I treat `x_1_2' essentially like `x_1{}_2'.
 
-algorithms.tex:173: Double subscript.
-l.173 ...aph_validation} zeigt den Graphen $G_v_,_
-                                                  t_+_n$ zum Zeitpunkt $t + n$
+algorithms.tex:172: Double subscript.
+l.172 ...nächsten Seite zeigt den Graphen $G_v_,_
+                                                  t_+_n$ zum Zeitpunkt $t + n$.
 I treat `x_1_2' essentially like `x_1{}_2'.
 
-algorithms.tex:173: Double subscript.
-l.173 ...h_validation} zeigt den Graphen $G_v_,_t_
-                                                  +_n$ zum Zeitpunkt $t + n$
+algorithms.tex:172: Double subscript.
+l.172 ...�chsten Seite zeigt den Graphen $G_v_,_t_
+                                                  +_n$ zum Zeitpunkt $t + n$.
 I treat `x_1_2' essentially like `x_1{}_2'.
 
-algorithms.tex:173: Double subscript.
-l.173 ...validation} zeigt den Graphen $G_v_,_t_+_
-                                                  n$ zum Zeitpunkt $t + n$
+algorithms.tex:172: Double subscript.
+l.172 ...hsten Seite zeigt den Graphen $G_v_,_t_+_
+                                                  n$ zum Zeitpunkt $t + n$.
 I treat `x_1_2' essentially like `x_1{}_2'.
 
-
-Overfull \hbox (10.8221pt too wide) in paragraph at lines 170--174
-[]\OT1/pplx/m/n/10.95 Die Qua-lit[]at des Al-go-rith-mus wird an-hand der Ge-na
-u-ig-keit der hin-zu-gef[]ugten
- []
-
-<resources/graph_validation.JPG, id=200, 317.90196pt x 166.47911pt>
+<resources/graph_validation.JPG, id=430, 317.90196pt x 166.47911pt>
 File: resources/graph_validation.JPG Graphic file (type jpg)
 <use resources/graph_validation.JPG>
-Package pdftex.def Info: resources/graph_validation.JPG  used on input line 177
+Package pdftex.def Info: resources/graph_validation.JPG  used on input line 176
 .
 (pdftex.def)             Requested size: 317.90118pt x 166.47868pt.
-[14 <./resources/graph_init.JPG> <./resources/graph_validation.JPG>]
-Underfull \hbox (badness 10000) in paragraph at lines 191--205
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 189--202
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 191--205
+Underfull \hbox (badness 10000) in paragraph at lines 189--202
 
  []
 
-
-LaTeX Warning: Reference `daten' on page 15 undefined on input line 208.
-
-
-LaTeX Warning: Reference `tab_accuracy_iter' on page 15 undefined on input line
- 212.
-
+[16 <./resources/graph_init.JPG>]
 
 LaTeX Warning: No positions in optional float specifier.
-               Default added (so using `tbp') on input line 220.
+               Default added (so using `tbp') on input line 213.
 
-[15]
-
-LaTeX Warning: Reference `fig_hypertext' on page 16 undefined on input line 252
-.
-
-
-LaTeX Warning: Reference `fig_histogram' on page 16 undefined on input line 285
-.
-
-[16]) (plugin.tex [17] [18
+[17 <./resources/graph_validation.JPG>] [18]) (plugin.tex [19] [20
 
 ]
 
-LaTeX Warning: Reference `fig:class_statistic' on page 19 undefined on input li
-ne 24.
+Package natbib Warning: Citation `wikipedia_kompositum_2019' on page 21 undefin
+ed on input line 24.
 
-
-Package acronym Warning: Acronym `compositecommand' is not defined on input lin
-e 24.
-
-
-Package natbib Warning: Citation `noauthor_kompositum_2019' on page 19 undefine
-d on input line 24.
-
-<resources/class_Statistic.png, id=233, 566.115pt x 380.42125pt>
+<resources/class_Statistic.png, id=461, 566.115pt x 380.42125pt>
 File: resources/class_Statistic.png Graphic file (type png)
 <use resources/class_Statistic.png>
 Package pdftex.def Info: resources/class_Statistic.png  used on input line 27.
 (pdftex.def)             Requested size: 369.0pt x 247.96744pt.
-
-Package acronym Warning: Acronym `templatepattern' is not defined on input line
- 33.
-
-
-LaTeX Warning: Reference `lstLinkPrediction' on page 19 undefined on input line
- 43.
-
-
-Overfull \hbox (10.15413pt too wide) in paragraph at lines 33--44
-\OT1/pplx/m/n/10.95 go-rith-mus zu []uberschreiben oh-ne des-sen grund-le-gen-d
-e Struk-tur zu ver[]andern.
- []
-
-[19 <./resources/class_Statistic.png>]
-
-LaTeX Warning: Reference `eq:acc' on page 20 undefined on input line 65.
-
-
-LaTeX Warning: Reference `fig:class_eval' on page 20 undefined on input line 68
-.
-
-<resources/class_Evaluation.png, id=244, 710.655pt x 380.42125pt>
+[21 <./resources/class_Statistic.png>]
+<resources/class_Evaluation.png, id=475, 710.655pt x 380.42125pt>
 File: resources/class_Evaluation.png Graphic file (type png)
 <use resources/class_Evaluation.png>
-Package pdftex.def Info: resources/class_Evaluation.png  used on input line 71.
+Package pdftex.def Info: resources/class_Evaluation.png  used on input line 69.
 
 (pdftex.def)             Requested size: 369.0pt x 197.53574pt.
-[20]
-
-Package acronym Warning: Acronym `abstractfactory' is not defined on input line
- 77.
-
-
-LaTeX Warning: Reference `fig:class_filter' on page 21 undefined on input line 
-77.
-
-<resources/class_Filter.png, id=267, 1044.90375pt x 476.78125pt>
+ [22]
+<resources/class_Filter.png, id=499, 1044.90375pt x 476.78125pt>
 File: resources/class_Filter.png Graphic file (type png)
 <use resources/class_Filter.png>
-Package pdftex.def Info: resources/class_Filter.png  used on input line 80.
+Package pdftex.def Info: resources/class_Filter.png  used on input line 77.
 (pdftex.def)             Requested size: 369.0pt x 168.3746pt.
 
-Overfull \hbox (0.31241pt too wide) in paragraph at lines 89--92
+Overfull \hbox (0.31241pt too wide) in paragraph at lines 85--88
 \OT1/pplx/m/n/10.95 ein-ge-setzt um tech-ni-sche Pro-ble-me r[]uckverfolgen zu 
 k[]onnen: Die Logs zeich-
  []
 
-
-LaTeX Warning: Reference `lstLoggerCreate' on page 21 undefined on input line 9
-5.
-
-[21 <./resources/class_Evaluation.png>]
-
-LaTeX Warning: Reference `tab_log_levels' on page 22 undefined on input line 11
-2.
-
-
-Package acronym Warning: Acronym `API' is not defined on input line 112.
-
+[23 <./resources/class_Evaluation.png>]
 
 LaTeX Warning: No positions in optional float specifier.
-               Default added (so using `tbp') on input line 114.
+               Default added (so using `tbp') on input line 111.
 
+[24 <./resources/class_Filter.png>]
+Overfull \hbox (5.89673pt too wide) in paragraph at lines 167--168
+[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
 
-LaTeX Warning: Reference `lstLoggerUse' on page 22 undefined on input line 134.
-
-
-[22 <./resources/class_Filter.png>]
-Overfull \hbox (0.10661pt too wide) in paragraph at lines 146--149
-\OT1/pplx/m/n/10.95 den. Ein-zel-ne Log-ger k[]onnen die Root-Konfiguration bei
- Be-darf []ubersteuern. 
  []
 
-
-Overfull \hbox (84.64604pt too wide) in paragraph at lines 165--166
-[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][
-][] 
- []
-
-[23]
-
-Package acronym Warning: Acronym `ui' is not defined on input line 191.
-
-
-Overfull \hbox (1.81567pt too wide) in paragraph at lines 198--200
-[] \OT1/pplx/m/n/10.95 vor-ge-nom-men. Hier k[]onnen Far-ben, und Gr[]osse der 
-Kno-
+[25]
+Overfull \hbox (6.79247pt too wide) in paragraph at lines 192--194
+\OT1/pplx/m/n/10.95 Die Link-Prediction-Funktionalit[]at soll m[]oglichst gut i
+n die be-ste-hen-de Gephi-
  []
 
 
@@ -2705,248 +2571,264 @@ Overfull \hbox (2.63158pt too wide) in paragraph at lines 200--203
 a-bo-ra-to-ry ver[]andert,
  []
 
-
-Package acronym Warning: Acronym `gui' is not defined on input line 205.
-
-<resources/SC-1.png, id=327, 407.8437pt x 282.3348pt>
-File: resources/SC-1.png Graphic file (type png)
-<use resources/SC-1.png>
-Package pdftex.def Info: resources/SC-1.png  used on input line 213.
-(pdftex.def)             Requested size: 369.0pt x 255.4603pt.
-[24]
-
-LaTeX Warning: Reference `fig:screen1' on page 25 undefined on input line 218.
-
-<resources/SC-2.png, id=336, 393.3897pt x 271.9761pt>
-File: resources/SC-2.png Graphic file (type png)
-<use resources/SC-2.png>
-Package pdftex.def Info: resources/SC-2.png  used on input line 224.
-(pdftex.def)             Requested size: 369.0pt x 255.1222pt.
-
-LaTeX Warning: Reference `fig:screen2' on page 25 undefined on input line 230.
-
-
-plugin.tex:236: LaTeX Error: Lonely \item--perhaps a missing list environment.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.236 \item \textbf
-                   {Filter:} Die hinzugefügten Kanten können via Filter an...
-
-Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
-
-
-Underfull \hbox (badness 10000) detected at line 236
-[][]
+[26]
+Overfull \hbox (0.28183pt too wide) in paragraph at lines 205--207
+\OT1/pplx/m/n/10.95 Funk-tio-na-lit[]aten be-schrie-ben. Die vollst[]andigen Wi
+-re-f-ra-mes sind im An-hang
  []
 
-[25 <./resources/SC-1.png (PNG copy)>]
-<resources/SC-3.png, id=343, 392.4261pt x 272.9397pt>
-File: resources/SC-3.png Graphic file (type png)
-<use resources/SC-3.png>
-Package pdftex.def Info: resources/SC-3.png  used on input line 248.
-(pdftex.def)             Requested size: 369.0pt x 256.65495pt.
+<resources/sc1.png, id=567, 738.50906pt x 416.30531pt>
+File: resources/sc1.png Graphic file (type png)
+<use resources/sc1.png>
+Package pdftex.def Info: resources/sc1.png  used on input line 217.
+(pdftex.def)             Requested size: 369.0pt x 208.00604pt.
+[27 <./resources/sc1.png>]
+<resources/sc2.png, id=578, 164.86594pt x 152.82094pt>
+File: resources/sc2.png Graphic file (type png)
+<use resources/sc2.png>
+Package pdftex.def Info: resources/sc2.png  used on input line 229.
+(pdftex.def)             Requested size: 184.5pt x 171.02533pt.
 
-
-LaTeX Warning: Reference `fig:screen3' on page 26 undefined on input line 253.
-
-<resources/SC-4.png, id=344, 403.0257pt x 276.7941pt>
-File: resources/SC-4.png Graphic file (type png)
-<use resources/SC-4.png>
-Package pdftex.def Info: resources/SC-4.png  used on input line 259.
-(pdftex.def)             Requested size: 369.0pt x 253.43727pt.
-
-LaTeX Warning: Reference `fig:screen4' on page 26 undefined on input line 264.
-
-[26 <./resources/SC-2.png (PNG copy)>] [27 <./resources/SC-3.png (PNG copy)> <.
-/resources/SC-4.png (PNG copy)>]
-<resources/SC-5.png, id=356, 398.2077pt x 270.0489pt>
-File: resources/SC-5.png Graphic file (type png)
-<use resources/SC-5.png>
-Package pdftex.def Info: resources/SC-5.png  used on input line 286.
-(pdftex.def)             Requested size: 369.0pt x 250.25284pt.
-
-
-LaTeX Warning: Reference `fig:screen5' on page 28 undefined on input line 291.
-
-[28 <./resources/SC-5.png (PNG copy)>]
-
-LaTeX Warning: Reference `fig:screen6' on page 29 undefined on input line 299.
-
-<resources/SC-6.png, id=364, 391.4625pt x 248.8497pt>
-File: resources/SC-6.png Graphic file (type png)
-<use resources/SC-6.png>
-Package pdftex.def Info: resources/SC-6.png  used on input line 302.
-(pdftex.def)             Requested size: 369.0pt x 234.58324pt.
-
-LaTeX Warning: Reference `fig:screen7' on page 29 undefined on input line 312.
-
-<resources/SC-7.png, id=365, 400.1349pt x 281.6121pt>
-File: resources/SC-7.png Graphic file (type png)
-<use resources/SC-7.png>
-Package pdftex.def Info: resources/SC-7.png  used on input line 317.
-(pdftex.def)             Requested size: 369.0pt x 259.70505pt.
-
-LaTeX Warning: Reference `readme' on page 29 undefined on input line 329.
-
-) (schluss.tex [29 <./resources/SC-6.png (PNG copy)>] [30 <./resources/SC-7.png
- (PNG copy)>]
-Overfull \hbox (1.11018pt too wide) in paragraph at lines 17--20
-[]\OT1/pplx/m/n/10.95 Tests mit der ak-tu-el-len Im-ple-men-tie-rung ha-ben ge-
-zeigt, das Link-Predictions
+Overfull \hbox (3.1726pt too wide) in paragraph at lines 234--235
+[]\OT1/pplx/m/n/10.95 Die hin-zu-gef[]ugten Kan-ten k[]onnen via Fil-ter an-ge-
+zeigt wer-den. Da-bei k[]onnen
  []
 
-[31
+<resources/sc3.png, id=580, 738.50906pt x 416.30531pt>
+File: resources/sc3.png Graphic file (type png)
+<use resources/sc3.png>
+Package pdftex.def Info: resources/sc3.png  used on input line 246.
+(pdftex.def)             Requested size: 369.0pt x 208.00604pt.
+<resources/sc4.png, id=581, 738.50906pt x 416.30531pt>
+File: resources/sc4.png Graphic file (type png)
+<use resources/sc4.png>
+Package pdftex.def Info: resources/sc4.png  used on input line 252.
+(pdftex.def)             Requested size: 369.0pt x 208.00604pt.
+[28 <./resources/sc2.png>] [29 <./resources/sc3.png> <./resources/sc4.png>]
+<resources/sc5.png, id=597, 738.50906pt x 416.30531pt>
+File: resources/sc5.png Graphic file (type png)
+<use resources/sc5.png>
+Package pdftex.def Info: resources/sc5.png  used on input line 286.
+(pdftex.def)             Requested size: 369.0pt x 208.00604pt.
+
+[30]
+<resources/sc6.png, id=604, 1573.37813pt x 415.5525pt>
+File: resources/sc6.png Graphic file (type png)
+<use resources/sc6.png>
+Package pdftex.def Info: resources/sc6.png  used on input line 304.
+(pdftex.def)             Requested size: 369.0pt x 97.45828pt.
+ [31 <./resources/sc5.png> <./resources/sc6.png>]
+<resources/sc7.png, id=613, 207.77625pt x 147.55125pt>
+File: resources/sc7.png Graphic file (type png)
+<use resources/sc7.png>
+Package pdftex.def Info: resources/sc7.png  used on input line 318.
+(pdftex.def)             Requested size: 184.5pt x 131.0275pt.
+<resources/sc8.png, id=615, 516.42938pt x 548.80031pt>
+File: resources/sc8.png Graphic file (type png)
+<use resources/sc8.png>
+Package pdftex.def Info: resources/sc8.png  used on input line 329.
+(pdftex.def)             Requested size: 369.0pt x 392.13802pt.
+) (schluss.tex [32 <./resources/sc7.png>] [33 <./resources/sc8.png>] [34
 
 ]
+Overfull \hbox (6.41386pt too wide) in paragraph at lines 24--28
+\OT1/pplx/m/n/10.95 der Prediction-Werte die Kno-ten-an-zahl qua-dra-tisch durc
+h-lau-fen wer-den. Dies
+ []
 
-Package acronym Warning: Acronym `ui' is not defined on input line 31.
 
-
-Overfull \hbox (2.90688pt too wide) in paragraph at lines 31--32
+Overfull \hbox (2.90688pt too wide) in paragraph at lines 30--31
 []\OT1/pplx/m/n/10.95 Anstatt, dass die Vor-her-sa-gen f[]ur al-le Kno-ten be-r
 ech-net wer-den, k[]onnte
  []
 
-) [32] [33]
+
+Package natbib Warning: Citation `garcia-gasulla_pdf_2014' on page 35 undefined
+ on input line 41.
+
+
+Package natbib Warning: Citation `garcia-gasulla_pdf_2014' on page 35 undefined
+ on input line 41.
+
+) [35]
+(C:/Users\Saskia\Documents\FHNW\8-SemesterFS2019\IP5\Git-Projekt\ip5-documentat
+ion\auxil\link-prediction.lof
+
+Package natbib Warning: Citation `michael_henninger_soziale_2018' on page 36 un
+defined on input line 8.
+
+
+Package natbib Warning: Citation `michael_henninger_soziale_2018' on page 36 un
+defined on input line 8.
+
+) [36]
 No file link-prediction.bbl.
-(abbreviations.tex) [34
+(abbreviations.tex) [37
 
 ] (glossary.tex
 
-Package natbib Warning: Citation `wikipedia_abstrakte_2018' on page 35 undefine
-d on input line 6.
+Package natbib Warning: Citation `wikipedia_abstrakte_2018' on page 38 undefine
+d on input line 5.
 
 
-Package natbib Warning: Citation `wikipedia_abstrakte_2018' on page 35 undefine
-d on input line 6.
+Package natbib Warning: Citation `wikipedia_abstrakte_2018' on page 38 undefine
+d on input line 5.
 
 
-Overfull \hbox (14.61081pt too wide) in paragraph at lines 6--7
-\OT1/pplx/m/n/10.95 zur Ka-te-go-rie der Er-zeu-gungs-mu-ster (eng-lisch crea-t
-io-nal pat-terns) geh[]ort.
- []
-
-
-Overfull \hbox (1.45058pt too wide) in paragraph at lines 7--8
+Overfull \hbox (1.45058pt too wide) in paragraph at lines 6--7
 []\OT1/pplx/m/n/10.95 Messgr[]osse zur Cha-rak-te-ri-sie-rung ei-nes Netz-wer-k
 es, ent-
  []
 
 
-Package natbib Warning: Citation `wikipedia_kompositum_2019' on page 35 undefin
-ed on input line 10.
+Package natbib Warning: Citation `wikipedia_kompositum_2019' on page 38 undefin
+ed on input line 9.
 
 
-Package natbib Warning: Citation `wikipedia_kompositum_2019' on page 35 undefin
-ed on input line 10.
+Package natbib Warning: Citation `wikipedia_kompositum_2019' on page 38 undefin
+ed on input line 9.
 
-[35
+[38
 
 ]
 
-Package natbib Warning: Citation `wikipedia_plug-_2019' on page 36 undefined on
- input line 17.
+Package natbib Warning: Citation `wikipedia_plug-_2019' on page 39 undefined on
+ input line 19.
 
 
-Package natbib Warning: Citation `wikipedia_plug-_2019' on page 36 undefined on
- input line 17.
+Package natbib Warning: Citation `wikipedia_plug-_2019' on page 39 undefined on
+ input line 19.
 
 
-Package natbib Warning: Citation `wikipedia_schablonenmethode_2018' on page 36 
-undefined on input line 18.
+Package natbib Warning: Citation `wikipedia_schablonenmethode_2018' on page 39 
+undefined on input line 20.
 
 
-Package natbib Warning: Citation `wikipedia_schablonenmethode_2018' on page 36 
-undefined on input line 18.
+Package natbib Warning: Citation `wikipedia_schablonenmethode_2018' on page 39 
+undefined on input line 20.
 
-) (appendix.tex [36]
-
-Package acronym Warning: Acronym `api' is not defined on input line 11.
-
-
-Package acronym Warning: Acronym `api' is not defined on input line 11.
-
-
-Package acronym Warning: Acronym `gephi' is not defined on input line 11.
-
-
-Package acronym Warning: Acronym `gephi' is not defined on input line 17.
-
-
-Package acronym Warning: Acronym `ui' is not defined on input line 20.
-
-
-Package acronym Warning: Acronym `ui' is not defined on input line 27.
-
-
-Overfull \hbox (11.41342pt too wide) in paragraph at lines 26--29
-[]\OT1/pplx/m/n/10.95 Die Funk-ti-ons-wei-se f[]ur das Im-ple-men-tie-ren von n
-eu-en Statistik-Objekten
+) (appendix.tex [39]
+Overfull \hbox (1.0438pt too wide) in paragraph at lines 6--8
+\OT1/pplx/m/n/10.95 F[]ur die Ein-ar-bei-tung in die Gephi-Plugin Ent-wick-lung
+ und um er-ste Ans[]atze
  []
 
-[37
+[40
 
 ]
 
-Package acronym Warning: Acronym `gephi' is not defined on input line 30.
+LaTeX Warning: File `resources/wirefames-pt1.png' not found on input line 54.
 
 
-Package acronym Warning: Acronym `datalaboratory' is not defined on input line 
-31.
+appendix.tex:54: Package pdftex.def Error: File `resources/wirefames-pt1.png' n
+ot found: using draft setting.
+
+See the pdftex.def package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.54 ...h=\textwidth]{resources/wirefames-pt1.png}
+                                                  
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
 
 
-Package acronym Warning: Acronym `api' is not defined on input line 51.
+LaTeX Warning: File `resources/wirefames-pt2.png' not found on input line 55.
 
 
-Package acronym Warning: Acronym `gephi' is not defined on input line 51.
+appendix.tex:55: Package pdftex.def Error: File `resources/wirefames-pt2.png' n
+ot found: using draft setting.
+
+See the pdftex.def package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.55 ...h=\textwidth]{resources/wirefames-pt2.png}
+                                                  
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+[41] [42]
+Overfull \vbox (166.24562pt too high) has occurred while \output is active []
 
 
-Package acronym Warning: Acronym `gepi' is not defined on input line 52.
+[43]
+
+LaTeX Warning: File `resources/wirefames-pt3.png' not found on input line 57.
 
 
-Package acronym Warning: Acronym `api' is not defined on input line 53.
+appendix.tex:57: Package pdftex.def Error: File `resources/wirefames-pt3.png' n
+ot found: using draft setting.
 
-<resources/readme_pt1.png, id=415, 1477.77094pt x 2378.8875pt>
+See the pdftex.def package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.57 ...h=\textwidth]{resources/wirefames-pt3.png}
+                                                  
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+LaTeX Warning: File `resources/wirefames-pt4.png' not found on input line 58.
+
+
+appendix.tex:58: Package pdftex.def Error: File `resources/wirefames-pt4.png' n
+ot found: using draft setting.
+
+See the pdftex.def package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.58 ...h=\textwidth]{resources/wirefames-pt4.png}
+                                                  
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+[44]
+<resources/readme_pt1.png, id=693, 1477.77094pt x 2378.8875pt>
 File: resources/readme_pt1.png Graphic file (type png)
 <use resources/readme_pt1.png>
-Package pdftex.def Info: resources/readme_pt1.png  used on input line 71.
+Package pdftex.def Info: resources/readme_pt1.png  used on input line 63.
 (pdftex.def)             Requested size: 369.0pt x 593.99445pt.
-[38] [39]
+ [45] [46]
 Overfull \vbox (21.0377pt too high) has occurred while \output is active []
 
 
-[40 <./resources/readme_pt1.png>]
-<resources/readme_pt2.png, id=431, 345.4334pt x 597.08786pt>
+[47 <./resources/readme_pt1.png>]
+<resources/readme_pt2.png, id=708, 345.4334pt x 597.08786pt>
 File: resources/readme_pt2.png Graphic file (type png)
 <use resources/readme_pt2.png>
-Package pdftex.def Info: resources/readme_pt2.png  used on input line 73.
+Package pdftex.def Info: resources/readme_pt2.png  used on input line 65.
 (pdftex.def)             Requested size: 369.0pt x 637.8664pt.
 
 Overfull \vbox (42.06613pt too high) has occurred while \output is active []
 
 
-[41 <./resources/readme_pt2.png>]
-<resources/readme_pt3.png, id=437, 1516.16437pt x 1717.16531pt>
+[48 <./resources/readme_pt2.png>]
+<resources/readme_pt3.png, id=714, 1516.16437pt x 1717.16531pt>
 File: resources/readme_pt3.png Graphic file (type png)
 <use resources/readme_pt3.png>
-Package pdftex.def Info: resources/readme_pt3.png  used on input line 75.
+Package pdftex.def Info: resources/readme_pt3.png  used on input line 67.
 (pdftex.def)             Requested size: 369.0pt x 417.9187pt.
- [42 <./resources/readme_pt3.png>] [43
+ [49 <./resources/readme_pt3.png>]
+Overfull \hbox (4.13252pt too wide) in paragraph at lines 77--78
+[]\OT1/pplx/m/n/10.95 Von den ver-schie-de-nen, exi-stie-ren-den Link-Predictio
+n-Algorithmen soll
+ []
+
+[50
 
 ])
 
 pdfTeX warning: pdflatex (file ./resources/declaration-originality.pdf): PDF in
 clusion: found PDF version <1.7>, but at most version <1.5> allowed
-<resources/declaration-originality.pdf, id=449, 597.55246pt x 845.07718pt>
+<resources/declaration-originality.pdf, id=724, 597.55246pt x 845.07724pt>
 File: resources/declaration-originality.pdf Graphic file (type pdf)
 <use resources/declaration-originality.pdf>
 Package pdftex.def Info: resources/declaration-originality.pdf  used on input l
-ine 154.
-(pdftex.def)             Requested size: 597.551pt x 845.07512pt.
+ine 152.
+(pdftex.def)             Requested size: 597.551pt x 845.07518pt.
 
 
 pdfTeX warning: pdflatex (file ./resources/declaration-originality.pdf): PDF in
@@ -2954,8 +2836,8 @@ clusion: found PDF version <1.7>, but at most version <1.5> allowed
 File: resources/declaration-originality.pdf Graphic file (type pdf)
 <use resources/declaration-originality.pdf>
 Package pdftex.def Info: resources/declaration-originality.pdf  used on input l
-ine 154.
-(pdftex.def)             Requested size: 597.551pt x 845.07512pt.
+ine 152.
+(pdftex.def)             Requested size: 597.551pt x 845.07518pt.
 
 
 pdfTeX warning: pdflatex (file ./resources/declaration-originality.pdf): PDF in
@@ -2964,34 +2846,34 @@ clusion: found PDF version <1.7>, but at most version <1.5> allowed
 
 pdfTeX warning: pdflatex (file ./resources/declaration-originality.pdf): PDF in
 clusion: found PDF version <1.7>, but at most version <1.5> allowed
-<resources/declaration-originality.pdf, id=452, page=1, 597.55246pt x 845.07718
+<resources/declaration-originality.pdf, id=727, page=1, 597.55246pt x 845.07724
 pt>
 File: resources/declaration-originality.pdf Graphic file (type pdf)
 <use resources/declaration-originality.pdf, page 1>
 Package pdftex.def Info: resources/declaration-originality.pdf , page1 used on 
-input line 154.
-(pdftex.def)             Requested size: 597.551pt x 845.07512pt.
+input line 152.
+(pdftex.def)             Requested size: 597.551pt x 845.07518pt.
 File: resources/declaration-originality.pdf Graphic file (type pdf)
 <use resources/declaration-originality.pdf, page 1>
 Package pdftex.def Info: resources/declaration-originality.pdf , page1 used on 
-input line 154.
-(pdftex.def)             Requested size: 597.57834pt x 845.1138pt.
+input line 152.
+(pdftex.def)             Requested size: 597.57834pt x 845.11386pt.
 File: resources/declaration-originality.pdf Graphic file (type pdf)
 <use resources/declaration-originality.pdf, page 1>
 Package pdftex.def Info: resources/declaration-originality.pdf , page1 used on 
-input line 154.
-(pdftex.def)             Requested size: 597.57834pt x 845.1138pt.
+input line 152.
+(pdftex.def)             Requested size: 597.57834pt x 845.11386pt.
 File: resources/declaration-originality.pdf Graphic file (type pdf)
 <use resources/declaration-originality.pdf, page 1>
 Package pdftex.def Info: resources/declaration-originality.pdf , page1 used on 
-input line 154.
-(pdftex.def)             Requested size: 597.57834pt x 845.1138pt.
+input line 152.
+(pdftex.def)             Requested size: 597.57834pt x 845.11386pt.
 File: resources/declaration-originality.pdf Graphic file (type pdf)
 <use resources/declaration-originality.pdf, page 1>
 Package pdftex.def Info: resources/declaration-originality.pdf , page1 used on 
-input line 154.
-(pdftex.def)             Requested size: 597.57834pt x 845.1138pt.
-[44
+input line 152.
+(pdftex.def)             Requested size: 597.57834pt x 845.11386pt.
+[51
 
  <./resources/declaration-originality.pdf>]
 \tf@thm=\write7
@@ -3007,38 +2889,29 @@ Package natbib Warning: There were undefined citations.
 \tf@lof=\write9
 \openout9 = `link-prediction.lof'.
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 156.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 156.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 154.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 154.
 
 (C:/Users\Saskia\Documents\FHNW\8-SemesterFS2019\IP5\Git-Projekt\ip5-documentat
 ion\auxil\link-prediction.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 156.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 156.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 154.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 154.
+Package rerunfilecheck Info: File `link-prediction.out' has not changed.
+(rerunfilecheck)             Checksum: 2413E975723C92EE1EC2A4B563DF0AB9;2772.
 
-
-Package rerunfilecheck Warning: File `link-prediction.out' has changed.
-(rerunfilecheck)                Rerun to get outlines right
-(rerunfilecheck)                or use package `bookmark'.
-
-Package rerunfilecheck Info: Checksums for `link-prediction.out':
-(rerunfilecheck)             Before: <no file>
-(rerunfilecheck)             After:  78CE3B57FB4FB64DAD26E5761BE524BA;1803.
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
 
-LaTeX Warning: There were undefined references.
-
-
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 48445 strings out of 492895
- 1050223 string characters out of 3123268
- 1374093 words of memory out of 3000000
- 51311 multiletter control sequences out of 15000+200000
- 578178 words of font info for 155 fonts, out of 3000000 for 9000
+ 48515 strings out of 492895
+ 1052083 string characters out of 3123268
+ 1381661 words of memory out of 3000000
+ 51353 multiletter control sequences out of 15000+200000
+ 575707 words of font info for 150 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
  63i,19n,100p,1056b,2305s stack positions out of 5000i,500n,10000p,200000b,50000s
 {C:/Users/Saskia/AppData/Local/Programs/MiKTeX 2.9/fonts/enc/dvips/base/8r.en
@@ -3055,14 +2928,13 @@ ype1/public/amsfonts/cm/cmtt10.pfb><C:/Users/Saskia/AppData/Local/Programs/MiKT
 eX 2.9/fonts/type1/public/mathpazo/fplmr.pfb><C:/Users/Saskia/AppData/Local/Pro
 grams/MiKTeX 2.9/fonts/type1/public/amsfonts/latxfont/lcircle1.pfb><C:/Users/Sa
 skia/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/urw/palatino/uplb8a.pfb><C:/
-Users/Saskia/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/urw/palatino/uplbi8a
-.pfb><C:/Users/Saskia/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/urw/palatin
-o/uplr8a.pfb><C:/Users/Saskia/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/urw
-/palatino/uplri8a.pfb>
+Users/Saskia/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/urw/palatino/uplr8a.
+pfb><C:/Users/Saskia/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/urw/palatino
+/uplri8a.pfb>
 Output written on C:/Users\Saskia\Documents\FHNW\8-SemesterFS2019\IP5\Git-Proje
-kt\ip5-documentation\out\link-prediction.pdf (47 pages, 10501343 bytes).
+kt\ip5-documentation\out\link-prediction.pdf (55 pages, 2530604 bytes).
 PDF statistics:
- 579 PDF objects out of 1000 (max. 8388607)
- 250 named destinations out of 1000 (max. 500000)
- 12416 words of extra memory for PDF output out of 14400 (max. 10000000)
+ 869 PDF objects out of 1000 (max. 8388607)
+ 267 named destinations out of 1000 (max. 500000)
+ 12765 words of extra memory for PDF output out of 14400 (max. 10000000)
 
